@@ -368,6 +368,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mobius_special
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b1f1b3d7686a4864bacfa73f2b6845e2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1f1b3d7686a4864bacfa73f2b6845e2, type: 3}
 --- !u!1001 &171134161
@@ -424,6 +428,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
       propertyPath: m_Name
       value: mobius_normal_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
@@ -728,6 +736,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
       propertyPath: m_Name
       value: mobius_normal_9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
@@ -1110,6 +1122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mobius_normal_5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
 --- !u!1001 &873002743
@@ -1122,6 +1138,10 @@ PrefabInstance:
     - target: {fileID: 1404481588014421804, guid: 451f0a4f38ea51840b0b9de89f80d4bf, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404481588014421805, guid: 451f0a4f38ea51840b0b9de89f80d4bf, type: 3}
+      propertyPath: isAutoMove
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1404481588014421805, guid: 451f0a4f38ea51840b0b9de89f80d4bf, type: 3}
       propertyPath: backList.Array.data[0]
@@ -1330,6 +1350,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
       propertyPath: m_Name
       value: mobius_normal_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
@@ -1618,6 +1642,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
       propertyPath: m_Name
       value: mobius_normal_9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
@@ -1941,6 +1969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: mobius_normal_4
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
 --- !u!1 &1588623951
@@ -2249,6 +2281,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
       propertyPath: m_Name
       value: mobius_normal_7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
