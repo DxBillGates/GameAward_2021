@@ -19,7 +19,7 @@ public class ObjectBehavior : MonoBehaviour
         SetParent();
         if (isFly)
         {
-            //transform.position += -onNormal / 10;
+            transform.position += -onNormal / 10;
         }
     }
 
@@ -32,17 +32,21 @@ public class ObjectBehavior : MonoBehaviour
             if (hit.collider.gameObject.layer == 7)
             {
                 onNormal = hit.normal;
+                Debug.Log(hit.distance);
                 if (!changePartsSystemBehavior.changeMode)
                 {
                     transform.parent = hit.collider.gameObject.transform;
                     if (hit.distance <= 1)
                     {
                         isFly = false;
-                        transform.position += onNormal / 10;
                     }
                     else
                     {
                         isFly = true;
+                    }
+                    if(hit.distance <= 0.8f)
+                    {
+                        transform.position += onNormal / 20;
                     }
                 }
             }

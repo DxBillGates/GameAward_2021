@@ -25,7 +25,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         onNormal = objBehavior.onNormal;
 
-        if (!changeMode)
+        if (!objBehavior.changePartsSystemBehavior.changeMode)
         {
             if (Input.GetKey(KeyCode.D))
             {

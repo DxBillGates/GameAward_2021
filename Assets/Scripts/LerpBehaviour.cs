@@ -17,6 +17,7 @@ public class LerpBehaviour : MonoBehaviour
     public string str;
     public bool leftMove;
     ChangePartsSystemBehavior changePartsSystemBehavior;
+    ObjectBehavior objectBehavior;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class LerpBehaviour : MonoBehaviour
         frontLerpMode = false;
         oldLerpMode = false;
         isMove = false;
+        objectBehavior = GetComponent<ObjectBehavior>();
         changePartsSystemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         //leftMove = true;
     }
@@ -70,7 +72,7 @@ public class LerpBehaviour : MonoBehaviour
                     if (t < 0)
                     {
                         Initialize();
-                        transform.rotation = Quaternion.FromToRotation(transform.right, new Vector3(1, 0, 0)) * transform.rotation;
+                        SetRotate();
                         return;
                     }
                 }
@@ -79,7 +81,7 @@ public class LerpBehaviour : MonoBehaviour
                     if (t > 1)
                     {
                         Initialize();
-                        transform.rotation = Quaternion.FromToRotation(transform.right, new Vector3(1, 0, 0)) * transform.rotation;
+                        SetRotate();
                         return;
                     }
                 }
@@ -95,7 +97,7 @@ public class LerpBehaviour : MonoBehaviour
                 if (index >= lerpPoints.Count - 1)
                 {
                     Initialize();
-                    transform.rotation = Quaternion.FromToRotation(transform.right, new Vector3(1, 0, 0)) * transform.rotation;
+                    SetRotate();
                     return;
                 }
                 transform.position = Vector3.Lerp(lerpPoints[index].position, lerpPoints[index + 1].position, t);
@@ -216,6 +218,15 @@ public class LerpBehaviour : MonoBehaviour
         t = 0;
         lerpMode = false;
         isMove = false;
+    }
+
+    void SetRotate()
+    {
+        //接地面の法線とZ軸（Vector3(0,0,1)）から適切なX軸を生成してその方向を向かせる
+        float z = (transform.forward.z >= 0) ? 1 : -1;
+        Vector3 newRightVector = Vector3.Cross(transform.up, new Vector3(0, 0, z));
+        Debug.DrawRay(transform.position, newRightVector,Color.red,5);
+        transform.rotation = Quaternion.FromToRotation(transform.right, newRightVector) * transform.rotation;
     }
 
 }
