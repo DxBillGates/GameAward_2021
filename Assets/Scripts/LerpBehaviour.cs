@@ -225,7 +225,6 @@ public class LerpBehaviour : MonoBehaviour
         //接地面の法線とZ軸（Vector3(0,0,1)）から適切なX軸を生成してその方向を向かせる
         float z = (transform.forward.z >= 0) ? 1 : -1;
         Vector3 newRightVector = Vector3.Cross(transform.up, new Vector3(0, 0, z));
-        Debug.DrawRay(transform.position, newRightVector,Color.red,5);
         transform.rotation = Quaternion.FromToRotation(transform.right, newRightVector) * transform.rotation;
     }
 
