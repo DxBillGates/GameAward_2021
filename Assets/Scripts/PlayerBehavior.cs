@@ -37,33 +37,36 @@ public class PlayerBehavior : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!objBehavior.changePartsSystemBehavior.isMouse)
         {
-            if (!isSetChild)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                child.GetComponent<MeshRenderer>().enabled = true;
-                child.transform.position = transform.position;
-                child.transform.rotation = transform.rotation;
-                isSetChild = true;
-                child.layer = 9;
-
-                RaycastHit hit;
-                float maxDistance = 10;
-                if (Physics.Raycast(child.transform.position, -child.transform.up, out hit, maxDistance))
+                if (!isSetChild)
                 {
-                    if (hit.collider.gameObject.layer == 7)
-                    {
-                        Color color = Color.red;
-                        color.a = 0.25f;
-                        hit.collider.gameObject.GetComponent<Renderer>().material.color = color;
-                        objBehavior.changePartsSystemBehavior.setObject = hit.collider.gameObject;
-                    }
-                }
+                    child.GetComponent<MeshRenderer>().enabled = true;
+                    child.transform.position = transform.position;
+                    child.transform.rotation = transform.rotation;
+                    isSetChild = true;
+                    child.layer = 9;
 
-            }
-            else
-            {
-                changeMode = true;
+                    RaycastHit hit;
+                    float maxDistance = 10;
+                    if (Physics.Raycast(child.transform.position, -child.transform.up, out hit, maxDistance))
+                    {
+                        if (hit.collider.gameObject.layer == 7)
+                        {
+                            Color color = Color.red;
+                            color.a = 0.25f;
+                            hit.collider.gameObject.GetComponent<Renderer>().material.color = color;
+                            objBehavior.changePartsSystemBehavior.setObject = hit.collider.gameObject;
+                        }
+                    }
+
+                }
+                else
+                {
+                    changeMode = true;
+                }
             }
         }
 

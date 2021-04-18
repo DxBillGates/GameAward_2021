@@ -9,6 +9,7 @@ public class GameSystemBehaviour : MonoBehaviour
     GameObject selectObject;
     Renderer soRenderer;
     ChangePartsSystemBehavior systemBehavior;
+    TextMesh modeText;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class GameSystemBehaviour : MonoBehaviour
         selectedObject = null;
         selectObject = null;
         soRenderer = null;
+        modeText = GameObject.Find("ChangeModeText").GetComponent<TextMesh>();
     }
 
     // Update is called once per frame
@@ -26,35 +28,59 @@ public class GameSystemBehaviour : MonoBehaviour
             SceneManager.LoadScene("SampleScene");
         }
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (systemBehavior.isMouse)
         {
-            if (hit.collider.gameObject.layer == 7)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
             {
-                selectObject = hit.collider.gameObject;
-                soRenderer = selectObject.GetComponent<Renderer>();
-                Color color = Color.red;
-                color.a = 0.25f;
-                soRenderer.material.color = color;
-            }
-            else
-            {
-                selectObject = null;
-            }
-
-            if (selectedObject && selectedObject != selectObject)
-            {
-                if (selectedObject != systemBehavior.firstObj && selectedObject != systemBehavior.secondObj)
+                if (hit.collider.gameObject.layer == 7)
                 {
-                    soRenderer = selectedObject.GetComponent<Renderer>();
-                    Color color = Color.white;
+                    selectObject = hit.collider.gameObject;
+                    soRenderer = selectObject.GetComponent<Renderer>();
+                    Color color = Color.red;
                     color.a = 0.25f;
                     soRenderer.material.color = color;
                 }
+                else
+                {
+                    selectObject = null;
+                }
+
+                if (selectedObject && selectedObject != selectObject)
+                {
+                    if (selectedObject != systemBehavior.firstObj && selectedObject != systemBehavior.secondObj)
+                    {
+                        soRenderer = selectedObject.GetComponent<Renderer>();
+                        Color color = Color.white;
+                        color.a = 0.25f;
+                        soRenderer.material.color = color;
+                    }
+                }
+            }
+
+            selectedObject = selectObject;
+            modeText.text = "マウス入れ替えモード\n1キーで切り替え";
+
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                systemBehavior.isMouse = false;
             }
         }
-
-        selectedObject = selectObject;
+        else
+        {
+            modeText.text = "分身入れ替えモード\n1キーで切り替え";
+            if (soRenderer)
+            {
+                soRenderer = selectedObject.GetComponent<Renderer>();
+                Color color = Color.white;
+                color.a = 0.25f;
+                soRenderer.material.color = color;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                systemBehavior.isMouse = true;
+            }
+        }
     }
 }
