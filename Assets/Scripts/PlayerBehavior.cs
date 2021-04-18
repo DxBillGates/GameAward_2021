@@ -51,10 +51,13 @@ public class PlayerBehavior : MonoBehaviour
                 float maxDistance = 10;
                 if (Physics.Raycast(child.transform.position, -child.transform.up, out hit, maxDistance))
                 {
-                    Color color = Color.red;
-                    color.a = 0.25f;
-                    hit.collider.gameObject.GetComponent<Renderer>().material.color = color;
-                    objBehavior.changePartsSystemBehavior.setObject = hit.collider.gameObject;
+                    if (hit.collider.gameObject.layer == 7)
+                    {
+                        Color color = Color.red;
+                        color.a = 0.25f;
+                        hit.collider.gameObject.GetComponent<Renderer>().material.color = color;
+                        objBehavior.changePartsSystemBehavior.setObject = hit.collider.gameObject;
+                    }
                 }
 
             }

@@ -44,9 +44,12 @@ public class ObjectBehavior : MonoBehaviour
                     {
                         isFly = true;
                     }
-                    if(hit.distance <= 0.8f)
+                    if (hit.distance <= 0.8f)
                     {
-                        transform.position += onNormal / 20;
+                        if (!changePartsSystemBehavior.changeMode)
+                        {
+                            transform.position += onNormal / 20;
+                        }
                     }
                 }
             }
