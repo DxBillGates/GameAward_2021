@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     ObjectBehavior objectBehavior;
     ChangePartsSystemBehavior systemBehavior;
     new Renderer renderer;
+    public bool onMove;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +41,22 @@ public class EnemyBehaviour : MonoBehaviour
                 }
             }
         }
-        if (!objectBehavior.changePartsSystemBehavior.changeMode)
+
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 1))
+        {
+            if(hit.collider.gameObject.layer == 7)
+            {
+                if(hit.distance <= 1)
+                {
+                    if(!onMove)
+                    {
+                        onMove = true;
+                    }
+                }
+            }
+        }
+
+        if (!objectBehavior.changePartsSystemBehavior.changeMode && onMove)
         {
             if (lerpBehaviour.leftMove)
             {

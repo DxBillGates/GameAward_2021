@@ -6,6 +6,7 @@ public class ObjectBehavior : MonoBehaviour
 {
     public Vector3 onNormal;
     public bool isFly;
+    public Vector3 fallVector;
     public ChangePartsSystemBehavior changePartsSystemBehavior { get; set; }
     void Start()
     {
@@ -21,6 +22,7 @@ public class ObjectBehavior : MonoBehaviour
         {
             transform.position += -onNormal / 10;
         }
+        transform.position += fallVector;
     }
 
     public void SetParent()
@@ -32,12 +34,12 @@ public class ObjectBehavior : MonoBehaviour
             if (hit.collider.gameObject.layer == 7)
             {
                 onNormal = hit.normal;
-                Debug.Log(hit.distance);
                 if (!changePartsSystemBehavior.changeMode)
                 {
                     transform.parent = hit.collider.gameObject.transform;
                     if (hit.distance <= 1)
                     {
+                        fallVector = new Vector3();
                         isFly = false;
                     }
                     else
