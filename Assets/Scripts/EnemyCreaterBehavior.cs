@@ -67,5 +67,7 @@ public class EnemyCreaterBehavior : MonoBehaviour
 
         gameObject.transform.rotation = Quaternion.FromToRotation(gameObject.transform.up, -fallVector) * gameObject.transform.rotation;
         gameObject.transform.rotation = Quaternion.FromToRotation(gameObject.transform.right,-gameObject.transform.right) * gameObject.transform.rotation;
+
+        gameObject.AddComponent<AttackBehaviour>().timeSpan = 3;
     }
 }

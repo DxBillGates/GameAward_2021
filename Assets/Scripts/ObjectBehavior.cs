@@ -18,11 +18,14 @@ public class ObjectBehavior : MonoBehaviour
     void Update()
     {
         SetParent();
-        if (isFly)
+        if (!changePartsSystemBehavior.changeMode)
         {
-            transform.position += -onNormal / 10;
+            if (isFly)
+            {
+                transform.position += -onNormal / 10;
+            }
+            transform.position += fallVector;
         }
-        transform.position += fallVector;
     }
 
     public void SetParent()
