@@ -12,6 +12,8 @@ public class CoreBehaviour : MonoBehaviour
     bool isDamage, oldIsDamage;
     float noDamageTime;
     public float regenerationSpan;
+    bool scaleLerp;
+    float scaleLerpT;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,8 @@ public class CoreBehaviour : MonoBehaviour
         maxHp = hp;
         renderer = GetComponent<Renderer>();
         color = new Color(1,1,1,1);
-
+        scaleLerp = false;
+        scaleLerpT = 0;
         if(regenerationSpan == 0)
         {
             regenerationSpan = 2;
@@ -48,9 +51,27 @@ public class CoreBehaviour : MonoBehaviour
             if(hp < maxHp)
             {
                 hp++;
+                scaleLerp = true;
                 noDamageTime = 0;
             }
         }
+
+        if(scaleLerp)
+        {
+            scaleLerpT += Time.deltaTime + Time.deltaTime * 2;
+            if(scaleLerpT >= 1)
+            {
+                scaleLerp = false;
+                scaleLerpT = 1;
+            }
+            transform.localScale = Vector3.Lerp(new Vector3(6,6,6), new Vector3(6,6,6) + new Vector3(1,1,1), scaleLerpT);
+        }
+        else
+        {
+            scaleLerpT = 0;
+            transform.localScale = new Vector3(6, 6, 6);
+        }
+
         oldIsDamage = isDamage;
     }
 
