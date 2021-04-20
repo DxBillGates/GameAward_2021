@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChangePartsSystemBehavior : MonoBehaviour
 {
@@ -12,13 +13,22 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     bool isMouseChange;
     public bool isMouse;
     public GameObject setObject { get; set; }
+    GameObject core;
+    CoreBehaviour coreBehaviour;
     void Start()
     {
+        core = GameObject.Find("Core");
+        coreBehaviour = core.GetComponent<CoreBehaviour>();
         Initialize();
     }
 
     void Update()
     {
+        if(coreBehaviour.hp == 0)
+        {
+            SceneManager.LoadScene("TitleScene");
+        }
+
         if (isMouse)
         {
             if (Input.GetMouseButtonDown(0))
