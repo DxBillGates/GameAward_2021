@@ -6,7 +6,7 @@ public class lineGenerator : MonoBehaviour
 {
     public GameObject lineObj;
     GameObject obj;
-    float span = 0.3f;
+    float span = 0.1f;
     float delta = 0;
     int count = 0;
 
@@ -22,12 +22,12 @@ public class lineGenerator : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Q) && count <= 1)
-            count++;
+        //if (Input.GetKeyDown(KeyCode.Q) && count <= 1)
+        //    count++;
 
         if (!changePartsSystemBehavior.changeMode)
         {
-            if (count >= 1)
+            //if (count >= 1)
             {
                 this.delta += Time.deltaTime;
                 if (this.delta > this.span)

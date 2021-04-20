@@ -15,49 +15,57 @@ public class BatGenerator2 : MonoBehaviour
     int count = 0;
     Vector3 sPosition;
 
+    ChangePartsSystemBehavior changePartsSystemBehavior;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        changePartsSystemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-
-        if (Input.GetKeyDown(KeyCode.Q) && count < 2)
+        if (changePartsSystemBehavior.changeMode)
         {
-            count++;
+            GameObject[] checks = GameObject.FindGameObjectsWithTag("checker");
 
-            if (count == 1)
-            {
-                b = Instantiate(bat) as GameObject;
-                b.transform.rotation = target.transform.rotation;
-                b.transform.position = target.transform.position;
-
-                if (target.transform.position.x >= 0)
-                {
-                    Vector3 pos = b.transform.position;
-                    pos.x -= 0;
-                    b.transform.position = pos;
-                }
-
-                sPosition = b.transform.position;
-            }
-
-            if (count >= 2)
+            foreach (GameObject check in checks)
             {
 
-                c = Instantiate(ebat) as GameObject;
-                c.transform.rotation = target.transform.rotation;
-                c.transform.position = target.transform.position;
-
-                Coroutine cor = StartCoroutine("DelayMethod", 10);
-
+                Destroy(check);
             }
-
         }
+
+
+
+
+        //if (Input.GetKeyDown(KeyCode.Q) && count < 2)
+        //{
+        //    count++;
+
+        //    if (count == 1)
+        //    {
+        //        b = Instantiate(bat) as GameObject;
+        //        b.transform.rotation = target.transform.rotation;
+        //        b.transform.position = target.transform.position;
+
+        //        sPosition = b.transform.position;
+        //    }
+
+        //    if (count >= 2)
+        //    {
+
+        //        c = Instantiate(ebat) as GameObject;
+        //        c.transform.rotation = target.transform.rotation;
+        //        c.transform.position = target.transform.position;
+
+        //        Coroutine cor = StartCoroutine("DelayMethod", 10);
+
+        //    }
+
+        //}
 
     }
 
@@ -72,19 +80,19 @@ public class BatGenerator2 : MonoBehaviour
 
         foreach (GameObject check in checks)
         {
-           
+
             Destroy(check);
         }
 
         foreach (GameObject cube in cubes)
         {
-           
+
             Destroy(cube);
         }
 
         foreach (GameObject end in ends)
         {
-            
+
             Destroy(end);
         }
 
