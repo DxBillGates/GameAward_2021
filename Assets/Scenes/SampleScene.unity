@@ -920,7 +920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ddbf824eb8a0a4481cf85e954ba31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftMode: 0
+  leftMode: 1
   fallVector: {x: -1, y: 0, z: 0}
   drawRay: 1
   timeSpan: 5
