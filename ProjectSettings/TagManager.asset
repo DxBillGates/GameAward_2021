@@ -5,10 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - box
-  - checker
   - endBox
-  - special
-  - enemy
+  - checker
   layers:
   - Default
   - TransparentFX
@@ -17,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - MobiusParts
+  - MoubiusParts
   - Player
   - PlayerChild
   - 
