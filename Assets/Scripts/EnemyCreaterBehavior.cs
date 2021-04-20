@@ -11,6 +11,7 @@ public class EnemyCreaterBehavior : MonoBehaviour
     public int max;
     int count;
     float t;
+    public float attackTimeSpan;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +71,8 @@ public class EnemyCreaterBehavior : MonoBehaviour
 
         gameObject.tag = "enemy";
 
-        gameObject.AddComponent<AttackBehaviour>().timeSpan = 3;
+        AttackBehaviour atk = gameObject.AddComponent<AttackBehaviour>();
+        atk.timeSpan = attackTimeSpan;
+
     }
 }

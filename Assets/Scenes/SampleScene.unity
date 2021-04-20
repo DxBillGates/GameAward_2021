@@ -925,6 +925,7 @@ MonoBehaviour:
   drawRay: 1
   timeSpan: 5
   max: 3
+  attackTimeSpan: 2
 --- !u!23 &509840539
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2006,6 +2007,7 @@ MonoBehaviour:
   drawRay: 1
   timeSpan: 5
   max: 3
+  attackTimeSpan: 2
 --- !u!23 &1022723394
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3034,6 +3036,7 @@ MonoBehaviour:
   firstObj: {fileID: 0}
   secondObj: {fileID: 0}
   isMouse: 1
+  clearFlag: 0
 --- !u!114 &1742849570
 MonoBehaviour:
   m_ObjectHideFlags: 0

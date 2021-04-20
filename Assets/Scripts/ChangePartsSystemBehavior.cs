@@ -15,8 +15,10 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     public GameObject setObject { get; set; }
     GameObject core;
     CoreBehaviour coreBehaviour;
+    public bool clearFlag;
     void Start()
     {
+        clearFlag = false;
         core = GameObject.Find("Core");
         coreBehaviour = core.GetComponent<CoreBehaviour>();
         Initialize();
@@ -26,7 +28,11 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     {
         if(coreBehaviour.hp == 0)
         {
-            SceneManager.LoadScene("TitleScene");
+            SceneManager.LoadScene("GameOverScene");
+        }
+        if(clearFlag)
+        {
+            SceneManager.LoadScene("GameClearScene");
         }
 
         if (isMouse)
