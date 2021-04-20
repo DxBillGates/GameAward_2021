@@ -24,7 +24,7 @@ public class AttackBehaviour : MonoBehaviour
             bullet.transform.position = transform.position + transform.up * 2;
             Rigidbody rb = bullet.AddComponent<Rigidbody>();
             rb.useGravity = false;
-            rb.AddForce((target - transform.position).normalized * 100);
+            rb.AddForce((target - transform.position).normalized * 1000);
 
         }
 
