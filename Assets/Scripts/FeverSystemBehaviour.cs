@@ -15,7 +15,8 @@ public class FeverSystemBehaviour : MonoBehaviour
     public float feverT { get; set; }
     public bool isFever { get; set; }
 
-    public int increaseDamage;
+    public int setIncreaseDamage;
+    public int increaseDamage { get; set; }
 
     public bool specialMode;
 
@@ -23,6 +24,7 @@ public class FeverSystemBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        increaseDamage = 0;
         deadCount = 0;
         preFeverT = setPreFeverTime;
         isPreFever = false;
@@ -48,11 +50,12 @@ public class FeverSystemBehaviour : MonoBehaviour
                 if (!isFever)
                 {
                     isFever = true;
+                    increaseDamage += setIncreaseDamage;
                 }
                 else
                 {
                     if (specialMode)
-                        feverT = setFeverTime;
+                        increaseDamage += setIncreaseDamage;
                 }
             }
         }
@@ -68,11 +71,12 @@ public class FeverSystemBehaviour : MonoBehaviour
                 feverT = setFeverTime;
                 isFever = false;
 
+                increaseDamage = 0;
                 deadCount = 0;
             }
         }
 
-        text.text = "PreFever : " + preFeverT.ToString() + "\n" + "Fever : " + feverT.ToString();
+        text.text = "PreFever : " + preFeverT.ToString() + "\n" + "Fever : " + feverT.ToString() + "\n" + "IncreaseDamage : " + increaseDamage;
     }
 
     public void IncreaseDeadCount()

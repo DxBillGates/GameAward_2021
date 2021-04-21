@@ -3639,7 +3639,8 @@ MonoBehaviour:
   maxDeadCount: 2
   setPreFeverTime: 10
   setFeverTime: 10
-  increaseDamage: 2
+  setIncreaseDamage: 2
+  specialMode: 1
   text: {fileID: 756210995}
 --- !u!1001 &1797206688
 PrefabInstance:

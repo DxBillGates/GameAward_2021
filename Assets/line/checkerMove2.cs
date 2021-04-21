@@ -77,17 +77,18 @@ public class checkerMove2 : MonoBehaviour
             EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
             int value = (feverSystem.isFever) ? feverSystem.increaseDamage : 1;
             enemyBehaviour.Damage(value);
-            if (enemyBehaviour.hp <= 0)
-            {
-                if (other.gameObject.name != "Boss")
+            if (enemyBehaviour)
+                if (enemyBehaviour.hp <= 0)
                 {
-                    Destroy(other.gameObject);
-                    feverSystem.IncreaseDeadCount();
+                    if (other.gameObject.name != "Boss")
+                    {
+                        Destroy(other.gameObject);
+                        feverSystem.IncreaseDeadCount();
+                    }
+                    else
+                        other.gameObject.SetActive(false);
+                    ++bossCreater.nowSacrificeCount;
                 }
-                else
-                    other.gameObject.SetActive(false);
-                ++bossCreater.nowSacrificeCount;
-            }
 
         }
     }

@@ -102,13 +102,17 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Damage(int value)
     {
-        if (t >= damageSpan)
+        if(t == 0)
         {
-            t = 0;
             hp -= value;
+            Debug.Log(hp);
             scaleLerp = true;
             audioManager.hitSE.Play();
         }
         t += Time.deltaTime;
+        if (t >= damageSpan)
+        {
+            t = 0;
+        }
     }
 }
