@@ -55,7 +55,10 @@ public class FeverSystemBehaviour : MonoBehaviour
                 else
                 {
                     if (specialMode)
+                    {
                         increaseDamage += setIncreaseDamage;
+                        feverT = setFeverTime;
+                    }
                 }
             }
         }
