@@ -29,11 +29,11 @@ public class PlayerBehavior : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D))
             {
-                transform.position += transform.right / 5;
+                transform.position += transform.right * Time.deltaTime * (objBehavior.speed + objBehavior.addSpeed);
             }
             if (Input.GetKey(KeyCode.A))
             {
-                transform.position -= transform.right / 5;
+                transform.position -= transform.right * Time.deltaTime * (objBehavior.speed + objBehavior.addSpeed);
             }
         }
 

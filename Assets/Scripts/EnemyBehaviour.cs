@@ -64,11 +64,11 @@ public class EnemyBehaviour : MonoBehaviour
         {
             if (lerpBehaviour.leftMove)
             {
-                transform.position -= transform.right / 10;
+                transform.position -= transform.right * Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed);
             }
             else
             {
-                transform.position += transform.right / 10;
+                transform.position += transform.right * Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed);
             }
             transform.rotation = Quaternion.FromToRotation(transform.up, objectBehavior.onNormal) * transform.rotation;
         }

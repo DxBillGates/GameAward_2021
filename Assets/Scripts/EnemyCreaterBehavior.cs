@@ -87,6 +87,7 @@ public class EnemyCreaterBehavior : MonoBehaviour
         newAttackBehavior.timeSpan = prefabAttackBehavior.timeSpan;
 
         //生成オブジェクトの詳細設定
+        newGameObject.tag = "enemy";
         newGameObject.transform.position = transform.position;
         newGameObject.layer = 6;
         newGameObject.transform.rotation = Quaternion.FromToRotation(newGameObject.transform.up, -fallVector) * newGameObject.transform.rotation;

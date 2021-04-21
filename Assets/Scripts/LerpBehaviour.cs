@@ -29,11 +29,13 @@ public class LerpBehaviour : MonoBehaviour
         changePartsSystemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         //leftMove = true;
         lerpPoints = new List<Transform>();
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+        objectBehavior.speed = Vector3.Distance(frontList[0].position, frontList[1].position) + Vector3.Distance(frontList[1].position, frontList[2].position) / 2;
         if (!oldLerpMode && !changePartsSystemBehavior.changeMode)
             if (CheckHitPoint(backList[0].position))
             {

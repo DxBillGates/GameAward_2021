@@ -54,11 +54,11 @@ public class checkerMove2 : MonoBehaviour
         {
             if (lerpBehaviour.leftMove)
             {
-                transform.position += transform.right / 2;
+                transform.position += transform.right * Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed);
             }
             else
             {
-                transform.position -= transform.right / 2;
+                transform.position -= transform.right * Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed);
             }
             transform.rotation = Quaternion.FromToRotation(transform.up, objectBehavior.onNormal) * transform.rotation;
         }

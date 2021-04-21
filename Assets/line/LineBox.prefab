@@ -114,6 +114,8 @@ MonoBehaviour:
   onNormal: {x: 0, y: 0, z: 0}
   isFly: 0
   fallVector: {x: 0, y: 0, z: 0}
+  speed: 0
+  addSpeed: 30
 --- !u!114 &-4506338150091335271
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class ObjectBehavior : MonoBehaviour
     public Vector3 onNormal;
     public bool isFly;
     public Vector3 fallVector;
+    public float speed;
+    public float addSpeed;
     public ChangePartsSystemBehavior changePartsSystemBehavior { get; set; }
     void Start()
     {
