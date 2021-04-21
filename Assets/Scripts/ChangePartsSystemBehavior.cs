@@ -130,7 +130,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         }
     }
 
-    public void Change(GameObject gameObject, GameObject child)
+    private void Change(GameObject gameObject, GameObject child)
     {
         if (!isMouseChange)
             if (!changeMode)

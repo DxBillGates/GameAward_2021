@@ -82,7 +82,7 @@ public class PlayerBehavior : MonoBehaviour
 
         if (changeMode)
         {
-            objBehavior.changePartsSystemBehavior.Change(gameObject, child);
+            //objBehavior.changePartsSystemBehavior.Change(gameObject, child);
             if (!objBehavior.changePartsSystemBehavior.changeMode)
             {
                 child.GetComponent<MeshRenderer>().enabled = false;

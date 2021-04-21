@@ -16,6 +16,7 @@ public class CoreBehaviour : MonoBehaviour
     bool scaleLerp;
     float scaleLerpT;
     bool minusScaleLerp;
+    ChangePartsSystemBehavior systemBehavior;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,64 +33,68 @@ public class CoreBehaviour : MonoBehaviour
         {
             regenerationSpan = 2;
         }
+        systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isDamage = false;
-        color.a = hp / maxHp;
-        renderer.material.color = color;
-        transform.rotation = Quaternion.Euler(angle, 0, angle);
-
-        angle += Time.deltaTime * 10;
-
-
-        if (!oldIsDamage)
+        if (!systemBehavior.changeMode)
         {
-            noDamageTime += Time.deltaTime;
-        }
-        if (noDamageTime >= regenerationSpan)
-        {
-            if (hp < maxHp)
+            isDamage = false;
+            color.a = hp / maxHp;
+            renderer.material.color = color;
+            transform.rotation = Quaternion.Euler(angle, 0, angle);
+
+            angle += Time.deltaTime * 10;
+
+
+            if (!oldIsDamage)
             {
-                hp+= recovery;
-                if (hp > maxHp) hp = maxHp;
-                scaleLerp = true;
-                noDamageTime = 0;
+                noDamageTime += Time.deltaTime;
             }
-        }
-
-        if (scaleLerp)
-        {
-            scaleLerpT += Time.deltaTime + Time.deltaTime * 2;
-            if (minusScaleLerp)
+            if (noDamageTime >= regenerationSpan)
             {
-                if (scaleLerpT >= 1)
+                if (hp < maxHp)
                 {
-                    scaleLerp = false;
-                    minusScaleLerp = false;
-                    scaleLerpT = 1;
+                    hp += recovery;
+                    if (hp > maxHp) hp = maxHp;
+                    scaleLerp = true;
+                    noDamageTime = 0;
                 }
-                transform.localScale = Vector3.Lerp(new Vector3(6, 6, 6), new Vector3(6, 6, 6) - new Vector3(1, 1, 1), scaleLerpT);
+            }
+
+            if (scaleLerp)
+            {
+                scaleLerpT += Time.deltaTime + Time.deltaTime * 2;
+                if (minusScaleLerp)
+                {
+                    if (scaleLerpT >= 1)
+                    {
+                        scaleLerp = false;
+                        minusScaleLerp = false;
+                        scaleLerpT = 1;
+                    }
+                    transform.localScale = Vector3.Lerp(new Vector3(6, 6, 6), new Vector3(6, 6, 6) - new Vector3(1, 1, 1), scaleLerpT);
+                }
+                else
+                {
+                    if (scaleLerpT >= 1)
+                    {
+                        scaleLerp = false;
+                        scaleLerpT = 1;
+                    }
+                    transform.localScale = Vector3.Lerp(new Vector3(6, 6, 6), new Vector3(6, 6, 6) + new Vector3(1, 1, 1), scaleLerpT);
+                }
             }
             else
             {
-                if (scaleLerpT >= 1)
-                {
-                    scaleLerp = false;
-                    scaleLerpT = 1;
-                }
-                transform.localScale = Vector3.Lerp(new Vector3(6, 6, 6), new Vector3(6, 6, 6) + new Vector3(1, 1, 1), scaleLerpT);
+                scaleLerpT = 0;
+                transform.localScale = new Vector3(6, 6, 6);
             }
-        }
-        else
-        {
-            scaleLerpT = 0;
-            transform.localScale = new Vector3(6, 6, 6);
-        }
 
-        oldIsDamage = isDamage;
+            oldIsDamage = isDamage;
+        }
     }
 
     void Damage(int damage)
