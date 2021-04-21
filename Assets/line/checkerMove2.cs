@@ -11,6 +11,8 @@ public class checkerMove2 : MonoBehaviour
     GameObject player;
     LerpBehaviour playerLerpBehaviour;
 
+    BossCreaterBehaviour bossCreater;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,17 +27,18 @@ public class checkerMove2 : MonoBehaviour
         objectBehavior = GetComponent<ObjectBehavior>();
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         renderer = GetComponent<Renderer>();
-        Color color;
-        color = (lerpBehaviour.leftMove) ? Color.blue : Color.red;
-        renderer.material.color = color;
+        //Color color;
+        //color = (lerpBehaviour.leftMove) ? Color.blue : Color.red;
+        //renderer.material.color = color;
+        bossCreater = GameObject.Find("BossCreater").GetComponent<BossCreaterBehaviour>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Color color;
-        color = (lerpBehaviour.leftMove) ? Color.blue : Color.red;
-        renderer.material.color = color;
+        //Color color;
+        //color = (lerpBehaviour.leftMove) ? Color.blue : Color.red;
+        //renderer.material.color = color;
 
         RaycastHit hit;
         Vector3 forward = (lerpBehaviour.leftMove) ? -transform.right : transform.right;
@@ -71,8 +74,15 @@ public class checkerMove2 : MonoBehaviour
         {
             EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
             enemyBehaviour.Damage();
-            if(enemyBehaviour.hp <= 0)
-                Destroy(other.gameObject);
+            if (enemyBehaviour.hp <= 0)
+            {
+                if (other.gameObject.name != "Boss")
+                    Destroy(other.gameObject);
+                else
+                    other.gameObject.SetActive(false);
+                ++bossCreater.nowSacrificeCount;
+            }
+
         }
     }
 

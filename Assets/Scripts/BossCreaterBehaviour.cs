@@ -2,30 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCreaterBehavior : MonoBehaviour
+public class BossCreaterBehaviour : MonoBehaviour
 {
     public bool leftMode;
-    public Vector3 fallVector;
+    public int nowSacrificeCount;
+    public int maxSacrificeCount;
     public bool drawRay;
-    public float createTimeSpan;
-    public int maxEnemy;
-    public Mesh rightMesh;
-    public Mesh setMesh;
-    public Material setMaterial;
-    int count;
-    float t;
-    public GameObject prefabEnemy;
+    public Vector3 fallVector;
+    public Mesh rightMesh, leftMesh;
+    public Material material;
+    public GameObject prefab;
+
+    public bool isCreate;
     // Start is called before the first frame update
     void Start()
     {
-        count = 0;
-        t = 0;
-        if (createTimeSpan == 0)
-        {
-            createTimeSpan = 3;
-        }
-
-        GetComponent<Renderer>().material.color = (leftMode) ? Color.blue : Color.red;
+        isCreate = false;
     }
 
     // Update is called once per frame
@@ -34,14 +26,10 @@ public class EnemyCreaterBehavior : MonoBehaviour
         if (drawRay)
             Debug.DrawRay(transform.position, fallVector * 10, Color.red);
 
-        if (t >= createTimeSpan && count < maxEnemy)
+        if(nowSacrificeCount >= maxSacrificeCount && !isCreate)
         {
             Create();
-            count++;
-            t = 0;
         }
-
-        t += Time.deltaTime;
     }
 
     void Create()
@@ -50,14 +38,17 @@ public class EnemyCreaterBehavior : MonoBehaviour
         LerpBehaviour player = GameObject.Find("Player").GetComponent<LerpBehaviour>();
 
         //プレハブから追加する情報を取得
-        ObjectBehavior prefabObjBehavior = prefabEnemy.GetComponent<ObjectBehavior>();
-        LerpBehaviour prefabLerpBehavior = prefabEnemy.GetComponent<LerpBehaviour>();
-        EnemyBehaviour prefabEnemyBehavior = prefabEnemy.GetComponent<EnemyBehaviour>();
-        AttackBehaviour prefabAttackBehavior = prefabEnemy.GetComponent<AttackBehaviour>();
+        ObjectBehavior prefabObjBehavior = prefab.GetComponent<ObjectBehavior>();
+        LerpBehaviour prefabLerpBehavior = prefab.GetComponent<LerpBehaviour>();
+        EnemyBehaviour prefabEnemyBehavior = prefab.GetComponent<EnemyBehaviour>();
+        AttackBehaviour prefabAttackBehavior = prefab.GetComponent<AttackBehaviour>();
 
         //新規オブジェクトの生成
         GameObject newGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-        newGameObject.name = "CreatedEnemy";
+        newGameObject.name = "Boss";
+
+        newGameObject.transform.localScale = new Vector3(5, 5, 5);
+
 
         //コライダーの切り替え
         Destroy(newGameObject.GetComponent<Collider>());
@@ -97,7 +88,7 @@ public class EnemyCreaterBehavior : MonoBehaviour
         //モデル設定
         MeshFilter newMeshFilter = newGameObject.GetComponent<MeshFilter>();
         MeshRenderer newMeshRenderer = newGameObject.GetComponent<MeshRenderer>();
-        if (setMesh)
+        if (rightMesh && leftMesh)
         {
             if (!leftMode)
             {
@@ -105,12 +96,14 @@ public class EnemyCreaterBehavior : MonoBehaviour
             }
             else
             {
-                newMeshFilter.mesh = setMesh;
+                newMeshFilter.mesh = leftMesh;
             }
         }
-        if (setMaterial)
+        if (material)
         {
-            newMeshRenderer.material = setMaterial;
+            newMeshRenderer.material = material;
         }
+
+        isCreate = true;
     }
 }

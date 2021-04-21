@@ -7,6 +7,7 @@ public class AttackBehaviour : MonoBehaviour
     Vector3 target;
     public float timeSpan;
     float t;
+    public int attackValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,8 @@ public class AttackBehaviour : MonoBehaviour
         {
             t = 0;
             GameObject bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            BulletBehavior bulletBehavior = bullet.AddComponent<BulletBehavior>();
+            bulletBehavior.attackValue = attackValue;
             bullet.transform.position = transform.position + transform.up * 2;
             Rigidbody rb = bullet.AddComponent<Rigidbody>();
             rb.useGravity = false;

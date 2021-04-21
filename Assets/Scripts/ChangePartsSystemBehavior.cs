@@ -16,17 +16,40 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     GameObject core;
     CoreBehaviour coreBehaviour;
     public bool clearFlag;
+    BossCreaterBehaviour bossCreaterBehaviour;
+    public GameObject boss;
+    public EnemyBehaviour bossBehavior;
+
     void Start()
     {
         clearFlag = false;
         core = GameObject.Find("Core");
         coreBehaviour = core.GetComponent<CoreBehaviour>();
         Initialize();
+        bossCreaterBehaviour = GameObject.Find("BossCreater").GetComponent<BossCreaterBehaviour>();
+        bossBehavior = null;
+        boss = null;
     }
 
     void Update()
     {
-        if(coreBehaviour.hp == 0)
+        if(bossCreaterBehaviour.isCreate)
+        {
+            if(!bossBehavior)
+            {
+                boss = GameObject.Find("Boss");
+                bossBehavior = boss.GetComponent<EnemyBehaviour>();
+            }
+        }
+
+        if(bossBehavior)
+        {
+            if(bossBehavior.hp <= 0)
+            {
+                clearFlag = true;
+            }
+        }
+        if(coreBehaviour.hp <= 0)
         {
             SceneManager.LoadScene("GameOverScene");
         }
