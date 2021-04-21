@@ -9,6 +9,12 @@ public class EnemyCreaterBehavior : MonoBehaviour
     public bool drawRay;
     public float timeSpan;
     public int max;
+    public Mesh rightMesh;
+    public Mesh setMesh;
+    public Material setMaterial;
+
+    public float damageSpan;
+    public float hp;
     int count;
     float t;
     public float attackTimeSpan;
@@ -17,7 +23,7 @@ public class EnemyCreaterBehavior : MonoBehaviour
     {
         count = 0;
         t = 0;
-        if(timeSpan == 0)
+        if (timeSpan == 0)
         {
             timeSpan = 3;
         }
@@ -31,7 +37,7 @@ public class EnemyCreaterBehavior : MonoBehaviour
         if (drawRay)
             Debug.DrawRay(transform.position, fallVector * 10, Color.red);
 
-        if(t >= timeSpan && count < max)
+        if (t >= timeSpan && count < max)
         {
             Create();
             count++;
@@ -60,18 +66,36 @@ public class EnemyCreaterBehavior : MonoBehaviour
         lerpBehaviour.leftMove = leftMode;
 
         objBehavior.fallVector = fallVector.normalized / 100;
-        //lerpBehaviour.leftMove = true;
 
         gameObject.transform.position = transform.position;
         gameObject.name = "CreatedEnemy";
         gameObject.layer = 6;
 
         gameObject.transform.rotation = Quaternion.FromToRotation(gameObject.transform.up, -fallVector) * gameObject.transform.rotation;
-        gameObject.transform.rotation = Quaternion.FromToRotation(gameObject.transform.right,-gameObject.transform.right) * gameObject.transform.rotation;
+        gameObject.transform.rotation = Quaternion.FromToRotation(gameObject.transform.right, -gameObject.transform.right) * gameObject.transform.rotation;
 
         gameObject.tag = "enemy";
 
         AttackBehaviour atk = gameObject.AddComponent<AttackBehaviour>();
+        MeshFilter mf = gameObject.GetComponent<MeshFilter>();
+        MeshRenderer mr = gameObject.GetComponent<MeshRenderer>();
+        if (setMesh)
+        {
+            if (!leftMode)
+            {
+                mf.mesh = rightMesh;
+            }
+            else
+            {
+                mf.mesh = setMesh;
+            }
+        }
+        if (setMaterial)
+        {
+            mr.material = setMaterial;
+        }
+        enemyBehaviour.damageSpan = damageSpan;
+        enemyBehaviour.hp = hp;
         atk.timeSpan = attackTimeSpan;
 
     }

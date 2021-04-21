@@ -9,24 +9,28 @@ public class EnemyBehaviour : MonoBehaviour
     ChangePartsSystemBehavior systemBehavior;
     new Renderer renderer;
     public bool onMove;
+    public float hp;
+    public float damageSpan;
+    float t;
     // Start is called before the first frame update
     void Start()
     {
+        t = 0;
         lerpBehaviour = GetComponent<LerpBehaviour>();
         objectBehavior = GetComponent<ObjectBehavior>();
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         renderer = GetComponent<Renderer>();
-        Color color;
-        color = (lerpBehaviour.leftMove) ? Color.blue : Color.red;
-        renderer.material.color = color;
+        //Color color;
+        //color = (lerpBehaviour.leftMove) ? Color.blue : Color.red;
+        //renderer.material.color = color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Color color;
-        color = (lerpBehaviour.leftMove) ? Color.blue : Color.red;
-        renderer.material.color = color;
+        //Color color;
+        //color = (lerpBehaviour.leftMove) ? Color.blue : Color.red;
+        //renderer.material.color = color;
 
         RaycastHit hit;
         Vector3 forward = (lerpBehaviour.leftMove) ? -transform.right : transform.right;
@@ -68,5 +72,15 @@ public class EnemyBehaviour : MonoBehaviour
             }
             transform.rotation = Quaternion.FromToRotation(transform.up, objectBehavior.onNormal) * transform.rotation;
         }
+    }
+
+    public void Damage()
+    {
+        if(t >= damageSpan)
+        {
+            t = 0;
+            --hp;
+        }
+        t += Time.deltaTime;
     }
 }

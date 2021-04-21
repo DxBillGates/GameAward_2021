@@ -370,7 +370,7 @@ TextMesh:
   m_GameObject: {fileID: 1837608541}
   m_Text: 'GameOver
 
-    push space'
+    plz click'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
