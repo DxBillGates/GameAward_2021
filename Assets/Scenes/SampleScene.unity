@@ -3298,8 +3298,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 200
-  recovery: 2
-  regenerationSpan: 1
+  recovery: 7
+  regenerationSpan: 3
   hpUiTransform: {fileID: 133139249}
 --- !u!65 &1479263914
 BoxCollider:
