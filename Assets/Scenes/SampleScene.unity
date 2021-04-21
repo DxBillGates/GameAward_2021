@@ -959,14 +959,12 @@ MonoBehaviour:
   leftMode: 1
   fallVector: {x: -1, y: 0, z: 0}
   drawRay: 1
-  timeSpan: 5
-  max: 3
+  createTimeSpan: 5
+  maxEnemy: 5
   rightMesh: {fileID: 2540817853737639666, guid: 9528565baed0479438b4e83aa4fc5789, type: 3}
   setMesh: {fileID: 2540817853737639666, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
   setMaterial: {fileID: 3983504700629669927, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
-  damageSpan: 0.2
-  hp: 10
-  attackTimeSpan: 2
+  prefabEnemy: {fileID: 2085299945689763932, guid: 55dc64e7121cfdc4d80e82d10a5c6fa5, type: 3}
 --- !u!23 &509840539
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2082,14 +2080,12 @@ MonoBehaviour:
   leftMode: 1
   fallVector: {x: 1, y: 0, z: 0}
   drawRay: 1
-  timeSpan: 5
-  max: 3
+  createTimeSpan: 5
+  maxEnemy: 5
   rightMesh: {fileID: 2540817853737639666, guid: 9528565baed0479438b4e83aa4fc5789, type: 3}
   setMesh: {fileID: 2540817853737639666, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
   setMaterial: {fileID: 3983504700629669927, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
-  damageSpan: 0.2
-  hp: 10
-  attackTimeSpan: 2
+  prefabEnemy: {fileID: 2085299945689763932, guid: 55dc64e7121cfdc4d80e82d10a5c6fa5, type: 3}
 --- !u!23 &1022723394
 MeshRenderer:
   m_ObjectHideFlags: 0
