@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 1
-  hp: 5
+  hp: 3
   damageSpan: 0.05
 --- !u!114 &2085299945689763907
 MonoBehaviour:
@@ -153,5 +153,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e682ccf24f18cfe4395e4eb17e6f1e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSpan: 5
+  timeSpan: 0.8
   attackValue: 1

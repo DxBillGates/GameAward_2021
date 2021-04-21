@@ -5,6 +5,7 @@ using UnityEngine;
 public class CoreBehaviour : MonoBehaviour
 {
     public float hp;
+    public float recovery;
     float maxHp;
     new Renderer renderer;
     Color color;
@@ -52,7 +53,8 @@ public class CoreBehaviour : MonoBehaviour
         {
             if (hp < maxHp)
             {
-                hp++;
+                hp+= recovery;
+                if (hp > maxHp) hp = maxHp;
                 scaleLerp = true;
                 noDamageTime = 0;
             }
