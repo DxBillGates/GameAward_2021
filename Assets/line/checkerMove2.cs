@@ -72,7 +72,7 @@ public class checkerMove2 : MonoBehaviour
             EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
             enemyBehaviour.Damage();
             if(enemyBehaviour.hp <= 0)
-                other.gameObject.SetActive(false);
+                Destroy(other.gameObject);
         }
     }
 

@@ -53,11 +53,11 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (Physics.Raycast(transform.position, -transform.up, out hit, 1))
         {
-            if(hit.collider.gameObject.layer == 7)
+            if (hit.collider.gameObject.layer == 7)
             {
-                if(hit.distance <= 1)
+                if (hit.distance <= 1)
                 {
-                    if(!onMove)
+                    if (!onMove)
                     {
                         onMove = true;
                     }
@@ -100,10 +100,10 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Damage()
     {
-        if(t >= damageSpan)
+        if (t >= damageSpan)
         {
             t = 0;
-            --hp;
+            hp -= 1.0f;
             scaleLerp = true;
         }
         t += Time.deltaTime;

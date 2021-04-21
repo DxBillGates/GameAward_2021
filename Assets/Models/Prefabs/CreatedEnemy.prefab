@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 1
-  hp: 10
-  damageSpan: 0.1
+  hp: 5
+  damageSpan: 0.05
 --- !u!114 &2085299945689763907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,4 +153,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e682ccf24f18cfe4395e4eb17e6f1e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSpan: 3
+  timeSpan: 5
