@@ -136,18 +136,19 @@ public class LerpBehaviour : MonoBehaviour
 
     void Move()
     {
+        float speed = Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed) * Time.deltaTime * objectBehavior.speed ;
         if (isAutoMove)
         {
             if (frontLerpMode)
             {
                 if (leftMove)
                 {
-                    t -= Time.deltaTime;
+                    t -= speed;
                     isMove = true;
                 }
                 else
                 {
-                    t += Time.deltaTime;
+                    t += speed;
                     isMove = true;
                 }
             }
@@ -155,12 +156,12 @@ public class LerpBehaviour : MonoBehaviour
             {
                 if (leftMove)
                 {
-                    t += Time.deltaTime;
+                    t += speed;
                     isMove = true;
                 }
                 else
                 {
-                    t -= Time.deltaTime;
+                    t -= speed;
                     isMove = true;
                 }
             }
@@ -171,13 +172,13 @@ public class LerpBehaviour : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.A))
                 {
-                    t -= Time.deltaTime;
+                    t -= speed;
                     isMove = true;
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
                     isMove = true;
-                    t += Time.deltaTime;
+                    t += speed;
                 }
             }
             else
@@ -185,12 +186,12 @@ public class LerpBehaviour : MonoBehaviour
                 if (Input.GetKey(KeyCode.A))
                 {
                     isMove = true;
-                    t += Time.deltaTime;
+                    t += speed;
                 }
                 if (Input.GetKey(KeyCode.D))
                 {
                     isMove = true;
-                    t -= Time.deltaTime;
+                    t -= speed;
                 }
             }
         }
