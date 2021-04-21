@@ -12,6 +12,7 @@ public class checkerMove2 : MonoBehaviour
     LerpBehaviour playerLerpBehaviour;
 
     BossCreaterBehaviour bossCreater;
+    FeverSystemBehaviour feverSystem;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class checkerMove2 : MonoBehaviour
 
         objectBehavior = GetComponent<ObjectBehavior>();
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
+        feverSystem = GameObject.Find("GameSystem").GetComponent<FeverSystemBehaviour>();
         renderer = GetComponent<Renderer>();
         //Color color;
         //color = (lerpBehaviour.leftMove) ? Color.blue : Color.red;
@@ -73,11 +75,15 @@ public class checkerMove2 : MonoBehaviour
         if (other.gameObject.CompareTag("enemy"))
         {
             EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
-            enemyBehaviour.Damage();
+            int value = (feverSystem.isFever) ? feverSystem.increaseDamage : 1;
+            enemyBehaviour.Damage(value);
             if (enemyBehaviour.hp <= 0)
             {
                 if (other.gameObject.name != "Boss")
+                {
                     Destroy(other.gameObject);
+                    feverSystem.IncreaseDeadCount();
+                }
                 else
                     other.gameObject.SetActive(false);
                 ++bossCreater.nowSacrificeCount;

@@ -100,12 +100,12 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    public void Damage()
+    public void Damage(int value)
     {
         if (t >= damageSpan)
         {
             t = 0;
-            hp -= 1.0f;
+            hp -= value;
             scaleLerp = true;
             audioManager.hitSE.Play();
         }
