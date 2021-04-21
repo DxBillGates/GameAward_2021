@@ -17,6 +17,9 @@ public class CoreBehaviour : MonoBehaviour
     float scaleLerpT;
     bool minusScaleLerp;
     ChangePartsSystemBehavior systemBehavior;
+    public RectTransform hpUiTransform;
+    float hpUiXScale;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +37,19 @@ public class CoreBehaviour : MonoBehaviour
             regenerationSpan = 2;
         }
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
+        hpUiXScale = hpUiTransform.localScale.x;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 newHpUiScale = new Vector3(1,1,1);
+        newHpUiScale.x = hpUiXScale * hp / maxHp;
+        newHpUiScale.y = hpUiTransform.localScale.y;
+        newHpUiScale.z = hpUiTransform.localScale.z;
+
+        hpUiTransform.localScale = newHpUiScale;
+
         if (!systemBehavior.changeMode)
         {
             isDamage = false;
