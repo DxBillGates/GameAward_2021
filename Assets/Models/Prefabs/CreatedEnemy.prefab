@@ -100,6 +100,8 @@ MonoBehaviour:
   onNormal: {x: 0, y: 0, z: 0}
   isFly: 0
   fallVector: {x: 0, y: 0, z: 0}
+  speed: 0
+  addSpeed: 0
 --- !u!114 &2085299945689763905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onMove: 1
   hp: 10
-  damageSpan: 0.2
+  damageSpan: 0.1
 --- !u!114 &2085299945689763907
 MonoBehaviour:
   m_ObjectHideFlags: 0

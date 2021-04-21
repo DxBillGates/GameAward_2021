@@ -39,7 +39,7 @@ public class CoreBehaviour : MonoBehaviour
         renderer.material.color = color;
         transform.rotation = Quaternion.Euler(angle, 0, angle);
 
-        angle += 0.016f;
+        angle += Time.deltaTime * 10;
 
 
         if(!oldIsDamage)

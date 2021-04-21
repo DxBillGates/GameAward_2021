@@ -12,9 +12,14 @@ public class EnemyBehaviour : MonoBehaviour
     public float hp;
     public float damageSpan;
     float t;
+
+    bool scaleLerp;
+    float scaleLerpT;
     // Start is called before the first frame update
     void Start()
     {
+        scaleLerp = false;
+        scaleLerpT = 0;
         t = 0;
         lerpBehaviour = GetComponent<LerpBehaviour>();
         objectBehavior = GetComponent<ObjectBehavior>();
@@ -72,6 +77,25 @@ public class EnemyBehaviour : MonoBehaviour
             }
             transform.rotation = Quaternion.FromToRotation(transform.up, objectBehavior.onNormal) * transform.rotation;
         }
+
+
+        if (scaleLerp)
+        {
+            scaleLerpT += Time.deltaTime / damageSpan;
+            if (scaleLerpT >= 1)
+            {
+                scaleLerp = false;
+                scaleLerpT = 1;
+            }
+            //transform.localScale = Vector3.Lerp(new Vector3(1, 1, 1), new Vector3(1, 1, 1) - new Vector3(0.5f, 0.5f, 0.5f), scaleLerpT);
+            renderer.material.color *= Color.red;
+        }
+        else
+        {
+            renderer.material.color = Color.white;
+            scaleLerpT = 0;
+            //transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     public void Damage()
@@ -80,6 +104,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             t = 0;
             --hp;
+            scaleLerp = true;
         }
         t += Time.deltaTime;
     }

@@ -564,7 +564,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195041812}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51b1ac9d3cfcd37449e4cee21b9cd530, type: 3}
   m_Name: 
@@ -1771,6 +1771,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1404481588014421800, guid: 451f0a4f38ea51840b0b9de89f80d4bf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404481588014421800, guid: 451f0a4f38ea51840b0b9de89f80d4bf, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9a827e6c61a2fd1418977f07950096fe, type: 2}
@@ -1778,9 +1782,21 @@ PrefabInstance:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1404481588014421802, guid: 451f0a4f38ea51840b0b9de89f80d4bf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404481588014421803, guid: 451f0a4f38ea51840b0b9de89f80d4bf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1404481588014421804, guid: 451f0a4f38ea51840b0b9de89f80d4bf, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404481588014421804, guid: 451f0a4f38ea51840b0b9de89f80d4bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1404481588014421805, guid: 451f0a4f38ea51840b0b9de89f80d4bf, type: 3}
       propertyPath: isAutoMove
