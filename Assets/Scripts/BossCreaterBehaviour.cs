@@ -47,12 +47,14 @@ public class BossCreaterBehaviour : MonoBehaviour
         GameObject newGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
         newGameObject.name = "Boss";
 
-        newGameObject.transform.localScale = new Vector3(5, 5, 5);
+        newGameObject.transform.localScale = new Vector3(3, 3, 3);
 
 
         //コライダーの切り替え
         Destroy(newGameObject.GetComponent<Collider>());
-        newGameObject.AddComponent<BoxCollider>();
+        BoxCollider newCollider = newGameObject.AddComponent<BoxCollider>();
+        newCollider.size = Vector3.one;
+
 
         //ビヘイビアを追加＆取得
         ObjectBehavior newObjectBehavior = newGameObject.AddComponent<ObjectBehavior>();
