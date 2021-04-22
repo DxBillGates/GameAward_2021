@@ -29,6 +29,11 @@ public class GameSystemBehaviour : MonoBehaviour
             SceneManager.LoadScene("SampleScene");
         }
 
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("TitleScene");
+        }
+
         if (systemBehavior.isMouse)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
