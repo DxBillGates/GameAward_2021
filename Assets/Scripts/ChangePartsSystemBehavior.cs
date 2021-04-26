@@ -33,27 +33,30 @@ public class ChangePartsSystemBehavior : MonoBehaviour
 
     void Update()
     {
-        if(bossCreaterBehaviour.isCreate)
+        if (bossCreaterBehaviour)
         {
-            if(!bossBehavior)
+            if (bossCreaterBehaviour.isCreate)
             {
-                boss = GameObject.Find("Boss");
-                bossBehavior = boss.GetComponent<EnemyBehaviour>();
+                if (!bossBehavior)
+                {
+                    boss = GameObject.Find("Boss");
+                    bossBehavior = boss.GetComponent<EnemyBehaviour>();
+                }
             }
         }
 
-        if(bossBehavior)
+        if (bossBehavior)
         {
-            if(bossBehavior.hp <= 0)
+            if (bossBehavior.hp <= 0)
             {
                 clearFlag = true;
             }
         }
-        if(coreBehaviour.hp <= 0)
+        if (coreBehaviour.hp <= 0)
         {
             SceneManager.LoadScene("GameOverScene");
         }
-        if(clearFlag)
+        if (clearFlag)
         {
             SceneManager.LoadScene("GameClearScene");
         }
@@ -80,6 +83,9 @@ public class ChangePartsSystemBehavior : MonoBehaviour
                                 fAngle = firstObj.transform.eulerAngles;
 
                                 firstObj.GetComponent<Renderer>().material.color = color;
+
+                                FlashingBehaviour fb = firstObj.GetComponent<FlashingBehaviour>();
+                                fb.isFlashing = false;
                             }
                             else
                             {
@@ -90,6 +96,9 @@ public class ChangePartsSystemBehavior : MonoBehaviour
                                 changeMode = true;
                                 secondObj.GetComponent<Renderer>().material.color = color;
                                 isMouseChange = true;
+
+                                FlashingBehaviour fb = secondObj.GetComponent<FlashingBehaviour>();
+                                fb.isFlashing = false;
                             }
                         }
                     }
@@ -125,8 +134,19 @@ public class ChangePartsSystemBehavior : MonoBehaviour
             Color color = new Color(1, 1, 1, 0.25f);
             firstObj.GetComponent<Renderer>().material.color = color;
             secondObj.GetComponent<Renderer>().material.color = color;
-            firstObj = secondObj = null;
             t = 0;
+
+            FlashingBehaviour fb = firstObj.GetComponent<FlashingBehaviour>();
+            if (fb.isFlashing)
+            {
+                fb.isFlashing = false;
+            }
+            fb = secondObj.GetComponent<FlashingBehaviour>();
+            if (fb.isFlashing)
+            {
+                fb.isFlashing = false;
+            }
+            firstObj = secondObj = null;
         }
     }
 
@@ -169,7 +189,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
 
     public void Initialize()
     {
-        if(setObject)
+        if (setObject)
         {
             Color color = new Color(1, 1, 1, 0.25f);
             setObject.GetComponent<Renderer>().material.color = color;
@@ -183,7 +203,6 @@ public class ChangePartsSystemBehavior : MonoBehaviour
             {
                 secondObj.GetComponent<Renderer>().material.color = color;
             }
-            firstObj = secondObj = null;
         }
 
         isSelectFirstObj = changePreMode = changeMode = false;
@@ -192,5 +211,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         fAngle = sAngle = new Vector3();
         t = 0;
         isMouseChange = false;
+
+        firstObj = secondObj = null;
     }
 }

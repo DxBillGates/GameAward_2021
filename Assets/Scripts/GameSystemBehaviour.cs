@@ -44,9 +44,15 @@ public class GameSystemBehaviour : MonoBehaviour
                 {
                     selectObject = hit.collider.gameObject;
                     soRenderer = selectObject.GetComponent<Renderer>();
-                    Color color = Color.red;
-                    color.a = 0.25f;
-                    soRenderer.material.color = color;
+                    //Color color = Color.red;
+                    //color.a = 0.25f;
+                    //soRenderer.material.color = color;
+
+                    if (selectObject != systemBehavior.firstObj)
+                    {
+                        FlashingBehaviour fb = selectObject.GetComponent<FlashingBehaviour>();
+                        fb.isFlashing = true;
+                    }
                 }
                 else
                 {
@@ -61,6 +67,9 @@ public class GameSystemBehaviour : MonoBehaviour
                         Color color = Color.white;
                         color.a = 0.25f;
                         soRenderer.material.color = color;
+                        FlashingBehaviour fb = selectedObject.GetComponent<FlashingBehaviour>();
+                        fb.isFlashing = false;
+                        Debug.Log("ó£ÇÍÇΩÇÊÅI");
                     }
                 }
             }

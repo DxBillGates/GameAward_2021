@@ -105,7 +105,6 @@ public class EnemyBehaviour : MonoBehaviour
         if(t == 0)
         {
             hp -= value;
-            Debug.Log(hp);
             scaleLerp = true;
             audioManager.hitSE.Play();
         }
