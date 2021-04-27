@@ -13,12 +13,16 @@ public class LerpBehaviour : MonoBehaviour
     public bool frontLerpMode;
     public float t;
     public bool isAutoMove;
-    bool isMove;
+    public bool isMove;
     public string str;
     public bool leftMove;
     public ChangePartsSystemBehavior changePartsSystemBehavior;
     ObjectBehavior objectBehavior;
     // Start is called before the first frame update
+    private void Awake()
+    {
+
+    }
     void Start()
     {
         Initialize();
@@ -29,7 +33,6 @@ public class LerpBehaviour : MonoBehaviour
         changePartsSystemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         //leftMove = true;
         lerpPoints = new List<Transform>();
-
     }
 
     // Update is called once per frame
