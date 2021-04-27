@@ -905,7 +905,7 @@ GameObject:
   - component: {fileID: 305628622}
   - component: {fileID: 305628621}
   - component: {fileID: 305628626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,6 +925,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endObject: {fileID: 690926162}
+  isCreate: 0
+  isDelete: 0
 --- !u!65 &305628622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -994,13 +996,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305628620}
-  m_LocalRotation: {x: -0, y: -0, z: -0.2809741, w: 0.9597154}
-  m_LocalPosition: {x: 14.08, y: 45.63, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.019401785, w: 0.99981177}
+  m_LocalPosition: {x: 1.2, y: 49.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 31
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -32.637}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.223}
 --- !u!114 &305628626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1790,7 +1792,7 @@ GameObject:
   - component: {fileID: 690926164}
   - component: {fileID: 690926163}
   - component: {fileID: 690926167}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4224,6 +4226,7 @@ MonoBehaviour:
   clearFlag: 0
   boss: {fileID: 0}
   bossBehavior: {fileID: 0}
+  oldChangeFlag: 0
 --- !u!114 &1742849570
 MonoBehaviour:
   m_ObjectHideFlags: 0

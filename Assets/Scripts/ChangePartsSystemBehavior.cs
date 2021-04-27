@@ -19,6 +19,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     BossCreaterBehaviour bossCreaterBehaviour;
     public GameObject boss;
     public EnemyBehaviour bossBehavior;
+    public bool oldChangeFlag;
 
     void Start()
     {
@@ -33,6 +34,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
 
     void Update()
     {
+        oldChangeFlag = changeMode;
         if (bossCreaterBehaviour)
         {
             if (bossCreaterBehaviour.isCreate)

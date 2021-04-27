@@ -8,6 +8,7 @@ TagManager:
   - box
   - endBox
   - enemy
+  - lines
   layers:
   - Default
   - TransparentFX

@@ -29,7 +29,7 @@ public class LerpBehaviour : MonoBehaviour
         changePartsSystemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         //leftMove = true;
         lerpPoints = new List<Transform>();
-      
+
     }
 
     // Update is called once per frame
@@ -136,7 +136,7 @@ public class LerpBehaviour : MonoBehaviour
 
     void Move()
     {
-        float speed = Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed) * Time.deltaTime * objectBehavior.speed ;
+        float speed = Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed) * Time.deltaTime * objectBehavior.speed;
         if (isAutoMove)
         {
             if (frontLerpMode)
@@ -230,6 +230,98 @@ public class LerpBehaviour : MonoBehaviour
         float z = (transform.forward.z >= 0) ? 1 : -1;
         Vector3 newRightVector = Vector3.Cross(transform.up, new Vector3(0, 0, z));
         transform.rotation = Quaternion.FromToRotation(transform.right, newRightVector) * transform.rotation;
+    }
+
+    public void AnotherMoveFunc()
+    {
+        objectBehavior.speed = Vector3.Distance(frontList[0].position, frontList[1].position) + Vector3.Distance(frontList[1].position, frontList[2].position) / 2;
+        if (!oldLerpMode && !changePartsSystemBehavior.changeMode)
+            if (CheckHitPoint(backList[0].position))
+            {
+                lerpMode = true;
+                frontLerpMode = true;
+                AddList(true, backList);
+                str = "a";
+            }
+            else if (CheckHitPoint(backList[2].position))
+            {
+                lerpMode = true;
+                frontLerpMode = false;
+                AddList(false, backList);
+                str = "b";
+            }
+            else if (CheckHitPoint(frontList[0].position))
+            {
+                lerpMode = true;
+                frontLerpMode = false;
+                AddList(true, frontList);
+                str = "c";
+            }
+            else if (CheckHitPoint(frontList[2].position))
+            {
+                lerpMode = true;
+                frontLerpMode = true;
+                AddList(false, frontList);
+                str = "d";
+            }
+
+        if (!changePartsSystemBehavior.changeMode)
+            if (lerpMode)
+            {
+                Move();
+                if (index == 0)
+                {
+                    if (t < 0)
+                    {
+                        Initialize();
+                        SetRotate();
+                        return;
+                    }
+                }
+                if (index == lerpPoints.Count - 1)
+                {
+                    if (t > 1)
+                    {
+                        Initialize();
+                        SetRotate();
+                        return;
+                    }
+                }
+                if (t > 1)
+                {
+                    t = 1;
+                }
+                if (t < 0)
+                {
+                    t = 0;
+                }
+
+                if (index >= lerpPoints.Count - 1)
+                {
+                    Initialize();
+                    SetRotate();
+                    return;
+                }
+                transform.position = Vector3.Lerp(lerpPoints[index].position, lerpPoints[index + 1].position, t);
+
+                if (isMove)
+                {
+                    if (t == 1)
+                    {
+                        ++index;
+                        t = 0;
+                        isMove = false;
+                    }
+                    else if (t == 0)
+                    {
+                        --index;
+                        t = 1;
+                        isMove = false;
+                    }
+                }
+            }
+
+        oldLerpMode = lerpMode;
     }
 
 }

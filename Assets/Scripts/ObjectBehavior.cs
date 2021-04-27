@@ -55,7 +55,7 @@ public class ObjectBehavior : MonoBehaviour
                     {
                         if (!changePartsSystemBehavior.changeMode)
                         {
-                            transform.position += onNormal / 20;
+                            transform.position += onNormal / 10;
                         }
                     }
                 }
