@@ -53,8 +53,8 @@ public class LineCreaterBehaviour : MonoBehaviour
 
         if (isCreate && !lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode)
         {
-            while (true)
-            {
+            //while (true)
+            //{
                 LineCreaterMoveFunction();
                 lineCreaterLerpBehaviour.AnotherMoveFunc();
                 CreateTestObject(0.5f);
@@ -63,7 +63,7 @@ public class LineCreaterBehaviour : MonoBehaviour
                     isCreate = false;
                     isDelete = false;
                     Debug.Log("ê¨å˜ÇµÇ‹ÇµÇΩ");
-                    break;
+                    //break;
                 }
 
                 time += Time.deltaTime;
@@ -73,9 +73,9 @@ public class LineCreaterBehaviour : MonoBehaviour
                     time = 0;
                     isCreate = false;
                     isDelete = false;
-                    break;
+                    //break;
                 }
-            }
+            //}
         }
 
         if (lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode && !isDelete)
@@ -120,6 +120,8 @@ public class LineCreaterBehaviour : MonoBehaviour
             newTestObject.tag = "lines";
             newTestObject.transform.position = lineCreater.transform.position;
             newTestObject.transform.rotation = lineCreater.transform.rotation;
+
+            newTestObject.GetComponent<Collider>().isTrigger = false;
 
             LerpBehaviour player = GameObject.Find("Player").GetComponent<LerpBehaviour>();
 
