@@ -62,4 +62,17 @@ public class ObjectBehavior : MonoBehaviour
             }
         }
     }
+
+    public void AnotherUpdate()
+    {
+        if (!changePartsSystemBehavior.changeMode)
+        {
+            if (isFly)
+            {
+                transform.position += -onNormal / 10;
+            }
+            transform.position += fallVector;
+        }
+        SetParent();
+    }
 }

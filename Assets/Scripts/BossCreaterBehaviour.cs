@@ -70,6 +70,7 @@ public class BossCreaterBehaviour : MonoBehaviour
         newLerpBehvior.backList = player.backList;
         newLerpBehvior.isAutoMove = true;
         newLerpBehvior.leftMove = leftMode;
+        newLerpBehvior.lerpPoints = new List<Transform>();
 
         //エネミービヘイビアの設定
         newEnemyBehavior.onMove = false;

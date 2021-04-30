@@ -8,12 +8,19 @@ public class MoveBehaviour : MonoBehaviour
     LineLerpBehaviour lerpBehaviour;
     ObjectBehavior objectBehavior;
     public GameObject start, end;
+    public BatteryBehaviour batteryBehaviour { get; set; }
+    MeshRenderer meshRenderer;
+    BossCreaterBehaviour bossCreater;
+    FeverSystemBehaviour feverSystem;
     // Start is called before the first frame update
     void Start()
     {
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         lerpBehaviour = GetComponent<LineLerpBehaviour>();
         objectBehavior = GetComponent<ObjectBehavior>();
+        feverSystem = GameObject.Find("GameSystem").GetComponent<FeverSystemBehaviour>();
+        bossCreater = GameObject.Find("BossCreater").GetComponent<BossCreaterBehaviour>();
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -33,9 +40,41 @@ public class MoveBehaviour : MonoBehaviour
 
             if (Vector3.Distance(transform.position, end.transform.position) <= 1)
             {
-                transform.position = start.transform.position;
-                transform.rotation = start.transform.rotation;
+                if(batteryBehaviour.OutputEnergy())
+                {
+                    transform.position = start.transform.position;
+                    transform.rotation = start.transform.rotation;
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
+        }
+        meshRenderer.material.color = new Color(1,1-1.0f/batteryBehaviour.outputAmount,0,1);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("enemy"))
+        {
+            Debug.Log("Hit");
+            EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
+            int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
+            enemyBehaviour.Damage(value);
+            if (enemyBehaviour)
+                if (enemyBehaviour.hp <= 0)
+                {
+                    if (other.gameObject.name != "Boss")
+                    {
+                        Destroy(other.gameObject);
+                        feverSystem.IncreaseDeadCount();
+                    }
+                    else
+                        other.gameObject.SetActive(false);
+                    ++bossCreater.nowSacrificeCount;
+                }
+
         }
     }
 }

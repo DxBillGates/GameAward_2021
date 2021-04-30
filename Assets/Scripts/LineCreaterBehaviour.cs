@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LineCreaterBehaviour : MonoBehaviour
 {
+    public Mesh setMesh;
+    public Material setMaterial;
     GameObject lineCreater;
     ObjectBehavior lineCreaterObjectBehaviour;
     LerpBehaviour lineCreaterLerpBehaviour;
@@ -13,6 +15,7 @@ public class LineCreaterBehaviour : MonoBehaviour
     float t;
     float time;
     Vector3 onNormal;
+    BatteryBehaviour batteryBehaviour;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,28 +38,19 @@ public class LineCreaterBehaviour : MonoBehaviour
         isDelete = false;
         isCreate =false;
         t = 0;
+
+        batteryBehaviour = GetComponent<BatteryBehaviour>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    if (!isCreate)
-        //    {
-        //        lineCreater.transform.position = transform.position;
-        //        lineCreater.transform.rotation = transform.rotation;
-        //        Debug.Log("LineCreater生成");
-        //        isCreate = true;
-
-        //    }
-        //}
-
         if (isCreate && !lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode)
         {
             while (true)
             {
                 LineCreaterMoveFunction();
+                lineCreaterObjectBehaviour.AnotherUpdate();
                 lineCreaterLerpBehaviour.AnotherMoveFunc();
                 CreateTestObject(0.5f);
                 if (Vector3.Distance(lineCreater.transform.position, endObject.transform.position) <= 1)
@@ -121,19 +115,27 @@ public class LineCreaterBehaviour : MonoBehaviour
             newTestObject.tag = "lines";
             newTestObject.transform.position = lineCreater.transform.position;
             newTestObject.transform.rotation = lineCreater.transform.rotation;
+            newTestObject.AddComponent<Rigidbody>().useGravity = false;
 
-            newTestObject.GetComponent<Collider>().isTrigger = false;
+            newTestObject.GetComponent<Collider>().isTrigger = true;
 
             LerpBehaviour player = GameObject.Find("Player").GetComponent<LerpBehaviour>();
 
+            newTestObject.transform.localScale /= 2;
+
+            MeshFilter mf = newTestObject.GetComponent<MeshFilter>();
+            mf.mesh = setMesh;
+            MeshRenderer mr = newTestObject.GetComponent<MeshRenderer>();
+            mr.material = setMaterial;
             ObjectBehavior objBehaviour = newTestObject.AddComponent<ObjectBehavior>();
             LineLerpBehaviour lerpBehaviour = newTestObject.AddComponent<LineLerpBehaviour>();
             MoveBehaviour moveBehaviour = newTestObject.AddComponent<MoveBehaviour>();
             moveBehaviour.start = gameObject;
             moveBehaviour.end = endObject;
-            moveBehaviour.enabled = false;
+            moveBehaviour.enabled = true;
+            moveBehaviour.batteryBehaviour = batteryBehaviour;
             //ラープビヘイビアの設定
-            lerpBehaviour.enabled = false;
+            lerpBehaviour.enabled = true;
             lerpBehaviour.frontList = player.frontList;
             lerpBehaviour.backList = player.backList;
             lerpBehaviour.lerpPoints = new List<Vector3>();
