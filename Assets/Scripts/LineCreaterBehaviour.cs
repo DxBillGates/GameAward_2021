@@ -67,7 +67,7 @@ public class LineCreaterBehaviour : MonoBehaviour
                 }
 
                 time += Time.deltaTime;
-                if (time >= 60)
+                if (time >= 120)
                 {
                     Debug.Log("失敗しました");
                     time = 0;
@@ -98,7 +98,7 @@ public class LineCreaterBehaviour : MonoBehaviour
     {
         RaycastHit hit;
         //下方にレイキャストを行い入れ替え中でなければ乗っているパーツと親子関係を設定
-        if (Physics.Raycast(lineCreater.transform.position, -lineCreater.transform.up, out hit, 5))
+        if (Physics.Raycast(lineCreater.transform.position, -lineCreater.transform.up, out hit, 1))
         {
             if (hit.collider.gameObject.layer == 7)
             {
