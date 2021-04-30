@@ -28,28 +28,29 @@ public class LineCreaterBehaviour : MonoBehaviour
         //ラープビヘイビアの設定
         lineCreaterLerpBehaviour.frontList = player.frontList;
         lineCreaterLerpBehaviour.backList = player.backList;
+        lineCreaterLerpBehaviour.lerpPoints = new List<Transform>();
         lineCreaterLerpBehaviour.isAutoMove = true;
         lineCreaterLerpBehaviour.leftMove = false;
 
         isDelete = false;
-        isCreate = false;
+        isCreate =false;
         t = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!isCreate)
-            {
-                lineCreater.transform.position = transform.position;
-                lineCreater.transform.rotation = transform.rotation;
-                Debug.Log("LineCreater生成");
-                isCreate = true;
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (!isCreate)
+        //    {
+        //        lineCreater.transform.position = transform.position;
+        //        lineCreater.transform.rotation = transform.rotation;
+        //        Debug.Log("LineCreater生成");
+        //        isCreate = true;
 
-            }
-        }
+        //    }
+        //}
 
         if (isCreate && !lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode)
         {
@@ -63,8 +64,8 @@ public class LineCreaterBehaviour : MonoBehaviour
                     isCreate = false;
                     isDelete = false;
                     Debug.Log("成功しました");
-                    break;
-                }
+                break;
+            }
 
                 time += Time.deltaTime;
                 if (time >= 120)
@@ -73,10 +74,10 @@ public class LineCreaterBehaviour : MonoBehaviour
                     time = 0;
                     isCreate = false;
                     isDelete = false;
-                    break;
-                }
+                break;
             }
         }
+    }
 
         if (lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode && !isDelete)
         {
@@ -126,13 +127,17 @@ public class LineCreaterBehaviour : MonoBehaviour
             LerpBehaviour player = GameObject.Find("Player").GetComponent<LerpBehaviour>();
 
             ObjectBehavior objBehaviour = newTestObject.AddComponent<ObjectBehavior>();
-            LerpBehaviour lerpBehaviour = newTestObject.AddComponent<LerpBehaviour>();
+            LineLerpBehaviour lerpBehaviour = newTestObject.AddComponent<LineLerpBehaviour>();
             MoveBehaviour moveBehaviour = newTestObject.AddComponent<MoveBehaviour>();
             moveBehaviour.start = gameObject;
             moveBehaviour.end = endObject;
+            moveBehaviour.enabled = false;
             //ラープビヘイビアの設定
+            lerpBehaviour.enabled = false;
             lerpBehaviour.frontList = player.frontList;
             lerpBehaviour.backList = player.backList;
+            lerpBehaviour.lerpPoints = new List<Vector3>();
+
             lerpBehaviour.isAutoMove = lineCreaterLerpBehaviour.isAutoMove;
             lerpBehaviour.leftMove = lineCreaterLerpBehaviour.leftMove;
             lerpBehaviour.frontLerpMode = lineCreaterLerpBehaviour.frontLerpMode;
@@ -143,7 +148,7 @@ public class LineCreaterBehaviour : MonoBehaviour
             lerpBehaviour.lerpMode = lineCreaterLerpBehaviour.lerpMode;
             //lerpBehaviour.lerpPoints = new List<Transform>();
 
-            lerpBehaviour.lerpPoints = lineCreaterLerpBehaviour.lerpPoints;
+            lerpBehaviour.lerpPoints = lineCreaterLerpBehaviour.GetLerpPoints();
             lerpBehaviour.index = lineCreaterLerpBehaviour.index;
             lerpBehaviour.t = lineCreaterLerpBehaviour.t;
             //lerpBehaviour.enabled = false;

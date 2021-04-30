@@ -5,14 +5,14 @@ using UnityEngine;
 public class MoveBehaviour : MonoBehaviour
 {
     ChangePartsSystemBehavior systemBehavior;
-    LerpBehaviour lerpBehaviour;
+    LineLerpBehaviour lerpBehaviour;
     ObjectBehavior objectBehavior;
     public GameObject start, end;
     // Start is called before the first frame update
     void Start()
     {
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
-        lerpBehaviour = GetComponent<LerpBehaviour>();
+        lerpBehaviour = GetComponent<LineLerpBehaviour>();
         objectBehavior = GetComponent<ObjectBehavior>();
     }
 

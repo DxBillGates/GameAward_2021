@@ -1,12 +1,12 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LerpBehaviour : MonoBehaviour
+public class LineLerpBehaviour : MonoBehaviour
 {
     public List<Transform> frontList;
     public List<Transform> backList;
-    public List<Transform> lerpPoints;
+    public List<Vector3> lerpPoints;
     public int index;
     public bool lerpMode;
     public bool oldLerpMode;
@@ -25,10 +25,10 @@ public class LerpBehaviour : MonoBehaviour
     }
     void Start()
     {
-        Initialize();
-        frontLerpMode = false;
-        oldLerpMode = false;
-        isMove = false;
+        //Initialize();
+        //frontLerpMode = false;
+        //oldLerpMode = false;
+        //isMove = false;
         objectBehavior = GetComponent<ObjectBehavior>();
         changePartsSystemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         //leftMove = true;
@@ -106,7 +106,7 @@ public class LerpBehaviour : MonoBehaviour
                     SetRotate();
                     return;
                 }
-                transform.position = Vector3.Lerp(lerpPoints[index].position, lerpPoints[index + 1].position, t);
+                transform.position = Vector3.Lerp(lerpPoints[index], lerpPoints[index + 1], t);
 
                 if (isMove)
                 {
@@ -207,14 +207,14 @@ public class LerpBehaviour : MonoBehaviour
         {
             for (int i = 0; i < transforms.Count; ++i)
             {
-                lerpPoints.Add(transforms[i]);
+                lerpPoints.Add(transforms[i].position);
             }
         }
         else
         {
             for (int i = transforms.Count - 1; i >= 0; --i)
             {
-                lerpPoints.Add(transforms[i]);
+                lerpPoints.Add(transforms[i].position);
             }
         }
     }
@@ -229,7 +229,7 @@ public class LerpBehaviour : MonoBehaviour
 
     void SetRotate()
     {
-        //æŽ¥åœ°é¢ã®æ³•ç·šã¨Zè»¸ï¼ˆVector3(0,0,1)ï¼‰ã‹ã‚‰é©åˆ‡ãªXè»¸ã‚’ç”Ÿæˆã—ã¦ãã®æ–¹å‘ã‚’å‘ã‹ã›ã‚‹
+        //Ú’n–Ê‚Ì–@ü‚ÆZŽ²iVector3(0,0,1)j‚©‚ç“KØ‚ÈXŽ²‚ð¶¬‚µ‚Ä‚»‚Ì•ûŒü‚ðŒü‚©‚¹‚é
         float z = (transform.forward.z >= 0) ? 1 : -1;
         Vector3 newRightVector = Vector3.Cross(transform.up, new Vector3(0, 0, z));
         transform.rotation = Quaternion.FromToRotation(transform.right, newRightVector) * transform.rotation;
@@ -305,7 +305,7 @@ public class LerpBehaviour : MonoBehaviour
                     SetRotate();
                     return;
                 }
-                transform.position = Vector3.Lerp(lerpPoints[index].position, lerpPoints[index + 1].position, t);
+                transform.position = Vector3.Lerp(lerpPoints[index], lerpPoints[index + 1], t);
 
                 if (isMove)
                 {
@@ -327,14 +327,4 @@ public class LerpBehaviour : MonoBehaviour
         oldLerpMode = lerpMode;
     }
 
-
-    public List<Vector3> GetLerpPoints()
-    {
-        List<Vector3> points = new List<Vector3>();
-        foreach (var i in lerpPoints)
-        {
-            points.Add(i.position);
-        }
-        return points;
-    }
 }

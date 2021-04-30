@@ -13,7 +13,7 @@ public class GameSystemBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 144;
+        Application.targetFrameRate = 60;
         systemBehavior = GetComponent<ChangePartsSystemBehavior>();
         selectedObject = null;
         selectObject = null;
