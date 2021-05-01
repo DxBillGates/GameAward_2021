@@ -71,6 +71,7 @@ public class EnemyCreaterBehavior : MonoBehaviour
 
         //オブジェクトビヘイビアの設定
         newObjectBehavior.fallVector = fallVector.normalized / 10;
+        newObjectBehavior.addSpeed = prefabObjBehavior.addSpeed;
 
         //ラープビヘイビアの設定
         newLerpBehvior.frontList = player.frontList;

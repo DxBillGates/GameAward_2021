@@ -805,13 +805,17 @@ PrefabInstance:
       propertyPath: lineObj
       value: 
       objectReference: {fileID: 5974970510943954082, guid: f1f249c977a29e842a31542a9cdbc1af, type: 3}
+    - target: {fileID: -4102480944713141319, guid: 1446dfd907112544d9a63e3ee2f344f9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2083705995847077811, guid: 1446dfd907112544d9a63e3ee2f344f9, type: 3}
       propertyPath: m_Name
       value: First
       objectReference: {fileID: 0}
     - target: {fileID: 2083705995847077811, guid: 1446dfd907112544d9a63e3ee2f344f9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3993924248798984504, guid: 1446dfd907112544d9a63e3ee2f344f9, type: 3}
       propertyPath: m_Mesh
@@ -912,7 +916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &305628621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -925,11 +929,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831a1442d59599d46b63fed6c8554e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setMesh: {fileID: 4068373912626513877, guid: e1dbf41f7792c21428f82a7583780f91, type: 3}
-  setMaterial: {fileID: 1567818261435876064, guid: e1dbf41f7792c21428f82a7583780f91, type: 3}
   endObject: {fileID: 690926162}
   isCreate: 0
   isDelete: 0
+  prefab: {fileID: 3944207772649576557, guid: f81920c322279b44c94f507ab06a16c1, type: 3}
 --- !u!65 &305628622
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1036,7 +1039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amountEnergy: 100
-  outputAmount: 1
+  outputAmount: 0
   increaseEnergyValue: 1
   batteryUI: {fileID: 1672621991}
 --- !u!1001 &347993551
@@ -1817,7 +1820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &690926163
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2106,13 +2109,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3853892694771633485, guid: c644e5bdc02007b48931766bdf6e7836, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 500410851766306998, guid: c644e5bdc02007b48931766bdf6e7836, type: 3}
       propertyPath: m_Name
       value: Second
       objectReference: {fileID: 0}
     - target: {fileID: 500410851766306998, guid: c644e5bdc02007b48931766bdf6e7836, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 519686209492537348, guid: c644e5bdc02007b48931766bdf6e7836, type: 3}
       propertyPath: m_RootOrder
@@ -3654,6 +3661,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22aba250346d8be43a61258a81329dcc, type: 3}
+--- !u!1 &1440596628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2083705995847077811, guid: 1446dfd907112544d9a63e3ee2f344f9, type: 3}
+  m_PrefabInstance: {fileID: 301525720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1440596629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440596628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe13fa4622a42b41bb42b75cf14b601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountEnergy: 100
+  outputAmount: 0
+  increaseEnergyValue: 1
+  batteryUI: {fileID: 1672621991}
+--- !u!114 &1440596635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440596628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831a1442d59599d46b63fed6c8554e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endObject: {fileID: 1700298740}
+  isCreate: 0
+  isDelete: 0
+  prefab: {fileID: 3944207772649576557, guid: f81920c322279b44c94f507ab06a16c1, type: 3}
 --- !u!1 &1479263912
 GameObject:
   m_ObjectHideFlags: 0
@@ -4281,6 +4325,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672621990}
   m_CullTransparentMesh: 1
+--- !u!1 &1700298740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 500410851766306998, guid: c644e5bdc02007b48931766bdf6e7836, type: 3}
+  m_PrefabInstance: {fileID: 781828511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1742849568
 GameObject:
   m_ObjectHideFlags: 0

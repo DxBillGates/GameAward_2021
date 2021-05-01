@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class LineCreaterBehaviour : MonoBehaviour
 {
-    public Mesh setMesh;
-    public Material setMaterial;
     GameObject lineCreater;
     ObjectBehavior lineCreaterObjectBehaviour;
     LerpBehaviour lineCreaterLerpBehaviour;
@@ -16,6 +14,8 @@ public class LineCreaterBehaviour : MonoBehaviour
     float time;
     Vector3 onNormal;
     BatteryBehaviour batteryBehaviour;
+
+    public GameObject prefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,16 +36,17 @@ public class LineCreaterBehaviour : MonoBehaviour
         lineCreaterLerpBehaviour.leftMove = false;
 
         isDelete = false;
-        isCreate =false;
+        isCreate = false;
         t = 0;
-
+        lineCreater.transform.position = transform.position;
+        lineCreater.transform.rotation = transform.rotation;
         batteryBehaviour = GetComponent<BatteryBehaviour>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isCreate && !lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode && batteryBehaviour.outputAmount > 0)
+        if (isCreate && !lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode && batteryBehaviour.outputAmount > 0 && batteryBehaviour.amountEnergy > 0)
         {
             while (true)
             {
@@ -57,21 +58,25 @@ public class LineCreaterBehaviour : MonoBehaviour
                 {
                     isCreate = false;
                     isDelete = false;
+                    lineCreater.transform.position = transform.position;
+                    lineCreater.transform.rotation = transform.rotation;
                     Debug.Log("成功しました");
-                break;
-            }
+                    break;
+                }
 
                 time += Time.deltaTime;
                 if (time >= 120)
                 {
+                    lineCreater.transform.position = transform.position;
+                    lineCreater.transform.rotation = transform.rotation;
                     Debug.Log("失敗しました");
                     time = 0;
                     isCreate = false;
                     isDelete = false;
-                break;
+                    break;
+                }
             }
         }
-    }
 
         if (lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode && !isDelete)
         {
@@ -111,33 +116,28 @@ public class LineCreaterBehaviour : MonoBehaviour
         if (t >= timeSpan)
         {
             t = 0;
-            GameObject newTestObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            newTestObject.tag = "lines";
+
+            GameObject newTestObject = Instantiate(prefab);
             newTestObject.transform.position = lineCreater.transform.position;
             newTestObject.transform.rotation = lineCreater.transform.rotation;
-            newTestObject.AddComponent<Rigidbody>().useGravity = false;
 
-            newTestObject.GetComponent<Collider>().isTrigger = true;
-
-            LerpBehaviour player = GameObject.Find("Player").GetComponent<LerpBehaviour>();
+            //MeshFilter mf = newTestObject.GetComponent<MeshFilter>();
+            //mf.mesh = prefab.GetComponent<MeshFilter>().mesh;
 
             newTestObject.transform.localScale /= 2;
 
-            MeshFilter mf = newTestObject.GetComponent<MeshFilter>();
-            mf.mesh = setMesh;
-            MeshRenderer mr = newTestObject.GetComponent<MeshRenderer>();
-            mr.material = setMaterial;
-            ObjectBehavior objBehaviour = newTestObject.AddComponent<ObjectBehavior>();
-            LineLerpBehaviour lerpBehaviour = newTestObject.AddComponent<LineLerpBehaviour>();
-            MoveBehaviour moveBehaviour = newTestObject.AddComponent<MoveBehaviour>();
+            ObjectBehavior objBehaviour = newTestObject.GetComponent<ObjectBehavior>();
+            LineLerpBehaviour lerpBehaviour = newTestObject.GetComponent<LineLerpBehaviour>();
+            MoveBehaviour moveBehaviour = newTestObject.GetComponent<MoveBehaviour>();
+
             moveBehaviour.start = gameObject;
             moveBehaviour.end = endObject;
             moveBehaviour.enabled = true;
             moveBehaviour.batteryBehaviour = batteryBehaviour;
             //ラープビヘイビアの設定
             lerpBehaviour.enabled = true;
-            lerpBehaviour.frontList = player.frontList;
-            lerpBehaviour.backList = player.backList;
+            lerpBehaviour.frontList = lineCreaterLerpBehaviour.frontList;
+            lerpBehaviour.backList = lineCreaterLerpBehaviour.backList;
             lerpBehaviour.lerpPoints = new List<Vector3>();
 
             lerpBehaviour.isAutoMove = lineCreaterLerpBehaviour.isAutoMove;
@@ -154,6 +154,49 @@ public class LineCreaterBehaviour : MonoBehaviour
             lerpBehaviour.index = lineCreaterLerpBehaviour.index;
             lerpBehaviour.t = lineCreaterLerpBehaviour.t;
             //lerpBehaviour.enabled = false;
+            //GameObject newTestObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            //newTestObject.tag = "lines";
+            //newTestObject.transform.position = lineCreater.transform.position;
+            //newTestObject.transform.rotation = lineCreater.transform.rotation;
+            //newTestObject.AddComponent<Rigidbody>().useGravity = false;
+
+            //newTestObject.GetComponent<Collider>().isTrigger = true;
+
+            //LerpBehaviour player = GameObject.Find("Player").GetComponent<LerpBehaviour>();
+
+            //newTestObject.transform.localScale /= 2;
+
+            //MeshFilter mf = newTestObject.GetComponent<MeshFilter>();
+            //mf.mesh = setMesh;
+            //MeshRenderer mr = newTestObject.GetComponent<MeshRenderer>();
+            //mr.material = setMaterial;
+            //ObjectBehavior objBehaviour = newTestObject.AddComponent<ObjectBehavior>();
+            //LineLerpBehaviour lerpBehaviour = newTestObject.AddComponent<LineLerpBehaviour>();
+            //MoveBehaviour moveBehaviour = newTestObject.AddComponent<MoveBehaviour>();
+            //moveBehaviour.start = gameObject;
+            //moveBehaviour.end = endObject;
+            //moveBehaviour.enabled = true;
+            //moveBehaviour.batteryBehaviour = batteryBehaviour;
+            ////ラープビヘイビアの設定
+            //lerpBehaviour.enabled = true;
+            //lerpBehaviour.frontList = player.frontList;
+            //lerpBehaviour.backList = player.backList;
+            //lerpBehaviour.lerpPoints = new List<Vector3>();
+
+            //lerpBehaviour.isAutoMove = lineCreaterLerpBehaviour.isAutoMove;
+            //lerpBehaviour.leftMove = lineCreaterLerpBehaviour.leftMove;
+            //lerpBehaviour.frontLerpMode = lineCreaterLerpBehaviour.frontLerpMode;
+            //lerpBehaviour.str = lineCreaterLerpBehaviour.str;
+            //lerpBehaviour.isMove = lineCreaterLerpBehaviour.isMove;
+            //lerpBehaviour.oldLerpMode = lineCreaterLerpBehaviour.oldLerpMode;
+
+            //lerpBehaviour.lerpMode = lineCreaterLerpBehaviour.lerpMode;
+            ////lerpBehaviour.lerpPoints = new List<Transform>();
+
+            //lerpBehaviour.lerpPoints = lineCreaterLerpBehaviour.GetLerpPoints();
+            //lerpBehaviour.index = lineCreaterLerpBehaviour.index;
+            //lerpBehaviour.t = lineCreaterLerpBehaviour.t;
+            ////lerpBehaviour.enabled = false;
         }
     }
 
@@ -165,5 +208,40 @@ public class LineCreaterBehaviour : MonoBehaviour
         {
             Destroy(line);
         }
+    }
+
+    public void CreateLine()
+    {
+        isCreate = true;
+        if (isCreate && !lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode && batteryBehaviour.outputAmount > 0)
+        {
+            while (true)
+            {
+                LineCreaterMoveFunction();
+                lineCreaterObjectBehaviour.AnotherUpdate();
+                lineCreaterLerpBehaviour.AnotherMoveFunc();
+                CreateTestObject(0.5f);
+                if (Vector3.Distance(lineCreater.transform.position, endObject.transform.position) <= 1)
+                {
+                    isCreate = false;
+                    isDelete = false;
+                    lineCreater.transform.position = transform.position;
+                    lineCreater.transform.rotation = transform.rotation;
+                    Debug.Log("成功しました");
+                    break;
+                }
+
+                time += Time.deltaTime;
+                if (time >= 120)
+                {
+                    Debug.Log("失敗しました");
+                    time = 0;
+                    isCreate = false;
+                    isDelete = false;
+                    break;
+                }
+            }
+        }
+
     }
 }

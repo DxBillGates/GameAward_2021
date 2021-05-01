@@ -31,18 +31,17 @@ public class MoveBehaviour : MonoBehaviour
             transform.rotation = Quaternion.FromToRotation(transform.up, objectBehavior.onNormal) * transform.rotation;
             if (lerpBehaviour.leftMove)
             {
-                transform.position += transform.right * Time.deltaTime * 10;
+                transform.position += transform.right * Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed);
             }
             else
             {
-                transform.position -= transform.right * Time.deltaTime * 10;
+                transform.position -= transform.right * Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed);
             }
 
             if (Vector3.Distance(transform.position, end.transform.position) <= 1)
             {
                 if(batteryBehaviour.OutputEnergy())
                 {
-                    Debug.Log(batteryBehaviour.outputAmount);
                     transform.position = start.transform.position;
                     transform.rotation = start.transform.rotation;
                 }
@@ -59,7 +58,6 @@ public class MoveBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("enemy"))
         {
-            Debug.Log("Hit");
             EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
             int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
             enemyBehaviour.Damage(value);

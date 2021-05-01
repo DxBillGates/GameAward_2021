@@ -123,6 +123,7 @@ MonoBehaviour:
   frontLerpMode: 0
   t: 0
   isAutoMove: 0
+  isMove: 0
   str: 
   leftMove: 0
   changePartsSystemBehavior: {fileID: 0}
