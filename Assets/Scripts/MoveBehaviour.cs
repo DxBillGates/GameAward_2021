@@ -42,6 +42,7 @@ public class MoveBehaviour : MonoBehaviour
             {
                 if(batteryBehaviour.OutputEnergy())
                 {
+                    Debug.Log(batteryBehaviour.outputAmount);
                     transform.position = start.transform.position;
                     transform.rotation = start.transform.rotation;
                 }

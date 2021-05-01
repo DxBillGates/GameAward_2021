@@ -35,9 +35,13 @@ public class BatteryBehaviour : MonoBehaviour
     public bool OutputEnergy()
     {
         amountEnergy -= outputAmount;
-        if (amountEnergy < 0)
+        if (amountEnergy <= 0)
         {
             amountEnergy = 0;
+            return false;
+        }
+        if(outputAmount <= 0)
+        {
             return false;
         }
         return true;
@@ -53,7 +57,7 @@ public class BatteryBehaviour : MonoBehaviour
         outputAmount -= increaseEnergyValue;
         if(outputAmount <= 0)
         {
-            outputAmount = 1;
+            outputAmount = 0;
         }
     }
 }
