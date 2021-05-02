@@ -11,14 +11,15 @@ public class MoveBehaviour : MonoBehaviour
     public BatteryBehaviour batteryBehaviour { get; set; }
     MeshRenderer meshRenderer;
     BossCreaterBehaviour bossCreater;
-    FeverSystemBehaviour feverSystem;
+    //FeverSystemBehaviour feverSystem;
     // Start is called before the first frame update
+    public float addDamageValue;
     void Start()
     {
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         lerpBehaviour = GetComponent<NewLerpBehaviour>();
         objectBehavior = GetComponent<ObjectBehavior>();
-        feverSystem = GameObject.Find("GameSystem").GetComponent<FeverSystemBehaviour>();
+        //feverSystem = GameObject.Find("GameSystem").GetComponent<FeverSystemBehaviour>();
         bossCreater = GameObject.Find("BossCreater").GetComponent<BossCreaterBehaviour>();
         meshRenderer = GetComponent<MeshRenderer>();
     }
@@ -44,6 +45,7 @@ public class MoveBehaviour : MonoBehaviour
                 {
                     transform.position = start.transform.position;
                     transform.rotation = start.transform.rotation;
+                    addDamageValue = 0;
                 }
                 else
                 {
@@ -51,7 +53,7 @@ public class MoveBehaviour : MonoBehaviour
                 }
             }
         }
-        meshRenderer.material.color = new Color(1,1-1.0f/batteryBehaviour.outputAmount,0,1);
+        meshRenderer.material.color = new Color(1,1-1.0f/batteryBehaviour.outputAmount + addDamageValue,0,1);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,7 +61,9 @@ public class MoveBehaviour : MonoBehaviour
         if (other.gameObject.CompareTag("enemy"))
         {
             EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
-            int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
+            //int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
+            int value;
+            value = (int)batteryBehaviour.outputAmount;
             enemyBehaviour.Damage(value);
             if (enemyBehaviour)
                 if (enemyBehaviour.hp <= 0)
@@ -67,13 +71,17 @@ public class MoveBehaviour : MonoBehaviour
                     if (other.gameObject.name != "Boss")
                     {
                         Destroy(other.gameObject);
-                        feverSystem.IncreaseDeadCount();
+                        //feverSystem.IncreaseDeadCount();
                     }
                     else
                         other.gameObject.SetActive(false);
                     ++bossCreater.nowSacrificeCount;
                 }
 
+        }
+        if (other.gameObject.CompareTag("amplifier"))
+        {
+            addDamageValue = other.gameObject.GetComponent<AmplifierBehaviour>().addValue;
         }
     }
 }

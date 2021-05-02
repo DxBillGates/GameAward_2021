@@ -9,6 +9,7 @@ TagManager:
   - endBox
   - enemy
   - lines
+  - amplifier
   layers:
   - Default
   - TransparentFX

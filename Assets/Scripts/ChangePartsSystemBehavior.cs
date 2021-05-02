@@ -20,6 +20,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     public GameObject boss;
     public EnemyBehaviour bossBehavior;
     public bool oldChangeFlag;
+    BatteryBehaviour batteryBehaviour;
 
     void Start()
     {
@@ -30,6 +31,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         bossCreaterBehaviour = GameObject.Find("BossCreater").GetComponent<BossCreaterBehaviour>();
         bossBehavior = null;
         boss = null;
+        batteryBehaviour = GameObject.Find("First").GetComponent<BatteryBehaviour>();
     }
 
     void Update()
@@ -54,7 +56,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
                 clearFlag = true;
             }
         }
-        if (coreBehaviour.hp <= 0)
+        if (coreBehaviour.hp <= 0 || batteryBehaviour.amountEnergy <= 0)
         {
             SceneManager.LoadScene("GameOverScene");
         }

@@ -14,11 +14,13 @@ public class LineCreaterBehaviour : MonoBehaviour
     float time;
     Vector3 onNormal;
     BatteryBehaviour batteryBehaviour;
+    float addDamage;
 
     public GameObject prefab;
     // Start is called before the first frame update
     void Start()
     {
+        addDamage = 0;
         onNormal = new Vector3();
         time = 0;
         lineCreater = new GameObject();
@@ -60,6 +62,7 @@ public class LineCreaterBehaviour : MonoBehaviour
                     isDelete = false;
                     lineCreater.transform.position = transform.position;
                     lineCreater.transform.rotation = transform.rotation;
+                    addDamage = 0;
                     Debug.Log("ê¨å˜ÇµÇ‹ÇµÇΩ");
                     break;
                 }
@@ -69,6 +72,7 @@ public class LineCreaterBehaviour : MonoBehaviour
                 {
                     lineCreater.transform.position = transform.position;
                     lineCreater.transform.rotation = transform.rotation;
+                    addDamage = 0;
                     Debug.Log("é∏îsÇµÇ‹ÇµÇΩ");
                     time = 0;
                     isCreate = false;
@@ -106,6 +110,15 @@ public class LineCreaterBehaviour : MonoBehaviour
                 onNormal = hit.normal;
             }
         }
+
+        if(Physics.Raycast(lineCreater.transform.position,-lineCreater.transform.right,out hit,1))
+        {
+            if(hit.collider.gameObject.CompareTag("amplifier"))
+            {
+                Debug.Log("Hit");
+                addDamage = hit.collider.gameObject.GetComponent<AmplifierBehaviour>().addValue;
+            }
+        }
         lineCreater.transform.rotation = Quaternion.FromToRotation(lineCreater.transform.up, onNormal) * lineCreater.transform.rotation;
         lineCreater.transform.position += -lineCreater.transform.right * Time.deltaTime * 10;
     }
@@ -133,6 +146,7 @@ public class LineCreaterBehaviour : MonoBehaviour
             moveBehaviour.end = endObject;
             moveBehaviour.enabled = true;
             moveBehaviour.batteryBehaviour = batteryBehaviour;
+            moveBehaviour.addDamageValue = addDamage;
             //ÉâÅ[ÉvÉrÉwÉCÉrÉAÇÃê›íË
             lerpBehaviour.enabled = true;
             lerpBehaviour.frontList = lineCreaterLerpBehaviour.frontList;
@@ -209,38 +223,38 @@ public class LineCreaterBehaviour : MonoBehaviour
         }
     }
 
-    public void CreateLine()
-    {
-        isCreate = true;
-        if (isCreate && !lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode && batteryBehaviour.outputAmount > 0)
-        {
-            while (true)
-            {
-                LineCreaterMoveFunction();
-                lineCreaterObjectBehaviour.AnotherUpdate();
-                lineCreaterLerpBehaviour.AnotherMoveFunc();
-                CreateTestObject(0.5f);
-                if (Vector3.Distance(lineCreater.transform.position, endObject.transform.position) <= 1)
-                {
-                    isCreate = false;
-                    isDelete = false;
-                    lineCreater.transform.position = transform.position;
-                    lineCreater.transform.rotation = transform.rotation;
-                    Debug.Log("ê¨å˜ÇµÇ‹ÇµÇΩ");
-                    break;
-                }
+    //public void CreateLine()
+    //{
+    //    isCreate = true;
+    //    if (isCreate && !lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode && batteryBehaviour.outputAmount > 0)
+    //    {
+    //        while (true)
+    //        {
+    //            LineCreaterMoveFunction();
+    //            lineCreaterObjectBehaviour.AnotherUpdate();
+    //            lineCreaterLerpBehaviour.AnotherMoveFunc();
+    //            CreateTestObject(0.5f);
+    //            if (Vector3.Distance(lineCreater.transform.position, endObject.transform.position) <= 1)
+    //            {
+    //                isCreate = false;
+    //                isDelete = false;
+    //                lineCreater.transform.position = transform.position;
+    //                lineCreater.transform.rotation = transform.rotation;
+    //                Debug.Log("ê¨å˜ÇµÇ‹ÇµÇΩ");
+    //                break;
+    //            }
 
-                time += Time.deltaTime;
-                if (time >= 120)
-                {
-                    Debug.Log("é∏îsÇµÇ‹ÇµÇΩ");
-                    time = 0;
-                    isCreate = false;
-                    isDelete = false;
-                    break;
-                }
-            }
-        }
+    //            time += Time.deltaTime;
+    //            if (time >= 120)
+    //            {
+    //                Debug.Log("é∏îsÇµÇ‹ÇµÇΩ");
+    //                time = 0;
+    //                isCreate = false;
+    //                isDelete = false;
+    //                break;
+    //            }
+    //        }
+    //    }
 
-    }
+    //}
 }

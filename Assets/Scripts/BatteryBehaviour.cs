@@ -12,9 +12,13 @@ public class BatteryBehaviour : MonoBehaviour
     float initialAmountEnergy;
     float oldOutputAmount;
     LineCreaterBehaviour lineCreater;
+    public float recoveryTime;
+    public float recoveryValue;
+    float recT;
     // Start is called before the first frame update
     void Start()
     {
+        recT = 0;
         oldOutputAmount = 0;
         initialUISize = batteryUI.localScale;
         initialAmountEnergy = amountEnergy;
@@ -50,6 +54,13 @@ public class BatteryBehaviour : MonoBehaviour
                     }
                 }
             }
+        }
+
+        recT += Time.deltaTime;
+        if(recT >= recoveryTime)
+        {
+            recT = 0;
+            amountEnergy += recoveryValue;
         }
 
     }
