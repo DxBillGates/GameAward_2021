@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9127069928461027180}
   - component: {fileID: 6145913155267974813}
   - component: {fileID: 3065419866158865162}
+  - component: {fileID: 2379663283306511267}
   - component: {fileID: -5219256755315108790}
   - component: {fileID: 4698752211172132477}
   m_Layer: 0
@@ -123,9 +124,34 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3944207772649576557}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebb50aea9056ee247a408af87a04a905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontList: []
+  backList: []
+  lerpPoints: []
+  index: 0
+  lerpMode: 0
+  oldLerpMode: 0
+  frontLerpMode: 0
+  t: 0
+  isAutoMove: 0
+  isMove: 0
+  str: 
+  leftMove: 0
+  changePartsSystemBehavior: {fileID: 0}
+--- !u!114 &2379663283306511267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3944207772649576557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 669fc82a9f3684a47b9a9a26af10ccfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   frontList: []

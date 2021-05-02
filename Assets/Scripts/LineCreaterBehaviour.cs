@@ -127,9 +127,8 @@ public class LineCreaterBehaviour : MonoBehaviour
             newTestObject.transform.localScale /= 2;
 
             ObjectBehavior objBehaviour = newTestObject.GetComponent<ObjectBehavior>();
-            LineLerpBehaviour lerpBehaviour = newTestObject.GetComponent<LineLerpBehaviour>();
+            NewLerpBehaviour lerpBehaviour = newTestObject.GetComponent<NewLerpBehaviour>();
             MoveBehaviour moveBehaviour = newTestObject.GetComponent<MoveBehaviour>();
-
             moveBehaviour.start = gameObject;
             moveBehaviour.end = endObject;
             moveBehaviour.enabled = true;

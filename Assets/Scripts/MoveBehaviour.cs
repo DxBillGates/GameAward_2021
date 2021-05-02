@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveBehaviour : MonoBehaviour
 {
     ChangePartsSystemBehavior systemBehavior;
-    LineLerpBehaviour lerpBehaviour;
+    NewLerpBehaviour lerpBehaviour;
     ObjectBehavior objectBehavior;
     public GameObject start, end;
     public BatteryBehaviour batteryBehaviour { get; set; }
@@ -16,7 +16,7 @@ public class MoveBehaviour : MonoBehaviour
     void Start()
     {
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
-        lerpBehaviour = GetComponent<LineLerpBehaviour>();
+        lerpBehaviour = GetComponent<NewLerpBehaviour>();
         objectBehavior = GetComponent<ObjectBehavior>();
         feverSystem = GameObject.Find("GameSystem").GetComponent<FeverSystemBehaviour>();
         bossCreater = GameObject.Find("BossCreater").GetComponent<BossCreaterBehaviour>();

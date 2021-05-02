@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LineLerpBehaviour : MonoBehaviour
+public class NewLerpBehaviour : MonoBehaviour
 {
     public List<Transform> frontList;
     public List<Transform> backList;
