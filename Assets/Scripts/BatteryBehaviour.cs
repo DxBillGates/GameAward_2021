@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BatteryBehaviour : MonoBehaviour
 {
@@ -8,19 +9,25 @@ public class BatteryBehaviour : MonoBehaviour
     public float outputAmount;
     public float increaseEnergyValue;
     public RectTransform batteryUI;
-    Vector3 initialUISize;
+    public RectTransform outputUI;
+    Vector3 initialbatteryUISize;
+    Vector3 initialOutputUISize;
     float initialAmountEnergy;
     float oldOutputAmount;
     LineCreaterBehaviour lineCreater;
     public float recoveryTime;
     public float recoveryValue;
     float recT;
+
+    public Text amountEnergyText;
+    public Text outputAmountText;
     // Start is called before the first frame update
     void Start()
     {
         recT = 0;
         oldOutputAmount = 0;
-        initialUISize = batteryUI.localScale;
+        initialbatteryUISize = batteryUI.localScale;
+        initialOutputUISize = outputUI.localScale;
         initialAmountEnergy = amountEnergy;
         lineCreater = GameObject.Find("First").GetComponent<LineCreaterBehaviour>();
     }
@@ -28,7 +35,11 @@ public class BatteryBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        batteryUI.localScale = new Vector3(initialUISize.x, initialUISize.y * amountEnergy / initialAmountEnergy, initialUISize.z);
+        amountEnergyText.text = amountEnergy.ToString();
+        outputAmountText.text = outputAmount.ToString();
+
+        batteryUI.localScale = new Vector3(initialbatteryUISize.x, initialbatteryUISize.y * amountEnergy / initialAmountEnergy, initialbatteryUISize.z);
+        outputUI.localScale = new Vector3(initialOutputUISize.x,-outputAmount / initialAmountEnergy, initialOutputUISize.z);
         oldOutputAmount = outputAmount;
         float mouseWheelInput = Input.GetAxis("Mouse ScrollWheel");
         if (mouseWheelInput > 0)

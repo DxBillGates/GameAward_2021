@@ -14,6 +14,7 @@ public class MoveBehaviour : MonoBehaviour
     //FeverSystemBehaviour feverSystem;
     // Start is called before the first frame update
     public float addDamageValue;
+    public float green;
     void Start()
     {
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
@@ -53,7 +54,8 @@ public class MoveBehaviour : MonoBehaviour
                 }
             }
         }
-        meshRenderer.material.color = new Color(1,1-1.0f/batteryBehaviour.outputAmount + addDamageValue,0,1);
+        green = 1 - 1.0f / (batteryBehaviour.outputAmount + addDamageValue);
+        meshRenderer.material.color = new Color(1,1-1.0f/(batteryBehaviour.outputAmount + addDamageValue),0,1);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -81,7 +83,7 @@ public class MoveBehaviour : MonoBehaviour
         }
         if (other.gameObject.CompareTag("amplifier"))
         {
-            addDamageValue = other.gameObject.GetComponent<AmplifierBehaviour>().addValue;
+            addDamageValue += other.gameObject.GetComponent<AmplifierBehaviour>().addValue;
         }
     }
 }

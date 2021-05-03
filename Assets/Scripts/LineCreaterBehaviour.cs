@@ -15,11 +15,13 @@ public class LineCreaterBehaviour : MonoBehaviour
     Vector3 onNormal;
     BatteryBehaviour batteryBehaviour;
     float addDamage;
+    GameObject amplifier;
 
     public GameObject prefab;
     // Start is called before the first frame update
     void Start()
     {
+        amplifier = null;
         addDamage = 0;
         onNormal = new Vector3();
         time = 0;
@@ -62,6 +64,7 @@ public class LineCreaterBehaviour : MonoBehaviour
                     isDelete = false;
                     lineCreater.transform.position = transform.position;
                     lineCreater.transform.rotation = transform.rotation;
+                    amplifier = null;
                     addDamage = 0;
                     Debug.Log("成功しました");
                     break;
@@ -72,6 +75,7 @@ public class LineCreaterBehaviour : MonoBehaviour
                 {
                     lineCreater.transform.position = transform.position;
                     lineCreater.transform.rotation = transform.rotation;
+                    amplifier = null;
                     addDamage = 0;
                     Debug.Log("失敗しました");
                     time = 0;
@@ -111,12 +115,19 @@ public class LineCreaterBehaviour : MonoBehaviour
             }
         }
 
-        if(Physics.Raycast(lineCreater.transform.position,-lineCreater.transform.right,out hit,1))
+        if (Physics.Raycast(lineCreater.transform.position, -lineCreater.transform.right, out hit, 1))
         {
-            if(hit.collider.gameObject.CompareTag("amplifier"))
+            if (hit.collider.gameObject.CompareTag("amplifier"))
             {
-                Debug.Log("Hit");
-                addDamage = hit.collider.gameObject.GetComponent<AmplifierBehaviour>().addValue;
+                if (hit.collider.gameObject != amplifier)
+                {
+                    Debug.Log("Hit");
+                    Debug.Log("HitObjName:" + hit.collider.gameObject.name);
+                    Debug.Log("AddDamage:" + hit.collider.gameObject.GetComponent<AmplifierBehaviour>().addValue);
+                    addDamage += hit.collider.gameObject.GetComponent<AmplifierBehaviour>().addValue;
+                    Debug.Log("ResultDamage:" + addDamage);
+                    amplifier = hit.collider.gameObject;
+                }
             }
         }
         lineCreater.transform.rotation = Quaternion.FromToRotation(lineCreater.transform.up, onNormal) * lineCreater.transform.rotation;
@@ -146,6 +157,7 @@ public class LineCreaterBehaviour : MonoBehaviour
             moveBehaviour.end = endObject;
             moveBehaviour.enabled = true;
             moveBehaviour.batteryBehaviour = batteryBehaviour;
+            Debug.Log("SetDamage:" + addDamage);
             moveBehaviour.addDamageValue = addDamage;
             //ラープビヘイビアの設定
             lerpBehaviour.enabled = true;

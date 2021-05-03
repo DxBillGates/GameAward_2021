@@ -56,7 +56,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
                 clearFlag = true;
             }
         }
-        if (coreBehaviour.hp <= 0 || batteryBehaviour.amountEnergy <= 0)
+        if (coreBehaviour.hp <= 0/* || batteryBehaviour.amountEnergy <= 0*/)
         {
             SceneManager.LoadScene("GameOverScene");
         }
