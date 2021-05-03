@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 1
-  hp: 5
+  hp: 1
   damageSpan: 0.05
 --- !u!114 &2085299945689763907
 MonoBehaviour:

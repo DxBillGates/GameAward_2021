@@ -3680,12 +3680,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe13fa4622a42b41bb42b75cf14b601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountEnergy: 100
+  amountEnergy: 1000
   outputAmount: 0
   increaseEnergyValue: 1
   batteryUI: {fileID: 1672621991}
-  recoveryTime: 4
-  recoveryValue: 5
+  recoveryTime: 5
+  recoveryValue: 10
 --- !u!114 &1440596635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4579,6 +4579,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -990827640133677463, guid: 84de879d7cd3d0b48b4d150e357661eb, type: 3}
+      propertyPath: addValue
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5295657638922737682, guid: 84de879d7cd3d0b48b4d150e357661eb, type: 3}
       propertyPath: m_RootOrder
       value: 1
