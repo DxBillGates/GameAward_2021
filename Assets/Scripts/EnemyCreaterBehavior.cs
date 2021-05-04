@@ -56,18 +56,19 @@ public class EnemyCreaterBehavior : MonoBehaviour
         AttackBehaviour prefabAttackBehavior = prefabEnemy.GetComponent<AttackBehaviour>();
 
         //新規オブジェクトの生成
-        GameObject newGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+        GameObject newGameObject = Instantiate(prefabEnemy);
+        //GameObject newGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
         newGameObject.name = "CreatedEnemy";
 
-        //コライダーの切り替え
-        Destroy(newGameObject.GetComponent<Collider>());
-        newGameObject.AddComponent<BoxCollider>();
+        ////コライダーの切り替え
+        //Destroy(newGameObject.GetComponent<Collider>());
+        //newGameObject.AddComponent<BoxCollider>();
 
         //ビヘイビアを追加＆取得
-        ObjectBehavior newObjectBehavior = newGameObject.AddComponent<ObjectBehavior>();
-        LerpBehaviour newLerpBehvior = newGameObject.AddComponent<LerpBehaviour>();
-        EnemyBehaviour newEnemyBehavior = newGameObject.AddComponent<EnemyBehaviour>();
-        AttackBehaviour newAttackBehavior = newGameObject.AddComponent<AttackBehaviour>();
+        ObjectBehavior newObjectBehavior = newGameObject.GetComponent<ObjectBehavior>();
+        LerpBehaviour newLerpBehvior = newGameObject.GetComponent<LerpBehaviour>();
+        EnemyBehaviour newEnemyBehavior = newGameObject.GetComponent<EnemyBehaviour>();
+        AttackBehaviour newAttackBehavior = newGameObject.GetComponent<AttackBehaviour>();
 
         //オブジェクトビヘイビアの設定
         newObjectBehavior.fallVector = fallVector.normalized / 10;
@@ -80,14 +81,14 @@ public class EnemyCreaterBehavior : MonoBehaviour
         newLerpBehvior.leftMove = leftMode;
         newLerpBehvior.lerpPoints = new List<Transform>();
 
-        //エネミービヘイビアの設定
-        newEnemyBehavior.onMove = false;
-        newEnemyBehavior.damageSpan = prefabEnemyBehavior.damageSpan;
-        newEnemyBehavior.hp = prefabEnemyBehavior.hp;
+        ////エネミービヘイビアの設定
+        //newEnemyBehavior.onMove = false;
+        //newEnemyBehavior.damageSpan = prefabEnemyBehavior.damageSpan;
+        //newEnemyBehavior.hp = prefabEnemyBehavior.hp;
 
-        //アタックビヘイビアの設定
-        newAttackBehavior.timeSpan = prefabAttackBehavior.timeSpan;
-        newAttackBehavior.attackValue = prefabAttackBehavior.attackValue;
+        ////アタックビヘイビアの設定
+        //newAttackBehavior.timeSpan = prefabAttackBehavior.timeSpan;
+        //newAttackBehavior.attackValue = prefabAttackBehavior.attackValue;
 
         //生成オブジェクトの詳細設定
         newGameObject.tag = "enemy";

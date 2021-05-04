@@ -16,6 +16,7 @@ public class EnemyBehaviour : MonoBehaviour
     bool scaleLerp;
     float scaleLerpT;
     AudioManagerBehaviour audioManager;
+    public float takeDamageValue;
     // Start is called before the first frame update
     void Start()
     {
