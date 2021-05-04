@@ -42,7 +42,7 @@ public class MoveBehaviour : MonoBehaviour
 
             if (Vector3.Distance(transform.position, end.transform.position) <= 1)
             {
-                if(batteryBehaviour.OutputEnergy())
+                if (batteryBehaviour.OutputEnergy())
                 {
                     transform.position = start.transform.position;
                     transform.rotation = start.transform.rotation;
@@ -55,35 +55,70 @@ public class MoveBehaviour : MonoBehaviour
             }
         }
         green = 1 - 1.0f / (batteryBehaviour.outputAmount + addDamageValue);
-        meshRenderer.material.color = new Color(1,1-1.0f/(batteryBehaviour.outputAmount + addDamageValue),0,1);
+        meshRenderer.material.color = new Color(1, 1 - 1.0f / (batteryBehaviour.outputAmount + addDamageValue), 0, 1);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("enemy"))
         {
-            EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
-            //int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
-            int value;
-            value = (int)batteryBehaviour.outputAmount;
-            enemyBehaviour.Damage(value);
-            if (enemyBehaviour)
-                if (enemyBehaviour.hp <= 0)
-                {
-                    if (other.gameObject.name != "Boss")
-                    {
-                        Destroy(other.gameObject);
-                        //feverSystem.IncreaseDeadCount();
-                    }
-                    else
-                        other.gameObject.SetActive(false);
-                    ++bossCreater.nowSacrificeCount;
-                }
-
+            //EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
+            ////int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
+            //int value;
+            //value = (int)batteryBehaviour.outputAmount;
+            //enemyBehaviour.Damage(value);
+            //if (enemyBehaviour)
+            //    if (enemyBehaviour.hp <= 0)
+            //    {
+            //        if (other.gameObject.name != "Boss")
+            //        {
+            //            Destroy(other.gameObject);
+            //            //feverSystem.IncreaseDeadCount();
+            //        }
+            //        else
+            //            other.gameObject.SetActive(false);
+            //        ++bossCreater.nowSacrificeCount;
+            //    }
+            HitEnemy(other.gameObject);
         }
         if (other.gameObject.CompareTag("amplifier"))
         {
             addDamageValue += other.gameObject.GetComponent<AmplifierBehaviour>().addValue;
         }
+    }
+
+    private void HitEnemy(GameObject other)
+    {
+        EnemyBehaviour enemyBehaviour = other.GetComponent<EnemyBehaviour>();
+        //int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
+        int value;
+        value = (int)(batteryBehaviour.outputAmount + addDamageValue);
+        if (enemyBehaviour.takeDamageValue == 0)
+        {
+            if (value >= enemyBehaviour.startTakeDamageValue)
+            {
+                enemyBehaviour.Damage(value);
+            }
+        }
+        else
+        {
+            if (value <= enemyBehaviour.startTakeDamageValue)
+            {
+                Debug.Log(value + ":" + enemyBehaviour.startTakeDamageValue);
+                enemyBehaviour.Damage((int)enemyBehaviour.takeDamageValue);
+            }
+        }
+        if (enemyBehaviour)
+            if (enemyBehaviour.hp <= 0)
+            {
+                if (other.name != "Boss")
+                {
+                    Destroy(other);
+                    //feverSystem.IncreaseDeadCount();
+                }
+                else
+                    other.SetActive(false);
+                ++bossCreater.nowSacrificeCount;
+            }
     }
 }

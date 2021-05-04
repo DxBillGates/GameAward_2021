@@ -121,11 +121,11 @@ public class LineCreaterBehaviour : MonoBehaviour
             {
                 if (hit.collider.gameObject != amplifier)
                 {
-                    Debug.Log("Hit");
-                    Debug.Log("HitObjName:" + hit.collider.gameObject.name);
-                    Debug.Log("AddDamage:" + hit.collider.gameObject.GetComponent<AmplifierBehaviour>().addValue);
+                    //Debug.Log("Hit");
+                    //Debug.Log("HitObjName:" + hit.collider.gameObject.name);
+                    //Debug.Log("AddDamage:" + hit.collider.gameObject.GetComponent<AmplifierBehaviour>().addValue);
                     addDamage += hit.collider.gameObject.GetComponent<AmplifierBehaviour>().addValue;
-                    Debug.Log("ResultDamage:" + addDamage);
+                    //Debug.Log("ResultDamage:" + addDamage);
                     amplifier = hit.collider.gameObject;
                 }
             }
@@ -157,7 +157,6 @@ public class LineCreaterBehaviour : MonoBehaviour
             moveBehaviour.end = endObject;
             moveBehaviour.enabled = true;
             moveBehaviour.batteryBehaviour = batteryBehaviour;
-            Debug.Log("SetDamage:" + addDamage);
             moveBehaviour.addDamageValue = addDamage;
             //ラープビヘイビアの設定
             lerpBehaviour.enabled = true;

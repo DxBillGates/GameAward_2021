@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085299945689763932}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 2540817853737639666, guid: 9528565baed0479438b4e83aa4fc5789, type: 3}
 --- !u!23 &2085299945689763911
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -143,6 +143,8 @@ MonoBehaviour:
   onMove: 0
   hp: 1
   damageSpan: 0.05
+  takeDamageValue: 0
+  startTakeDamageValue: 0
 --- !u!114 &2085299945689763907
 MonoBehaviour:
   m_ObjectHideFlags: 0
