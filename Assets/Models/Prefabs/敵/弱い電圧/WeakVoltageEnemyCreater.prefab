@@ -102,4 +102,4 @@ MonoBehaviour:
   rightMesh: {fileID: 2540817853737639666, guid: 9528565baed0479438b4e83aa4fc5789, type: 3}
   setMesh: {fileID: 2540817853737639666, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
   setMaterial: {fileID: 5725693197599376814, guid: 9528565baed0479438b4e83aa4fc5789, type: 3}
-  prefabEnemy: {fileID: 2085299945689763932, guid: 55dc64e7121cfdc4d80e82d10a5c6fa5, type: 3}
+  prefabEnemy: {fileID: 4666200818349009734, guid: f84d1fdf2818fdd4b85ec68250b987e9, type: 3}
