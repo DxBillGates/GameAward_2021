@@ -15,6 +15,7 @@ public class MoveBehaviour : MonoBehaviour
     // Start is called before the first frame update
     public float addDamageValue;
     public float green;
+    private static CoreBehaviour coreBehaviour;
     void Start()
     {
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
@@ -23,6 +24,7 @@ public class MoveBehaviour : MonoBehaviour
         //feverSystem = GameObject.Find("GameSystem").GetComponent<FeverSystemBehaviour>();
         bossCreater = GameObject.Find("BossCreater").GetComponent<BossCreaterBehaviour>();
         meshRenderer = GetComponent<MeshRenderer>();
+        coreBehaviour = GameObject.Find("Core").GetComponent<CoreBehaviour>();
     }
 
     // Update is called once per frame
@@ -104,7 +106,7 @@ public class MoveBehaviour : MonoBehaviour
         {
             if (value <= enemyBehaviour.startTakeDamageValue)
             {
-                Debug.Log(value + ":" + enemyBehaviour.startTakeDamageValue);
+                //Debug.Log(value + ":" + enemyBehaviour.startTakeDamageValue);
                 enemyBehaviour.Damage((int)enemyBehaviour.takeDamageValue);
             }
         }
@@ -118,6 +120,7 @@ public class MoveBehaviour : MonoBehaviour
                 if (other.name != "Boss")
                 {
                     Destroy(other);
+                    ++coreBehaviour.killEnemyCountCurrentFrame;
                     //feverSystem.IncreaseDeadCount();
                 }
                 else

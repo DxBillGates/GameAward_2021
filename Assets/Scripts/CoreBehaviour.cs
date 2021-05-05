@@ -19,6 +19,9 @@ public class CoreBehaviour : MonoBehaviour
     ChangePartsSystemBehavior systemBehavior;
     public RectTransform hpUiTransform;
     float hpUiXScale;
+    public float killEnemyCountCurrentFrame;
+    public float killEnemyCountBeforeFrame;
+    int frame;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +46,22 @@ public class CoreBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(frame % 10 == 0)
+        {
+            killEnemyCountBeforeFrame = killEnemyCountCurrentFrame;
+            killEnemyCountCurrentFrame = 0;
+            if (killEnemyCountBeforeFrame != 0)
+            {
+                //Debug.Log(killEnemyCountBeforeFrame + ":" + frame);
+            }
+
+            if(killEnemyCountBeforeFrame >= 10)
+            {
+                hp += 10;
+            }
+        }
+
         Vector3 newHpUiScale = new Vector3(1,1,1);
         newHpUiScale.x = hpUiXScale * hp / maxHp;
         newHpUiScale.y = hpUiTransform.localScale.y;
@@ -106,6 +125,7 @@ public class CoreBehaviour : MonoBehaviour
 
             oldIsDamage = isDamage;
         }
+        ++frame;
     }
 
     void Damage(int damage)

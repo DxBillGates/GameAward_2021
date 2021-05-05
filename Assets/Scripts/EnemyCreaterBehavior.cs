@@ -15,9 +15,11 @@ public class EnemyCreaterBehavior : MonoBehaviour
     int count;
     float t;
     public GameObject prefabEnemy;
+    ChangePartsSystemBehavior systemBehavior;
     // Start is called before the first frame update
     void Start()
     {
+        systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         count = 0;
         t = 0;
         if (createTimeSpan == 0)
@@ -34,7 +36,7 @@ public class EnemyCreaterBehavior : MonoBehaviour
         if (drawRay)
             Debug.DrawRay(transform.position, fallVector * 10, Color.red);
 
-        if (t >= createTimeSpan && count < maxEnemy)
+        if (t >= createTimeSpan && count < maxEnemy && !systemBehavior.changeMode)
         {
             Create();
             count++;

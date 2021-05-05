@@ -115,7 +115,7 @@ MonoBehaviour:
   isFly: 0
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
-  addSpeed: 10
+  addSpeed: 20
 --- !u!114 &2379663283306511267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 0}
   end: {fileID: 0}
+  addDamageValue: 0
+  green: 0
 --- !u!54 &4698752211172132477
 Rigidbody:
   m_ObjectHideFlags: 0
