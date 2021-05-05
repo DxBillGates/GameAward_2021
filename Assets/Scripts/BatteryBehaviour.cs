@@ -7,6 +7,7 @@ public class BatteryBehaviour : MonoBehaviour
 {
     public float amountEnergy;
     public float outputAmount;
+    public float maxOutputAmount;
     public float increaseEnergyValue;
     public RectTransform batteryUI;
     public RectTransform outputUI;
@@ -74,6 +75,10 @@ public class BatteryBehaviour : MonoBehaviour
             amountEnergy += recoveryValue;
         }
 
+        if(amountEnergy >= initialAmountEnergy)
+        {
+            amountEnergy = initialAmountEnergy;
+        }
     }
 
     public bool OutputEnergy()
@@ -94,6 +99,10 @@ public class BatteryBehaviour : MonoBehaviour
     public void IncreaseOutputEnergy()
     {
         outputAmount += increaseEnergyValue;
+        if(outputAmount >= maxOutputAmount)
+        {
+            outputAmount = maxOutputAmount;
+        }
     }
 
     public void DecreaseOutputEnergy()

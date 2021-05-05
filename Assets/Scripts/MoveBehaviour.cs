@@ -111,13 +111,19 @@ public class MoveBehaviour : MonoBehaviour
         if (enemyBehaviour)
             if (enemyBehaviour.hp <= 0)
             {
+                if (other.layer == 10)
+                {
+                    batteryBehaviour.amountEnergy += other.GetComponent<BatteryEnemyBehaviour>().value;
+                }
                 if (other.name != "Boss")
                 {
                     Destroy(other);
                     //feverSystem.IncreaseDeadCount();
                 }
                 else
+                {
                     other.SetActive(false);
+                }
                 ++bossCreater.nowSacrificeCount;
             }
     }

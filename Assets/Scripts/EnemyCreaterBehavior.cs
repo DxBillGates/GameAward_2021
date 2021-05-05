@@ -92,7 +92,10 @@ public class EnemyCreaterBehavior : MonoBehaviour
 
         //生成オブジェクトの詳細設定
         newGameObject.transform.position = transform.position;
-        newGameObject.layer = 6;
+        if (newGameObject.layer == 0)
+        {
+            newGameObject.layer = 6;
+        }
         newGameObject.transform.rotation = Quaternion.FromToRotation(newGameObject.transform.up, -fallVector) * newGameObject.transform.rotation;
         newGameObject.transform.rotation = Quaternion.FromToRotation(newGameObject.transform.right, -newGameObject.transform.right) * newGameObject.transform.rotation;
 
