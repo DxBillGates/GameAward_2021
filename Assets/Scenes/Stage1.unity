@@ -224,6 +224,8 @@ MonoBehaviour:
   recovery: 7
   regenerationSpan: 2
   hpUiTransform: {fileID: 908275489}
+  killEnemyCountCurrentFrame: 0
+  killEnemyCountBeforeFrame: 0
 --- !u!65 &199652364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -256,7 +258,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 830e18f26fb4e174baa6a2592104dfa2, type: 2}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
