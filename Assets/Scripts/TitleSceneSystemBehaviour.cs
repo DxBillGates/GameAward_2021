@@ -16,7 +16,8 @@ public class TitleSceneSystemBehaviour : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("SampleScene");
+            FadeManager2.FadeOut("SampleScene");
+            //SceneManager.LoadScene("SampleScene");
         }
     }
 }
