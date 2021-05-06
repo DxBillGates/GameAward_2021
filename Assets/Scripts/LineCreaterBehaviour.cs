@@ -5,6 +5,7 @@ using UnityEngine;
 public class LineCreaterBehaviour : MonoBehaviour
 {
     GameObject lineCreater;
+    ChangePartsSystemBehavior systemBehavior;
     ObjectBehavior lineCreaterObjectBehaviour;
     LerpBehaviour lineCreaterLerpBehaviour;
     public GameObject endObject;
@@ -21,6 +22,7 @@ public class LineCreaterBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         amplifier = null;
         addDamage = 0;
         onNormal = new Vector3();
@@ -50,7 +52,7 @@ public class LineCreaterBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isCreate && !lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode && batteryBehaviour.outputAmount > 0 && batteryBehaviour.amountEnergy > 0)
+        if (isCreate && !systemBehavior.changeMode && batteryBehaviour.outputAmount > 0 && batteryBehaviour.amountEnergy > 0)
         {
             while (true)
             {
@@ -86,14 +88,14 @@ public class LineCreaterBehaviour : MonoBehaviour
             }
         }
 
-        if (lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode && !isDelete)
+        if (systemBehavior.changeMode && !isDelete)
         {
             Debug.Log("ëSè¡ÇµÇµÇ‹ÇµÇΩ");
             AllDestroy();
             isDelete = true;
         }
 
-        if (lineCreaterObjectBehaviour.changePartsSystemBehavior.oldChangeFlag && !lineCreaterObjectBehaviour.changePartsSystemBehavior.changeMode)
+        if (systemBehavior.oldChangeFlag && !systemBehavior.changeMode)
         {
             Debug.Log("ê∂ê¨äJénÇµÇ‹Ç∑");
             lineCreater.transform.position = transform.position;
