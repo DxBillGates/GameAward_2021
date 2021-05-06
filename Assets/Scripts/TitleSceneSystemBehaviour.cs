@@ -16,7 +16,7 @@ public class TitleSceneSystemBehaviour : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Stage1");
         }
     }
 }
