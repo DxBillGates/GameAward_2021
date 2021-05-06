@@ -78,7 +78,7 @@ public class NewLerpBehaviour : MonoBehaviour
                     if (t < 0)
                     {
                         Initialize();
-                        SetRotate();
+                        //SetRotate();
                         return;
                     }
                 }
@@ -87,7 +87,7 @@ public class NewLerpBehaviour : MonoBehaviour
                     if (t > 1)
                     {
                         Initialize();
-                        SetRotate();
+                        //SetRotate();
                         return;
                     }
                 }
@@ -103,7 +103,7 @@ public class NewLerpBehaviour : MonoBehaviour
                 if (index >= lerpPoints.Count - 1)
                 {
                     Initialize();
-                    SetRotate();
+                    //SetRotate();
                     return;
                 }
                 transform.position = Vector3.Lerp(lerpPoints[index], lerpPoints[index + 1], t);
@@ -124,6 +124,11 @@ public class NewLerpBehaviour : MonoBehaviour
                     }
                 }
             }
+
+        if(oldLerpMode && !lerpMode)
+        {
+            SetRotate();
+        }
 
         oldLerpMode = lerpMode;
     }

@@ -36,10 +36,12 @@ public class MoveBehaviour : MonoBehaviour
             if (lerpBehaviour.leftMove)
             {
                 transform.position += transform.right * Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed);
+                //transform.position += transform.right * Time.deltaTime * 10;
             }
             else
             {
                 transform.position -= transform.right * Time.deltaTime * (objectBehavior.speed + objectBehavior.addSpeed);
+                //transform.position -= transform.right * Time.deltaTime * 10;
             }
 
             if (Vector3.Distance(transform.position, end.transform.position) <= 1)

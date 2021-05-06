@@ -67,13 +67,14 @@ public class LineCreaterBehaviour : MonoBehaviour
                     lineCreater.transform.position = transform.position;
                     lineCreater.transform.rotation = transform.rotation;
                     amplifier = null;
+                    time = 0;
                     addDamage = 0;
                     Debug.Log("成功しました");
                     break;
                 }
 
                 time += Time.deltaTime;
-                if (time >= 120)
+                if (time >= 240)
                 {
                     lineCreater.transform.position = transform.position;
                     lineCreater.transform.rotation = transform.rotation;
@@ -157,11 +158,12 @@ public class LineCreaterBehaviour : MonoBehaviour
             MoveBehaviour moveBehaviour = newTestObject.GetComponent<MoveBehaviour>();
             moveBehaviour.start = gameObject;
             moveBehaviour.end = endObject;
-            moveBehaviour.enabled = true;
             moveBehaviour.batteryBehaviour = batteryBehaviour;
             moveBehaviour.addDamageValue = addDamage;
             //ラープビヘイビアの設定
-            lerpBehaviour.enabled = true;
+            //objBehaviour.enabled = false;
+            //moveBehaviour.enabled = false;
+            //lerpBehaviour.enabled = false;
             lerpBehaviour.frontList = lineCreaterLerpBehaviour.frontList;
             lerpBehaviour.backList = lineCreaterLerpBehaviour.backList;
             lerpBehaviour.lerpPoints = new List<Vector3>();
@@ -179,6 +181,8 @@ public class LineCreaterBehaviour : MonoBehaviour
             lerpBehaviour.lerpPoints = lineCreaterLerpBehaviour.GetLerpPoints();
             lerpBehaviour.index = lineCreaterLerpBehaviour.index;
             lerpBehaviour.t = lineCreaterLerpBehaviour.t;
+
+            newTestObject.layer = 11;
             //lerpBehaviour.enabled = false;
             //GameObject newTestObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             //newTestObject.tag = "lines";
