@@ -102,22 +102,22 @@ public class EnemyCreaterBehavior : MonoBehaviour
         newGameObject.transform.rotation = Quaternion.FromToRotation(newGameObject.transform.right, -newGameObject.transform.right) * newGameObject.transform.rotation;
 
         //ÉÇÉfÉãê›íË
-        MeshFilter newMeshFilter = newGameObject.GetComponent<MeshFilter>();
-        MeshRenderer newMeshRenderer = newGameObject.GetComponent<MeshRenderer>();
-        if (setMesh)
-        {
-            if (!leftMode)
-            {
-                newMeshFilter.mesh = rightMesh;
-            }
-            else
-            {
-                newMeshFilter.mesh = setMesh;
-            }
-        }
-        if (setMaterial)
-        {
-            newMeshRenderer.material = setMaterial;
-        }
+        //MeshFilter newMeshFilter = newGameObject.GetComponent<MeshFilter>();
+        //MeshRenderer newMeshRenderer = newGameObject.GetComponent<MeshRenderer>();
+        //if (setMesh)
+        //{
+        //    if (!leftMode)
+        //    {
+        //        newMeshFilter.mesh = rightMesh;
+        //    }
+        //    else
+        //    {
+        //        newMeshFilter.mesh = setMesh;
+        //    }
+        //}
+        //if (setMaterial)
+        //{
+        //    newMeshRenderer.material = setMaterial;
+        //}
     }
 }

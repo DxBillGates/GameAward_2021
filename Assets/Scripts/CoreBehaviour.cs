@@ -22,10 +22,12 @@ public class CoreBehaviour : MonoBehaviour
     public float killEnemyCountCurrentFrame;
     public float killEnemyCountBeforeFrame;
     int frame;
+    Vector3 size;
 
     // Start is called before the first frame update
     void Start()
     {
+        size = transform.localScale;
         minusScaleLerp = false;
         isDamage = oldIsDamage = false;
         noDamageTime = 0;
@@ -47,7 +49,7 @@ public class CoreBehaviour : MonoBehaviour
     void Update()
     {
 
-        if(frame % 10 == 0)
+        if (frame % 10 == 0)
         {
             killEnemyCountBeforeFrame = killEnemyCountCurrentFrame;
             killEnemyCountCurrentFrame = 0;
@@ -56,13 +58,13 @@ public class CoreBehaviour : MonoBehaviour
                 //Debug.Log(killEnemyCountBeforeFrame + ":" + frame);
             }
 
-            if(killEnemyCountBeforeFrame >= 10)
+            if (killEnemyCountBeforeFrame >= 10)
             {
                 hp += 10;
             }
         }
 
-        Vector3 newHpUiScale = new Vector3(1,1,1);
+        Vector3 newHpUiScale = new Vector3(1, 1, 1);
         newHpUiScale.x = hpUiXScale * hp / maxHp;
         newHpUiScale.y = hpUiTransform.localScale.y;
         newHpUiScale.z = hpUiTransform.localScale.z;
@@ -105,7 +107,7 @@ public class CoreBehaviour : MonoBehaviour
                         minusScaleLerp = false;
                         scaleLerpT = 1;
                     }
-                    transform.localScale = Vector3.Lerp(new Vector3(6, 6, 6), new Vector3(6, 6, 6) - new Vector3(1, 1, 1), scaleLerpT);
+                    transform.localScale = Vector3.Lerp(size, size - new Vector3(30, 30, 30), easeInOutQuint(scaleLerpT));
                 }
                 else
                 {
@@ -114,13 +116,13 @@ public class CoreBehaviour : MonoBehaviour
                         scaleLerp = false;
                         scaleLerpT = 1;
                     }
-                    transform.localScale = Vector3.Lerp(new Vector3(6, 6, 6), new Vector3(6, 6, 6) + new Vector3(1, 1, 1), scaleLerpT);
+                    transform.localScale = Vector3.Lerp(size, size + new Vector3(30, 30, 30), easeInOutQuint(scaleLerpT));
                 }
             }
             else
             {
                 scaleLerpT = 0;
-                transform.localScale = new Vector3(6, 6, 6);
+                transform.localScale = size;
             }
 
             oldIsDamage = isDamage;
@@ -145,5 +147,10 @@ public class CoreBehaviour : MonoBehaviour
         {
             Damage(bulletBehavior.attackValue);
         }
+    }
+
+    float easeInOutQuint(float x)
+    {
+        return x < 0.5 ? 16 * x * x * x * x * x : 1 - Mathf.Pow(-2 * x + 2, 5) / 2;
     }
 }
