@@ -84,11 +84,11 @@ public class BatteryBehaviour : MonoBehaviour
         if(recT >= recoveryTime)
         {
             recT = 0;
-            amountEnergy += recoveryValue;
-            if(outputAmount > 0)
+            if(outputAmount > 0 && amountEnergy == 0)
             {
                 lineCreater.isCreate = true;
             }
+            amountEnergy += recoveryValue;
         }
 
         if(amountEnergy >= initialAmountEnergy)
