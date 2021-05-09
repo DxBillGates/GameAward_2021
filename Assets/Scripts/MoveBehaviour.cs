@@ -44,7 +44,7 @@ public class MoveBehaviour : MonoBehaviour
                 //transform.position -= transform.right * Time.deltaTime * 10;
             }
 
-            if (Vector3.Distance(transform.position, end.transform.position) <= 1)
+            if (Vector3.Distance(transform.position, end.transform.position) <= 2)
             {
                 if (batteryBehaviour.OutputEnergy())
                 {

@@ -68,11 +68,27 @@ public class BatteryBehaviour : MonoBehaviour
             }
         }
 
+        if (amountEnergy == 0)
+        {
+            GameObject[] lines = GameObject.FindGameObjectsWithTag("lines");
+            if (lines.Length > 0)
+            {
+                foreach (GameObject line in lines)
+                {
+                    Destroy(line);
+                }
+            }
+        }
+
         recT += Time.deltaTime;
         if(recT >= recoveryTime)
         {
             recT = 0;
             amountEnergy += recoveryValue;
+            if(outputAmount > 0)
+            {
+                lineCreater.isCreate = true;
+            }
         }
 
         if(amountEnergy >= initialAmountEnergy)

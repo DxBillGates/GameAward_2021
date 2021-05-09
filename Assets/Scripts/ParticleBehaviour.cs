@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ParticleBehaviour : MonoBehaviour
 {
-    public Vector3 vector { get; set; }
+    public Vector3 vector;
     public Vector3 gravity { get; set; }
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class ParticleBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        vector += gravity;
-        transform.position += vector;
+        vector += gravity * Time.deltaTime;
+        transform.position += vector * Time.deltaTime;
     }
 }

@@ -53,6 +53,12 @@ public class Boss2Behaviour : MonoBehaviour
         for(int i = 0;i < createEnemyAmount;++i)
         {
             GameObject newEnemy = Instantiate(enemyPrehab);
+
+            Vector3 random = new Vector3();
+            random = transform.up;
+
+            newEnemy.AddComponent<ParticleBehaviour>().vector = random;
+
             newEnemy.transform.position = transform.position;
             newEnemy.transform.rotation = transform.rotation;
             newEnemy.GetComponent<ObjectBehavior>().fallVector = -transform.up * Time.deltaTime;
