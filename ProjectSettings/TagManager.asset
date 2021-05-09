@@ -11,6 +11,7 @@ TagManager:
   - lines
   - amplifier
   - weakVoltageEnemy
+  - PauseParent
   layers:
   - Default
   - TransparentFX
