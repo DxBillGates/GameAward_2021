@@ -127,7 +127,17 @@ public class MoveBehaviour : MonoBehaviour
                 }
                 else
                 {
-                    other.SetActive(false);
+                    Boss2Behaviour boss2Behaviour = other.GetComponent<Boss2Behaviour>();
+                    if (boss2Behaviour)
+                    {
+                        boss2Behaviour.SetDeadPosition();
+                        boss2Behaviour.deadFlag = true;
+                    }
+                    else
+                    {
+
+                        other.SetActive(false);
+                    }
                 }
                 ++bossCreater.nowSacrificeCount;
             }

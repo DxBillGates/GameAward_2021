@@ -43,24 +43,30 @@ public class BossCreaterBehaviour : MonoBehaviour
         EnemyBehaviour prefabEnemyBehavior = prefab.GetComponent<EnemyBehaviour>();
         AttackBehaviour prefabAttackBehavior = prefab.GetComponent<AttackBehaviour>();
 
+
         //新規オブジェクトの生成
-        GameObject newGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+        GameObject newGameObject = Instantiate(prefab);
         newGameObject.name = "Boss";
 
         newGameObject.transform.localScale = new Vector3(3, 3, 3);
 
+        Boss2Behaviour boss2Behaviour = newGameObject.GetComponent<Boss2Behaviour>();
+        if(boss2Behaviour)
+        {
+            boss2Behaviour.creater = gameObject;
+        }
 
         //コライダーの切り替え
-        Destroy(newGameObject.GetComponent<Collider>());
-        BoxCollider newCollider = newGameObject.AddComponent<BoxCollider>();
-        newCollider.size = Vector3.one;
+        //Destroy(newGameObject.GetComponent<Collider>());
+        //BoxCollider newCollider = newGameObject.AddComponent<BoxCollider>();
+        //newCollider.size = Vector3.one;
 
 
         //ビヘイビアを追加＆取得
-        ObjectBehavior newObjectBehavior = newGameObject.AddComponent<ObjectBehavior>();
-        LerpBehaviour newLerpBehvior = newGameObject.AddComponent<LerpBehaviour>();
-        EnemyBehaviour newEnemyBehavior = newGameObject.AddComponent<EnemyBehaviour>();
-        AttackBehaviour newAttackBehavior = newGameObject.AddComponent<AttackBehaviour>();
+        ObjectBehavior newObjectBehavior = newGameObject.GetComponent<ObjectBehavior>();
+        LerpBehaviour newLerpBehvior = newGameObject.GetComponent<LerpBehaviour>();
+        EnemyBehaviour newEnemyBehavior = newGameObject.GetComponent<EnemyBehaviour>();
+        AttackBehaviour newAttackBehavior = newGameObject.GetComponent<AttackBehaviour>();
 
         //オブジェクトビヘイビアの設定
         newObjectBehavior.fallVector = fallVector.normalized / 10;

@@ -52,8 +52,11 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         if (bossBehavior)
         {
             if (bossBehavior.hp <= 0)
-            {
-                clearFlag = true;
+            {              
+                if(!boss.GetComponent<Boss2Behaviour>())
+                {
+                    clearFlag = true;
+                }
             }
         }
         if (coreBehaviour.hp <= 0/* || batteryBehaviour.amountEnergy <= 0*/)
