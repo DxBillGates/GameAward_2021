@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -5000088808643404233}
   - component: {fileID: -6552238038706289001}
   - component: {fileID: -5039105987008872590}
+  - component: {fileID: -6185226124406518705}
   m_Layer: 0
   m_Name: StrongEnemyCreater
   m_TagString: Untagged
@@ -103,3 +104,15 @@ MonoBehaviour:
   setMesh: {fileID: 2540817853737639666, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
   setMaterial: {fileID: 3983504700629669927, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
   prefabEnemy: {fileID: 8275590019745693286, guid: f2570d6361459de41b94a9928a437b1e, type: 3}
+--- !u!114 &-6185226124406518705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6554853731509197169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aa8b17706672e4388889b67a8a9131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

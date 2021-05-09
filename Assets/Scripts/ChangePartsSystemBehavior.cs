@@ -21,9 +21,11 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     public EnemyBehaviour bossBehavior;
     public bool oldChangeFlag;
     BatteryBehaviour batteryBehaviour;
+    PauseBehaviour pauseBehaviour;
 
     void Start()
     {
+        pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
         clearFlag = false;
         core = GameObject.Find("Core");
         coreBehaviour = core.GetComponent<CoreBehaviour>();
@@ -56,6 +58,14 @@ public class ChangePartsSystemBehavior : MonoBehaviour
                 if(!boss.GetComponent<Boss2Behaviour>())
                 {
                     clearFlag = true;
+                }
+                else
+                {
+                    Boss2Behaviour boss2 = boss.GetComponent<Boss2Behaviour>();
+                    if(boss2.deadChildAmount == boss2.createEnemyAmount)
+                    {
+                        clearFlag = true;
+                    }
                 }
             }
         }

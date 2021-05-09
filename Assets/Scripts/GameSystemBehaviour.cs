@@ -9,8 +9,13 @@ public class GameSystemBehaviour : MonoBehaviour
     GameObject selectObject;
     Renderer soRenderer;
     ChangePartsSystemBehavior systemBehavior;
+    PauseParentBehaviour pauseParent;
     //TextMesh modeText;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        pauseParent = gameObject.AddComponent<PauseParentBehaviour>();
+    }
     void Start()
     {
         Application.targetFrameRate = 60;

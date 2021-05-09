@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 6659251921124684408}
   - component: {fileID: 8510642690759542841}
   - component: {fileID: 6270225196267670595}
+  - component: {fileID: 28523859506524112}
   m_Layer: 0
   m_Name: dogRun_Normal
   m_TagString: enemy
@@ -233,6 +234,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSpan: 0.5
   attackValue: 5
+--- !u!114 &28523859506524112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083585071095696510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aa8b17706672e4388889b67a8a9131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1621336854073357838
 GameObject:
   m_ObjectHideFlags: 0

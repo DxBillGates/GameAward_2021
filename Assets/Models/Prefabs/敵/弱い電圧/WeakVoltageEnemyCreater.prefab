@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3695430785490018221}
   - component: {fileID: 2156369824482868157}
   - component: {fileID: -8085746474939768544}
+  - component: {fileID: 3609865267805444006}
   m_Layer: 0
   m_Name: WeakVoltageEnemyCreater
   m_TagString: Untagged
@@ -103,3 +104,15 @@ MonoBehaviour:
   setMesh: {fileID: 2540817853737639666, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
   setMaterial: {fileID: 5725693197599376814, guid: 9528565baed0479438b4e83aa4fc5789, type: 3}
   prefabEnemy: {fileID: 2532024050162815595, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
+--- !u!114 &3609865267805444006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549525797539009751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aa8b17706672e4388889b67a8a9131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

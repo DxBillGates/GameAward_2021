@@ -16,8 +16,11 @@ public class MoveBehaviour : MonoBehaviour
     public float addDamageValue;
     public float green;
     private static CoreBehaviour coreBehaviour;
+    PauseBehaviour pauseBehaviour;
+    static Boss2Behaviour boss2Behaviour;
     void Start()
     {
+        pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         lerpBehaviour = GetComponent<NewLerpBehaviour>();
         objectBehavior = GetComponent<ObjectBehavior>();
@@ -121,21 +124,25 @@ public class MoveBehaviour : MonoBehaviour
                 }
                 if (other.name != "Boss")
                 {
+                    if (other.name == "BossChildEnemy")
+                    {
+                        Debug.Log(boss2Behaviour);
+                        boss2Behaviour.deadChildAmount++;
+                    }
                     Destroy(other);
                     ++coreBehaviour.killEnemyCountCurrentFrame;
                     //feverSystem.IncreaseDeadCount();
                 }
                 else
                 {
-                    Boss2Behaviour boss2Behaviour = other.GetComponent<Boss2Behaviour>();
-                    if (boss2Behaviour)
+                    if (other.GetComponent<Boss2Behaviour>())
                     {
+                        boss2Behaviour = other.GetComponent<Boss2Behaviour>();
                         boss2Behaviour.SetDeadPosition();
                         boss2Behaviour.deadFlag = true;
                     }
                     else
                     {
-
                         other.SetActive(false);
                     }
                 }

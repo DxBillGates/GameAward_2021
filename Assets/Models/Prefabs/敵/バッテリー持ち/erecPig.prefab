@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 6020902540123513240}
   - component: {fileID: 1602185666954969636}
   - component: {fileID: 3489228755549654885}
+  - component: {fileID: -8475666096984920351}
   m_Layer: 10
   m_Name: erecPig
   m_TagString: enemy
@@ -555,6 +556,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 100
+--- !u!114 &-8475666096984920351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177794063887702873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aa8b17706672e4388889b67a8a9131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8545062522039126250
 GameObject:
   m_ObjectHideFlags: 0

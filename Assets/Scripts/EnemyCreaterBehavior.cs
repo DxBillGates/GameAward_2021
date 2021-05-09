@@ -43,7 +43,8 @@ public class EnemyCreaterBehavior : MonoBehaviour
             t = 0;
         }
 
-        t += Time.deltaTime;
+        if (!systemBehavior.changeMode)
+            t += Time.deltaTime;
     }
 
     void Create()

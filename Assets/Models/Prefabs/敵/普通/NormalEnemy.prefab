@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -8510185249996887530}
   - component: {fileID: -298992984595713136}
   - component: {fileID: -4778172215488808853}
+  - component: {fileID: -3260555916726286213}
   m_Layer: 0
   m_Name: NormalEnemy
   m_TagString: Untagged
@@ -103,3 +104,15 @@ MonoBehaviour:
   setMesh: {fileID: 2540817853737639666, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
   setMaterial: {fileID: 3983504700629669927, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
   prefabEnemy: {fileID: 1083585071095696510, guid: afd40c8d70318834494d9e54fcd87b8a, type: 3}
+--- !u!114 &-3260555916726286213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5247471100236772536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aa8b17706672e4388889b67a8a9131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

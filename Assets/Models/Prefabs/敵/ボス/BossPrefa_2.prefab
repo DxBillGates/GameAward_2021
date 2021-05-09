@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -1569735315339739480}
   - component: {fileID: -1763104244420242217}
   - component: {fileID: 7724409300592109382}
+  - component: {fileID: 819208979979560948}
   m_Layer: 0
   m_Name: BossPrefa_2
   m_TagString: enemy
@@ -189,3 +190,15 @@ MonoBehaviour:
   str: 
   leftMove: 0
   changePartsSystemBehavior: {fileID: 0}
+--- !u!114 &819208979979560948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007157862775605112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91aa8b17706672e4388889b67a8a9131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

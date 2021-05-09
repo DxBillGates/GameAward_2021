@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boss2Behaviour : MonoBehaviour
 {
     public bool deadFlag;
-    bool exploFlag;
+    public bool exploFlag;
     float lerpTime;
     Vector3 deadPos;
     public float maxTime;
@@ -13,9 +13,13 @@ public class Boss2Behaviour : MonoBehaviour
     public GameObject creater { get; set; }
     public GameObject enemyPrehab;
     LerpBehaviour mLerpBehaviour;
+    public List<GameObject> gameObjects;
+    public int deadChildAmount;
     // Start is called before the first frame update
     void Start()
     {
+        deadChildAmount = 0;
+        gameObjects = new List<GameObject>();
         exploFlag = false;
         deadFlag = false;
         lerpTime = 0;
@@ -39,6 +43,8 @@ public class Boss2Behaviour : MonoBehaviour
         if(exploFlag)
         {
             Divide();
+            exploFlag = false;
+            deadFlag = false;
             gameObject.SetActive(false);
         }
     }
@@ -55,9 +61,11 @@ public class Boss2Behaviour : MonoBehaviour
             GameObject newEnemy = Instantiate(enemyPrehab);
 
             Vector3 random = new Vector3();
-            random = transform.up;
+            random = transform.up * Random.Range(1,10);
 
-            newEnemy.AddComponent<ParticleBehaviour>().vector = random;
+            ParticleBehaviour particleBehaviour = newEnemy.AddComponent<ParticleBehaviour>();
+            particleBehaviour.vector = random;
+            particleBehaviour.gravity = -transform.up;
 
             newEnemy.transform.position = transform.position;
             newEnemy.transform.rotation = transform.rotation;
@@ -68,7 +76,8 @@ public class Boss2Behaviour : MonoBehaviour
             lerpBehaviour.backList = mLerpBehaviour.backList;
             lerpBehaviour.leftMove = mLerpBehaviour.leftMove;
             lerpBehaviour.isAutoMove = true;
-
+            newEnemy.name = "BossChildEnemy";
+            gameObjects.Add(newEnemy);
         }
     }
 }
