@@ -17,11 +17,13 @@ public class LineCreaterBehaviour : MonoBehaviour
     BatteryBehaviour batteryBehaviour;
     float addDamage;
     GameObject amplifier;
+    float lineLength;
 
     public GameObject prefab;
     // Start is called before the first frame update
     void Start()
     {
+        lineLength = 0;
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         amplifier = null;
         addDamage = 0;
@@ -60,6 +62,7 @@ public class LineCreaterBehaviour : MonoBehaviour
                 lineCreaterObjectBehaviour.AnotherUpdate();
                 lineCreaterLerpBehaviour.AnotherMoveFunc();
                 CreateTestObject(0.5f);
+                lineLength += Time.deltaTime;
                 if (Vector3.Distance(lineCreater.transform.position, endObject.transform.position) <= 1)
                 {
                     isCreate = false;
@@ -69,6 +72,8 @@ public class LineCreaterBehaviour : MonoBehaviour
                     amplifier = null;
                     time = 0;
                     addDamage = 0;
+                    Debug.Log(lineLength);
+                    lineLength = 0;
                     Debug.Log("¬Œ÷‚µ‚Ü‚µ‚½");
                     break;
                 }
