@@ -12,6 +12,8 @@ TagManager:
   - amplifier
   - weakVoltageEnemy
   - PauseParent
+  - Enemy
+  - PauseUI
   layers:
   - Default
   - TransparentFX

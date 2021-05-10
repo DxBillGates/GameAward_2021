@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseParentBehaviour : MonoBehaviour
 {
     public static List<PauseBehaviour> pauseBehaviours { get; set; }
-    public bool isPause;
+    public static bool isPause;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -22,14 +22,12 @@ public class PauseParentBehaviour : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
-            isPause = true;
         }
 
-        if(isPause && Input.GetMouseButtonDown(0))
-        {
-            Resume();
-            isPause = false;
-        }
+        //if(isPause && Input.GetMouseButtonDown(0))
+        //{
+        //    Resume();
+        //}
     }
 
     public static void Pause()
@@ -38,6 +36,8 @@ public class PauseParentBehaviour : MonoBehaviour
         {
             pauseBehaviour.OnPause();
         }
+        isPause = true;
+        PauseUIManager.OnPause();
     }
 
     public static void Resume()
@@ -46,5 +46,7 @@ public class PauseParentBehaviour : MonoBehaviour
         {
             pauseBehaviour.OnResume();
         }
+        isPause = false;
+        PauseUIManager.OnResume();
     }
 }

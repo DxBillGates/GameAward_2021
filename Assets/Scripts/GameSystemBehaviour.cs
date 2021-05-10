@@ -10,11 +10,13 @@ public class GameSystemBehaviour : MonoBehaviour
     Renderer soRenderer;
     ChangePartsSystemBehavior systemBehavior;
     PauseParentBehaviour pauseParent;
+    PauseUIManager pauseUIManager;
     //TextMesh modeText;
     // Start is called before the first frame update
     private void Awake()
     {
         pauseParent = gameObject.AddComponent<PauseParentBehaviour>();
+        pauseUIManager = gameObject.AddComponent<PauseUIManager>();
     }
     void Start()
     {
