@@ -5,6 +5,8 @@ using UnityEngine;
 public class BatteryEnemyBehaviour : MonoBehaviour
 {
     public float value;
+    public GameObject beam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +17,17 @@ public class BatteryEnemyBehaviour : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GenerateBeam(bool check)
+    {
+        if(check)
+        {
+
+        GameObject obj = Instantiate(beam) as GameObject;
+        obj.transform.position = transform.position;
+        obj.transform.rotation = transform.rotation;
+        }
+
     }
 }
