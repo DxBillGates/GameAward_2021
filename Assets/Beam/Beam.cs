@@ -46,10 +46,10 @@ public class Beam : MonoBehaviour
 
 
         //‰Á‘¬“x‚ªˆê’èˆÈã‚¾‚Æ’Ç”ö‚ğã‚­‚·‚é
-        if (acceleration.magnitude > 100f)
-        {
-            acceleration = acceleration.normalized * 100f;
-        }
+        //if (acceleration.magnitude > 100f)
+        //{
+        //    acceleration = acceleration.normalized * 100f;
+        //}
 
         // ’…’eŠÔ‚ğ™X‚ÉŒ¸‚ç‚µ‚Ä‚¢‚­
         period -= Time.deltaTime;

@@ -47,7 +47,7 @@ Shader "Unlit/Poly Move"
 
 				[maxvertexcount(3)]
 				void geom(triangle appdata input[3], inout TriangleStream<g2f> stream) {
-					// カメラとポリゴンとの距離
+					
 					float3 center = (input[0].vertex + input[1].vertex + input[2].vertex) / 3;
 					float4 worldPos = mul(unity_ObjectToWorld, float4(center, 1.0));
 					float3 dist = length(_WorldSpaceCameraPos - worldPos);
@@ -57,12 +57,12 @@ Shader "Unlit/Poly Move"
 					float3 vec2 = input[2].vertex - input[0].vertex;
 					float3 normal = normalize(cross(vec1, vec2));
 
-					// カメラとの距離に応じてポリゴンを変化
+					
 					fixed destruction = clamp(_StartDistance - dist, 0.0, 1.0);
-					// カメラとの距離に応じて色を変化
+					
 					fixed gradient = clamp(dist - _StartDistance, 0.0, 1.0);
 
-					// ランダムな値
+					
 					fixed random = rand(center.xy);
 					fixed3 random3 = random.xxx;
 

@@ -15,6 +15,9 @@ public class MoveBehaviour : MonoBehaviour
     // Start is called before the first frame update
     public float addDamageValue;
     public float green;
+
+    private bool check = false;
+
     void Start()
     {
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
@@ -117,12 +120,18 @@ public class MoveBehaviour : MonoBehaviour
                 }
                 if (other.name != "Boss")
                 {
-                    Destroy(other);
+                    check = true;
+
+                    other.gameObject.GetComponent<EnemyCheck>().BreakPolygon(check);
+                   //Destroy(other);
                     //feverSystem.IncreaseDeadCount();
                 }
                 else
                 {
-                    other.SetActive(false);
+                    check = true;
+
+                    other.gameObject.GetComponent<EnemyCheck>().BreakPolygon(check);
+                   // other.SetActive(false);
                 }
                 ++bossCreater.nowSacrificeCount;
             }
