@@ -18,6 +18,11 @@ public class MoveBehaviour : MonoBehaviour
     private static CoreBehaviour coreBehaviour;
     PauseBehaviour pauseBehaviour;
     static Boss2Behaviour boss2Behaviour;
+
+    float dist = 5;
+    float factor = 5;
+    bool check = false;
+
     void Start()
     {
         pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
@@ -118,18 +123,26 @@ public class MoveBehaviour : MonoBehaviour
         if (enemyBehaviour)
             if (enemyBehaviour.hp <= 0)
             {
+
                 if (other.layer == 10)
                 {
                     batteryBehaviour.amountEnergy += other.GetComponent<BatteryEnemyBehaviour>().value;
                 }
                 if (other.name != "Boss")
                 {
+
                     if (other.name == "BossChildEnemy")
                     {
                         Debug.Log(boss2Behaviour);
                         boss2Behaviour.deadChildAmount++;
                     }
-                    Destroy(other);
+
+                    check = true;
+
+                    other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam(check);
+                    other.gameObject.GetComponent<EnemyCheck>().BreakPolygon(check);
+                   
+                    // Destroy(other);
                     ++coreBehaviour.killEnemyCountCurrentFrame;
                     //feverSystem.IncreaseDeadCount();
                 }

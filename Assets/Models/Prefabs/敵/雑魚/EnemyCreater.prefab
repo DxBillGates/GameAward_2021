@@ -102,7 +102,7 @@ MonoBehaviour:
   maxEnemy: 100
   rightMesh: {fileID: 2540817853737639666, guid: 9528565baed0479438b4e83aa4fc5789, type: 3}
   setMesh: {fileID: 2540817853737639666, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
-  setMaterial: {fileID: 3983504700629669927, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
+  setMaterial: {fileID: 2100000, guid: 0b7e46b71d37fc743bbec1a7955e120d, type: 2}
   prefabEnemy: {fileID: 7926002254820838361, guid: bb59d7a4812e0b74e96867587c9ece09, type: 3}
 --- !u!114 &7345555503238840383
 MonoBehaviour:
