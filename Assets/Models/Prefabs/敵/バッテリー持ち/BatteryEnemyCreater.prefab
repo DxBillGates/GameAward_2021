@@ -103,7 +103,7 @@ MonoBehaviour:
   rightMesh: {fileID: 2540817853737639666, guid: 9528565baed0479438b4e83aa4fc5789, type: 3}
   setMesh: {fileID: 2540817853737639666, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
   setMaterial: {fileID: 3983504700629669927, guid: a4e28859bbfab0946b73aa1251a5a614, type: 3}
-  prefabEnemy: {fileID: 8177794063887702873, guid: 23eb0f927e4b8bd44a6dd0135d9eafae, type: 3}
+  prefabEnemy: {fileID: 1711446584652669933, guid: 460aff7b0e30009448d7880e701f5b18, type: 3}
 --- !u!114 &5256130746247890400
 MonoBehaviour:
   m_ObjectHideFlags: 0

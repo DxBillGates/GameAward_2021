@@ -11,6 +11,7 @@ public class GameSystemBehaviour : MonoBehaviour
     ChangePartsSystemBehavior systemBehavior;
     PauseParentBehaviour pauseParent;
     PauseUIManager pauseUIManager;
+    Color initialColor;
     //TextMesh modeText;
     // Start is called before the first frame update
     private void Awake()
@@ -21,6 +22,7 @@ public class GameSystemBehaviour : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
+        initialColor = GameObject.Find("mobius_special").GetComponent<Renderer>().material.color;
         systemBehavior = GetComponent<ChangePartsSystemBehavior>();
         selectedObject = null;
         selectObject = null;
@@ -76,7 +78,7 @@ public class GameSystemBehaviour : MonoBehaviour
                         soRenderer = selectedObject.GetComponent<Renderer>();
                         Color color = Color.white;
                         color.a = 0.25f;
-                        soRenderer.material.color = color;
+                        soRenderer.material.color = initialColor;
                         FlashingBehaviour fb = selectedObject.GetComponent<FlashingBehaviour>();
                         fb.isFlashing = false;
                         Debug.Log("ó£ÇÍÇΩÇÊÅI");

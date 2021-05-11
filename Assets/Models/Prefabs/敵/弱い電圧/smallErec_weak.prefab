@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 3261433663989709573}
   m_Layer: 0
   m_Name: smallErec_weak
-  m_TagString: enemy
+  m_TagString: weakVoltageEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
