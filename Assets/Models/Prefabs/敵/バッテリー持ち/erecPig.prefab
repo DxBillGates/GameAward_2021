@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 1602185666954969636}
   - component: {fileID: 3489228755549654885}
   - component: {fileID: -8475666096984920351}
+  - component: {fileID: 8562402634389274033}
   m_Layer: 10
   m_Name: erecPig
   m_TagString: enemy
@@ -432,7 +433,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 8748892135801146194, guid: b32b58526d9fe82429eedca83d31a7e2, type: 3}
+  - {fileID: 2100000, guid: b0af03e91c999c043aae8802e6f15239, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -556,6 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 100
+  beam: {fileID: 832590413395523279, guid: 167ff58df3035c7498515589397eafcc, type: 3}
 --- !u!114 &-8475666096984920351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,6 +568,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91aa8b17706672e4388889b67a8a9131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8562402634389274033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177794063887702873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c86f4a1dd72fb34b8f23408b91ed325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8545062522039126250
