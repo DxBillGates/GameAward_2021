@@ -48,7 +48,7 @@ public class BossCreaterBehaviour : MonoBehaviour
         GameObject newGameObject = Instantiate(prefab);
         newGameObject.name = "Boss";
 
-        newGameObject.transform.localScale = new Vector3(3, 3, 3);
+        //newGameObject.transform.localScale = new Vector3(3, 3, 3);
 
         Boss2Behaviour boss2Behaviour = newGameObject.GetComponent<Boss2Behaviour>();
         if(boss2Behaviour)
@@ -94,24 +94,24 @@ public class BossCreaterBehaviour : MonoBehaviour
         newGameObject.transform.rotation = Quaternion.FromToRotation(newGameObject.transform.up, -fallVector) * newGameObject.transform.rotation;
         newGameObject.transform.rotation = Quaternion.FromToRotation(newGameObject.transform.right, -newGameObject.transform.right) * newGameObject.transform.rotation;
 
-        //ÉÇÉfÉãê›íË
-        MeshFilter newMeshFilter = newGameObject.GetComponent<MeshFilter>();
-        MeshRenderer newMeshRenderer = newGameObject.GetComponent<MeshRenderer>();
-        if (rightMesh && leftMesh)
-        {
-            if (!leftMode)
-            {
-                newMeshFilter.mesh = rightMesh;
-            }
-            else
-            {
-                newMeshFilter.mesh = leftMesh;
-            }
-        }
-        if (material)
-        {
-            newMeshRenderer.material = material;
-        }
+        ////ÉÇÉfÉãê›íË
+        //MeshFilter newMeshFilter = newGameObject.GetComponent<MeshFilter>();
+        //MeshRenderer newMeshRenderer = newGameObject.GetComponent<MeshRenderer>();
+        //if (rightMesh && leftMesh)
+        //{
+        //    if (!leftMode)
+        //    {
+        //        newMeshFilter.mesh = rightMesh;
+        //    }
+        //    else
+        //    {
+        //        newMeshFilter.mesh = leftMesh;
+        //    }
+        //}
+        //if (material)
+        //{
+        //    newMeshRenderer.material = material;
+        //}
 
         isCreate = true;
     }
