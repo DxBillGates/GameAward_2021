@@ -577,8 +577,8 @@ MonoBehaviour:
   onMove: 1
   hp: 100
   damageSpan: 0.05
-  takeDamageValue: 0
-  startTakeDamageValue: 0
+  takeDamageValue: 1
+  startTakeDamageValue: 1
 --- !u!114 &4529019085272854578
 MonoBehaviour:
   m_ObjectHideFlags: 0

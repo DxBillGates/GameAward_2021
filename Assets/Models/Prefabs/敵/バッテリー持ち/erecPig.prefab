@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6487257334821684221}
   - component: {fileID: 2277357612310342044}
   m_Layer: 10
-  m_Name: erecPig 1 1
+  m_Name: erecPig
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 0
-  hp: 5
+  hp: 20
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66e632c50b74a944828c874079e74ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 100
+  value: 30
   beam: {fileID: 832590413395523279, guid: 167ff58df3035c7498515589397eafcc, type: 3}
 --- !u!114 &6487257334821684221
 MonoBehaviour:
