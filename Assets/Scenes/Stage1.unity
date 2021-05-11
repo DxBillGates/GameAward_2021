@@ -3746,6 +3746,7 @@ MonoBehaviour:
   increaseEnergyValue: 1
   batteryUI: {fileID: 1978324962}
   outputUI: {fileID: 0}
+  initialAmountEnergy: 0
   recoveryTime: 0
   recoveryValue: 0
   amountEnergyText: {fileID: 0}
@@ -4501,6 +4502,7 @@ MonoBehaviour:
   increaseEnergyValue: 1
   batteryUI: {fileID: 1978324962}
   outputUI: {fileID: 1030688374}
+  initialAmountEnergy: 0
   recoveryTime: 3
   recoveryValue: 10
   amountEnergyText: {fileID: 1764508583}

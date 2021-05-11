@@ -127,6 +127,10 @@ public class MoveBehaviour : MonoBehaviour
                 if (other.layer == 10)
                 {
                     batteryBehaviour.amountEnergy += other.GetComponent<BatteryEnemyBehaviour>().value;
+                    if (batteryBehaviour.amountEnergy + other.GetComponent<BatteryEnemyBehaviour>().value >= batteryBehaviour.initialAmountEnergy)
+                    {
+                        batteryBehaviour.amountEnergy = batteryBehaviour.initialAmountEnergy;
+                    }
                 }
                 if (other.name != "Boss")
                 {
