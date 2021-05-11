@@ -72,6 +72,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         if (coreBehaviour.hp <= 0/* || batteryBehaviour.amountEnergy <= 0*/)
         {
             SceneManager.LoadScene("GameOverScene");
+            
         }
         if (clearFlag)
         {

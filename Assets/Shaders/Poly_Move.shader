@@ -2,13 +2,27 @@ Shader "Unlit/Poly Move"
 {
 	Properties{
 		_MainTex("Texture", 2D) = "white" {}
-		_FarColor("Far Color", Color) = (1, 1, 1, 1)
-		_NearColor("Near Color", Color) = (0, 0, 0, 1)
+		//_FarColor("Far Color", Color) = (1, 1, 1, 1)
+		//_NearColor("Near Color", Color) = (0, 0, 0, 1)
 		_ScaleFactor("Scale Factor", float) = 0.5
 		_StartDistance("Start Distance", float) = 3.0
+
+		//ガラスシェーダー
+		_Color("Color"     , Color) = (1, 1, 1, 1)
+		_Smoothness("Smoothness", Range(0, 1)) = 1
+		_Alpha("Alpha"     , Range(0, 1)) = 0
+
 	}
 		SubShader{
-			Tags { "RenderType" = "Opaque" }
+			Tags { 
+				//"RenderType" = "Opaque"
+				"Queue" = "Transparent"
+				"RenderType" = "Transparent"
+		
+		}
+		// 背景とのブレンド法を「乗算」に指定
+		Blend DstColor Zero
+
 			LOD 100
 
 			Pass {
@@ -19,8 +33,12 @@ Shader "Unlit/Poly Move"
 
 				#include "UnityCG.cginc"
 
-				fixed4 _FarColor;
-				fixed4 _NearColor;
+				//fixed4 _FarColor;
+				//fixed4 _NearColor;
+
+				half3 _Color;
+				half _Alpha;
+
 				float _ScaleFactor;
 				float _StartDistance;
 				sampler2D _MainTex;
@@ -75,18 +93,33 @@ Shader "Unlit/Poly Move"
 						o.vertex = UnityObjectToClipPos(v.vertex);
 						o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 						
-						o.color = fixed4(lerp(_NearColor.rgb, _FarColor.rgb, gradient), 1);
+						o.color = fixed4(lerp(_Color, 0, _Alpha), 1);
 						stream.Append(o);
 					}
 					stream.RestartStrip();
 				}
 
 				fixed4 frag(g2f i) : SV_Target {
-					fixed4 col = tex2D(_MainTex, i.uv);
-					return col;
+										return fixed4(lerp(_Color, 0, _Alpha), 1);
 				}
 				ENDCG
 			}
-		}
-			FallBack "Unlit/Color"
+			// V/FシェーダーはReflection Probeに反応しないので
+		// 反射だけを描画するSurface Shaderを追記する
+		CGPROGRAM
+			#pragma target 3.0
+			#pragma surface surf Standard alpha
+
+			half _Smoothness;
+
+			struct Input {
+				fixed null;
+			};
+
+			void surf(Input IN, inout SurfaceOutputStandard o) {
+				o.Smoothness = _Smoothness;
+			}
+		ENDCG
+	}
+		
 }

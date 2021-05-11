@@ -139,8 +139,8 @@ public class MoveBehaviour : MonoBehaviour
 
                     check = true;
 
-                    other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam(check);
-                    other.gameObject.GetComponent<EnemyCheck>().BreakPolygon(check);
+                    other.gameObject.GetComponent<EnemyCheck>().BreakPolygon(check);   
+                    //other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam(check);   
                    
                     // Destroy(other);
                     ++coreBehaviour.killEnemyCountCurrentFrame;

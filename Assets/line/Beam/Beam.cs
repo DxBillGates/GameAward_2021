@@ -14,7 +14,7 @@ public class Beam : MonoBehaviour
     // 加速度
     public Vector3 acceleration;
     // ターゲットをセットする
-    public Transform target;
+    public GameObject target;
     // 着弾時間
     float period = 2f;
 
@@ -38,7 +38,7 @@ public class Beam : MonoBehaviour
         acceleration = Vector3.zero;
 
         //ターゲットと自分自身の差
-        var diff = target.position - transform.position;
+        var diff = target.transform.position - transform.position;
 
         //加速度
         acceleration += (diff - velocity * period) * 2f
@@ -65,10 +65,19 @@ public class Beam : MonoBehaviour
         rigid.MovePosition(transform.position + velocity * Time.deltaTime);
     }
 
-    void OnCollisionEnter()
-    {
-        // 何かに当たったら自分自身を削除
-        Destroy(this.gameObject);
+    //void OnCollisionEnter()
+    //{
+    //    // 何かに当たったら自分自身を削除
+    //    Destroy(this.gameObject);
 
+    //}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("box") || other.gameObject.CompareTag("enemy"))
+        {
+            Destroy(this.gameObject);
+        }
     }
+
 }

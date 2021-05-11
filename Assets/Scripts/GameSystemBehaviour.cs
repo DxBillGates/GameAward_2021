@@ -29,6 +29,9 @@ public class GameSystemBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        FadeManager2.FadeIn();
+
         if (Input.GetKeyDown(KeyCode.I))
         {
             SceneManager.LoadScene("SampleScene");

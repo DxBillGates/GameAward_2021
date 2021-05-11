@@ -93,7 +93,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832590413395523279}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: {x: 0, y: 0, z: 0}
-  target: {fileID: 0}
+  target: {fileID: 7532856529257768767, guid: 32c19ae0e612d7543b617488e5f595f2, type: 3}
 --- !u!96 &-8405154297494099226
 TrailRenderer:
   serializedVersion: 2

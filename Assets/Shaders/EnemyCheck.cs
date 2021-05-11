@@ -20,10 +20,10 @@ public class EnemyCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //dist = 100;
-        idx += 0.01f;
-        factor += idx;
-        material.SetFloat("_StartDistance", dist);
+        dist += 10;
+        //idx += 0.01f;
+        //factor += idx;
+        //material.SetFloat("_StartDistance", dist);
         material.SetFloat("_ScaleFactor", factor);
     }
 
@@ -32,11 +32,9 @@ public class EnemyCheck : MonoBehaviour
         if (check)
         {
             //dist = 100;
-
-            //for (int i = 0; i < 20; i++)
             {
-                idx += 0.01f;
-                dist+=20;
+                idx += 1;
+                dist+=10;
                 factor += idx;
                 material.SetFloat("_StartDistance", dist);
                 material.SetFloat("_ScaleFactor", factor);
