@@ -10,6 +10,7 @@ public class EnemyCheck : MonoBehaviour
     float factor = 1;
     float idx = 0;
     bool flag = false;
+    bool mCheck = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class EnemyCheck : MonoBehaviour
     void Update()
     {
         dist += 10;
+        BreakPolygon(mCheck);
         //idx += 0.01f;
         //factor += idx;
         //material.SetFloat("_StartDistance", dist);
@@ -34,14 +36,14 @@ public class EnemyCheck : MonoBehaviour
             //dist = 100;
             {
                 idx += 1;
-                dist+=10;
+                dist += 10;
                 factor += idx;
                 material.SetFloat("_StartDistance", dist);
                 material.SetFloat("_ScaleFactor", factor);
             }
 
             flag = true;
-
+            mCheck = check;
         }
 
         if (flag)
