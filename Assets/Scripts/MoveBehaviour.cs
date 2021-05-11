@@ -142,7 +142,6 @@ public class MoveBehaviour : MonoBehaviour
                     other.gameObject.GetComponent<EnemyCheck>().BreakPolygon(check);   
                     //other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam(check);   
                    
-                    // Destroy(other);
                     ++coreBehaviour.killEnemyCountCurrentFrame;
                     //feverSystem.IncreaseDeadCount();
                 }

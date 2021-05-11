@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mobius
+  m_Name: core
   m_Shader: {fileID: 4800000, guid: d88cd2a0027cdb24e8192061c66bbb64, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -75,6 +75,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.060887862, g: 0.0037379705, b: 0.2830189, a: 1}
+    - _Color: {r: 0.096618004, g: 0.38930085, b: 0.5566038, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
