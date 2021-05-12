@@ -20,6 +20,7 @@ public class LineCreaterBehaviour : MonoBehaviour
     float lineLength;
 
     public GameObject prefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,15 +50,18 @@ public class LineCreaterBehaviour : MonoBehaviour
         lineCreater.transform.position = transform.position;
         lineCreater.transform.rotation = transform.rotation;
         batteryBehaviour = GetComponent<BatteryBehaviour>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (isCreate && !systemBehavior.changeMode && batteryBehaviour.outputAmount > 0 && batteryBehaviour.amountEnergy > 0)
         {
             while (true)
             {
+
                 LineCreaterMoveFunction();
                 lineCreaterObjectBehaviour.AnotherUpdate();
                 lineCreaterLerpBehaviour.AnotherMoveFunc();
@@ -65,6 +69,7 @@ public class LineCreaterBehaviour : MonoBehaviour
                 lineLength += Time.deltaTime;
                 if (Vector3.Distance(lineCreater.transform.position, endObject.transform.position) <= 1)
                 {
+                   
                     isCreate = false;
                     isDelete = false;
                     lineCreater.transform.position = transform.position;
@@ -75,10 +80,13 @@ public class LineCreaterBehaviour : MonoBehaviour
                     Debug.Log(lineLength);
                     lineLength = 0;
                     Debug.Log("¬Œ÷‚µ‚Ü‚µ‚½");
+
                     break;
                 }
 
+
                 time += Time.deltaTime;
+
                 if (time >= 240)
                 {
                     lineCreater.transform.position = transform.position;

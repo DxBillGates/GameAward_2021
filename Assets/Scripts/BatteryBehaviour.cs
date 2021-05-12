@@ -22,6 +22,9 @@ public class BatteryBehaviour : MonoBehaviour
 
     public Text amountEnergyText;
     public Text outputAmountText;
+
+    GameObject obj;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,11 +34,13 @@ public class BatteryBehaviour : MonoBehaviour
         initialOutputUISize = outputUI.localScale;
         initialAmountEnergy = amountEnergy;
         lineCreater = GameObject.Find("First").GetComponent<LineCreaterBehaviour>();
+        obj = GameObject.FindGameObjectWithTag("lines");
     }
 
     // Update is called once per frame
     void Update()
     {
+
         amountEnergyText.text = amountEnergy.ToString();
         outputAmountText.text = outputAmount.ToString();
 
@@ -117,7 +122,10 @@ public class BatteryBehaviour : MonoBehaviour
         outputAmount += increaseEnergyValue;
         if(outputAmount >= maxOutputAmount)
         {
+            //obj.GetComponent<ParticleL>().ParticleBegin();
+            obj.GetComponent<ParticleSystem>().Play();
             outputAmount = maxOutputAmount;
+            
         }
     }
 

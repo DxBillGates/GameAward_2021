@@ -38,6 +38,7 @@ public class MoveBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!systemBehavior.changeMode)
         {
             transform.rotation = Quaternion.FromToRotation(transform.up, objectBehavior.onNormal) * transform.rotation;
@@ -149,12 +150,14 @@ public class MoveBehaviour : MonoBehaviour
                 {
                     if (other.GetComponent<Boss2Behaviour>())
                     {
+                        other.gameObject.GetComponent<ParticleSystem>().Play();
                         boss2Behaviour = other.GetComponent<Boss2Behaviour>();
                         boss2Behaviour.SetDeadPosition();
                         boss2Behaviour.deadFlag = true;
                     }
                     else
                     {
+                        other.gameObject.GetComponent<ParticleSystem>().Play();
                         other.SetActive(false);
                     }
                 }

@@ -14,7 +14,7 @@ public class Beam : MonoBehaviour
     // 加速度
     public Vector3 acceleration;
     // ターゲットをセットする
-    public GameObject target;
+    GameObject target;
     // 着弾時間
     float period = 2f;
 
@@ -27,6 +27,7 @@ public class Beam : MonoBehaviour
         // rigidbody取得
         rigid = this.GetComponent<Rigidbody>();
 
+        target = GameObject.FindGameObjectWithTag("box");
 
         velocity = new Vector3(35, 35, 0);
 
@@ -74,7 +75,7 @@ public class Beam : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("box") || other.gameObject.CompareTag("enemy"))
+        if (other.gameObject.CompareTag("box")|| other.gameObject.CompareTag("enemy"))
         {
             Destroy(this.gameObject);
         }
