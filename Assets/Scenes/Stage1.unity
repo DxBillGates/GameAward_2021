@@ -558,6 +558,10 @@ PrefabInstance:
       propertyPath: hpUiTransform
       value: 
       objectReference: {fileID: 908275489}
+    - target: {fileID: 8864220482868271200, guid: 1dae10c051a08b443a0fcb854b9a2b4f, type: 3}
+      propertyPath: recoveryKillAmount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8975305642311443763, guid: 1dae10c051a08b443a0fcb854b9a2b4f, type: 3}
       propertyPath: m_RootOrder
       value: 5

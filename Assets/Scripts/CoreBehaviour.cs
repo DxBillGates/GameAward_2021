@@ -21,6 +21,7 @@ public class CoreBehaviour : MonoBehaviour
     float hpUiXScale;
     public float killEnemyCountCurrentFrame;
     public float killEnemyCountBeforeFrame;
+    public float recoveryKillAmount;
     int frame;
     Vector3 size;
 
@@ -49,7 +50,7 @@ public class CoreBehaviour : MonoBehaviour
     void Update()
     {
 
-        if (frame % 10 == 0)
+        if (frame % 30 == 0)
         {
             killEnemyCountBeforeFrame = killEnemyCountCurrentFrame;
             killEnemyCountCurrentFrame = 0;
@@ -58,9 +59,9 @@ public class CoreBehaviour : MonoBehaviour
                 //Debug.Log(killEnemyCountBeforeFrame + ":" + frame);
             }
 
-            if (killEnemyCountBeforeFrame >= 10)
+            if (killEnemyCountBeforeFrame >= recoveryKillAmount)
             {
-                hp += 10;
+                hp += recovery;
             }
         }
 
@@ -81,20 +82,20 @@ public class CoreBehaviour : MonoBehaviour
             angle += Time.deltaTime * 10;
 
 
-            if (!oldIsDamage)
-            {
-                noDamageTime += Time.deltaTime;
-            }
-            if (noDamageTime >= regenerationSpan)
-            {
-                if (hp < maxHp)
-                {
-                    hp += recovery;
-                    if (hp > maxHp) hp = maxHp;
-                    scaleLerp = true;
-                    noDamageTime = 0;
-                }
-            }
+            //if (!oldIsDamage)
+            //{
+            //    noDamageTime += Time.deltaTime;
+            //}
+            //if (noDamageTime >= regenerationSpan)
+            //{
+            //    if (hp < maxHp)
+            //    {
+            //        hp += recovery;
+            //        if (hp > maxHp) hp = maxHp;
+            //        scaleLerp = true;
+            //        noDamageTime = 0;
+            //    }
+            //}
 
             if (scaleLerp)
             {
