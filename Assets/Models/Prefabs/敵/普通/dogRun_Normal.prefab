@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 6270225196267670595}
   - component: {fileID: 28523859506524112}
   - component: {fileID: -9164193606791942419}
+  - component: {fileID: 1676487399887029999}
   m_Layer: 0
   m_Name: dogRun_Normal
   m_TagString: enemy
@@ -261,6 +262,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   beam: {fileID: 4239125308308814613, guid: bb985536f4c583f46a6ca9fae6499fca, type: 3}
+--- !u!114 &1676487399887029999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083585071095696510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c86f4a1dd72fb34b8f23408b91ed325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1621336854073357838
 GameObject:
   m_ObjectHideFlags: 0
