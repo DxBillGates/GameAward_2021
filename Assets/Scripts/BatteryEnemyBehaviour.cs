@@ -17,22 +17,18 @@ public class BatteryEnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject obj = Instantiate(beam) as GameObject;
-        obj.transform.position = transform.position;
-        obj.transform.rotation = transform.rotation;
+        //GameObject obj = Instantiate(beam) as GameObject;
+        //obj.transform.position = transform.position;
+        //obj.transform.rotation = transform.rotation;
     }
 
-    public void GenerateBeam(bool check)
+    public void GenerateBeam()
     {
-        if (check)
         {
-            count++;
-            if (count == 1)
-            {
                 GameObject obj = Instantiate(beam) as GameObject;
-                obj.transform.position = transform.position;
+                Vector3 pos = transform.position;
+                obj.transform.position =pos;
                 obj.transform.rotation = transform.rotation;
-            }
         }
 
     }

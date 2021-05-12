@@ -123,7 +123,7 @@ public class BatteryBehaviour : MonoBehaviour
         if(outputAmount >= maxOutputAmount)
         {
             //obj.GetComponent<ParticleL>().ParticleBegin();
-            obj.GetComponent<ParticleSystem>().Play();
+            //obj.GetComponent<ParticleSystem>().Play();
             outputAmount = maxOutputAmount;
             
         }

@@ -19,6 +19,8 @@ public class MoveBehaviour : MonoBehaviour
     PauseBehaviour pauseBehaviour;
     static Boss2Behaviour boss2Behaviour;
 
+    GameObject pig;
+
     float dist = 5;
     float factor = 5;
     bool check = false;
@@ -33,6 +35,8 @@ public class MoveBehaviour : MonoBehaviour
         bossCreater = GameObject.Find("BossCreater").GetComponent<BossCreaterBehaviour>();
         meshRenderer = GetComponent<MeshRenderer>();
         coreBehaviour = GameObject.Find("Core").GetComponent<CoreBehaviour>();
+
+        pig = GameObject.Find("erecPig");
     }
 
     // Update is called once per frame
@@ -103,7 +107,7 @@ public class MoveBehaviour : MonoBehaviour
     private void HitEnemy(GameObject other)
     {
         EnemyBehaviour enemyBehaviour = other.GetComponent<EnemyBehaviour>();
-        if(!enemyBehaviour.enabled)
+        if (!enemyBehaviour.enabled)
         {
             return;
         }
@@ -126,7 +130,7 @@ public class MoveBehaviour : MonoBehaviour
             }
         }
 
-        if(other.name == "boss2")
+        if (other.name == "boss2")
         {
             Debug.Log("!");
         }
@@ -154,8 +158,10 @@ public class MoveBehaviour : MonoBehaviour
                     check = true;
 
                     var enemyCheck = other.gameObject.GetComponent<EnemyCheck>();
+               
                     if (enemyCheck)
                     {
+                        other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam();
                         enemyCheck.BreakPolygon(check);
                         other.gameObject.GetComponent<PauseBehaviour>().OnPauseOtherComponent(enemyCheck);
 
