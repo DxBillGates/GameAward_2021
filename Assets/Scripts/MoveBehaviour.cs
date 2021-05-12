@@ -102,6 +102,10 @@ public class MoveBehaviour : MonoBehaviour
     private void HitEnemy(GameObject other)
     {
         EnemyBehaviour enemyBehaviour = other.GetComponent<EnemyBehaviour>();
+        if(!enemyBehaviour.enabled)
+        {
+            return;
+        }
         //int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
         int value;
         value = (int)(batteryBehaviour.outputAmount + addDamageValue);
@@ -119,6 +123,11 @@ public class MoveBehaviour : MonoBehaviour
                 //Debug.Log(value + ":" + enemyBehaviour.startTakeDamageValue);
                 enemyBehaviour.Damage((int)enemyBehaviour.takeDamageValue);
             }
+        }
+
+        if(other.name == "boss2")
+        {
+            Debug.Log("!");
         }
         if (enemyBehaviour)
             if (enemyBehaviour.hp <= 0)
