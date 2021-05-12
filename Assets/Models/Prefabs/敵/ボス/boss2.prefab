@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 1
-  hp: 100
+  hp: 10
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0
@@ -614,6 +614,7 @@ MonoBehaviour:
   createEnemyAmount: 10
   enemyPrehab: {fileID: 7926002254820838361, guid: bb59d7a4812e0b74e96867587c9ece09, type: 3}
   gameObjects: []
+  particleBehaviours: []
   deadChildAmount: 0
 --- !u!65 &7371287764998658417
 BoxCollider:

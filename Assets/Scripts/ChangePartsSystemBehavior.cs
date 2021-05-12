@@ -23,6 +23,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     BatteryBehaviour batteryBehaviour;
     PauseBehaviour pauseBehaviour;
     Color initialColor;
+    Boss2Behaviour boss2;
 
     void Start()
     {
@@ -63,7 +64,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
                 }
                 else
                 {
-                    Boss2Behaviour boss2 = boss.GetComponent<Boss2Behaviour>();
+                    boss2 = boss.GetComponent<Boss2Behaviour>();
                     if(boss2.deadChildAmount == boss2.createEnemyAmount)
                     {
                         clearFlag = true;
@@ -85,7 +86,12 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (!changeMode)
+                bool notChange = false;
+                if(boss2)
+                {
+                    notChange = boss2.isDivide;
+                }
+                if (!changeMode && !notChange)
                 {
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit hit;
