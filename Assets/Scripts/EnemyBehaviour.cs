@@ -92,7 +92,7 @@ public class EnemyBehaviour : MonoBehaviour
                 scaleLerpT = 1;
             }
             //transform.localScale = Vector3.Lerp(new Vector3(1, 1, 1), new Vector3(1, 1, 1) - new Vector3(0.5f, 0.5f, 0.5f), scaleLerpT);
-            renderer.material.color *= Color.red;
+            renderer.sharedMaterial.color *= Color.red;
         }
         else
         {

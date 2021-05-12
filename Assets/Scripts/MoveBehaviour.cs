@@ -103,6 +103,10 @@ public class MoveBehaviour : MonoBehaviour
     private void HitEnemy(GameObject other)
     {
         EnemyBehaviour enemyBehaviour = other.GetComponent<EnemyBehaviour>();
+        if(!enemyBehaviour.enabled)
+        {
+            return;
+        }
         //int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
         int value;
         value = (int)(batteryBehaviour.outputAmount + addDamageValue);
@@ -121,6 +125,11 @@ public class MoveBehaviour : MonoBehaviour
                 enemyBehaviour.Damage((int)enemyBehaviour.takeDamageValue);
             }
         }
+
+        if(other.name == "boss2")
+        {
+            Debug.Log("!");
+        }
         if (enemyBehaviour)
             if (enemyBehaviour.hp <= 0)
             {
@@ -128,6 +137,10 @@ public class MoveBehaviour : MonoBehaviour
                 if (other.layer == 10)
                 {
                     batteryBehaviour.amountEnergy += other.GetComponent<BatteryEnemyBehaviour>().value;
+                    if (batteryBehaviour.amountEnergy + other.GetComponent<BatteryEnemyBehaviour>().value >= batteryBehaviour.initialAmountEnergy)
+                    {
+                        batteryBehaviour.amountEnergy = batteryBehaviour.initialAmountEnergy;
+                    }
                 }
                 if (other.name != "Boss")
                 {
@@ -140,9 +153,17 @@ public class MoveBehaviour : MonoBehaviour
 
                     check = true;
 
-                    other.gameObject.GetComponent<EnemyCheck>().BreakPolygon(check);   
+                    var enemyCheck = other.gameObject.GetComponent<EnemyCheck>();
+                    if (enemyCheck)
+                    {
+                        enemyCheck.BreakPolygon(check);
+                        other.gameObject.GetComponent<PauseBehaviour>().OnPauseOtherComponent(enemyCheck);
+
+                    }
+                    //other.gameObject.GetComponent<EnemyCheck>().BreakPolygon(check);   
+
                     //other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam(check);   
-                   
+
                     ++coreBehaviour.killEnemyCountCurrentFrame;
                     //feverSystem.IncreaseDeadCount();
                 }

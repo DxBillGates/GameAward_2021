@@ -22,9 +22,11 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     public bool oldChangeFlag;
     BatteryBehaviour batteryBehaviour;
     PauseBehaviour pauseBehaviour;
+    Color initialColor;
 
     void Start()
     {
+        initialColor = GameObject.Find("mobius_special").GetComponent<Renderer>().material.color;
         pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
         clearFlag = false;
         core = GameObject.Find("Core");
@@ -150,8 +152,8 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         if (!changeMode)
         {
             Color color = new Color(1, 1, 1, 0.25f);
-            firstObj.GetComponent<Renderer>().material.color = color;
-            secondObj.GetComponent<Renderer>().material.color = color;
+            firstObj.GetComponent<Renderer>().material.color = initialColor;
+            secondObj.GetComponent<Renderer>().material.color = initialColor;
             t = 0;
 
             FlashingBehaviour fb = firstObj.GetComponent<FlashingBehaviour>();

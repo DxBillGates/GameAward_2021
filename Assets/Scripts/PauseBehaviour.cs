@@ -28,7 +28,7 @@ public class PauseBehaviour : MonoBehaviour
         behaviours = gameObject.GetComponentsInChildren<Behaviour>();
         foreach (var component in behaviours)
         {
-            if (!(component.GetType() == typeof(PauseParentBehaviour)) && !(component.GetType() == typeof(PauseUIManager)))
+            if (!(component.GetType() == typeof(PauseParentBehaviour)))
             {
                 component.enabled = false;
             }
@@ -52,5 +52,21 @@ public class PauseBehaviour : MonoBehaviour
     private void OnDestroy()
     {
         PauseParentBehaviour.pauseBehaviours.Remove(this);
+    }
+
+    public void OnPauseOtherComponent(Behaviour com)
+    {
+        if (behaviours != null)
+        {
+            return;
+        }
+        behaviours = gameObject.GetComponentsInChildren<Behaviour>();
+        foreach (var component in behaviours)
+        {
+            if (!(component.GetType() == typeof(PauseParentBehaviour)) && !(component.GetType() == com.GetType()))
+            {
+                component.enabled = false;
+            }
+        }
     }
 }
