@@ -13,7 +13,7 @@ public class BatteryBehaviour : MonoBehaviour
     public RectTransform outputUI;
     Vector3 initialbatteryUISize;
     Vector3 initialOutputUISize;
-    float initialAmountEnergy;
+    public float initialAmountEnergy;
     float oldOutputAmount;
     LineCreaterBehaviour lineCreater;
     public float recoveryTime;
