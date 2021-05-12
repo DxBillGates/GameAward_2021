@@ -6,6 +6,7 @@ public class ParticleL : MonoBehaviour
 {
     private ParticleSystem particle;
     public GameObject obj;
+    int count = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +21,15 @@ public class ParticleL : MonoBehaviour
 
     public void ParticleBegin()
     {
-        GameObject part = Instantiate(obj) as GameObject;
-        part.transform.position = transform.position;
-        part.transform.rotation = transform.rotation;
+        count++;
 
-        particle.Play();
+        //if (count <= 3)
+        
+            GameObject part = Instantiate(obj) as GameObject;
+            part.transform.position = transform.position;
+            part.transform.rotation = transform.rotation;
+
+           particle.Play();
 
     }
 

@@ -73,12 +73,14 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         }
         if (coreBehaviour.hp <= 0/* || batteryBehaviour.amountEnergy <= 0*/)
         {
-            SceneManager.LoadScene("GameOverScene");
-            
+           // SceneManager.LoadScene("GameOverScene");
+            StartCoroutine(Change(2, "GameOverScene"));
+
         }
         if (clearFlag)
-        {
-            SceneManager.LoadScene("GameClearScene");
+        {           
+            //SceneManager.LoadScene("GameClearScene");
+            StartCoroutine(Change(2, "GameClearScene"));
         }
 
         if (isMouse)
@@ -234,4 +236,11 @@ public class ChangePartsSystemBehavior : MonoBehaviour
 
         firstObj = secondObj = null;
     }
+
+    private IEnumerator Change(float waitTime,string scene)
+    {
+        yield return new WaitForSeconds(waitTime);
+        FadeManager2.FadeOut(scene);
+    }
+
 }
