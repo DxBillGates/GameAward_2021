@@ -17,7 +17,7 @@ public class TitleSceneSystemBehaviour : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //SceneManager.LoadScene("Stage1");
-            FadeManager2.FadeOut("Stage1");
+            FadeManager2.FadeOut("StageSelect");
         }
     }
 }

@@ -12,12 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/StageSelect.unity
+    guid: 52ee955f4e192094dae780603f8dfde9
+  - enabled: 1
+    path: Assets/Scenes/Stage1.unity
+    guid: 2835da6a69bb8a04cb34b2155fc3952d
+  - enabled: 1
+    path: Assets/Scenes/Stage2.unity
+    guid: 6f83da66070d5ea4a96dc3c0aaefa4bf
+  - enabled: 1
     path: Assets/Scenes/GameClearScene.unity
     guid: 720e3757add82c347bed4e5f5ae9a850
   - enabled: 1
     path: Assets/Scenes/GameOverScene.unity
     guid: b09b33ba17cc58e498866af8ccc79eda
-  - enabled: 1
-    path: Assets/Scenes/Stage1.unity
-    guid: 2835da6a69bb8a04cb34b2155fc3952d
   m_configObjects: {}

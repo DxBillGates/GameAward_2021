@@ -31,4 +31,9 @@ public class UIBehaviour : MonoBehaviour
     {
         SceneManager.LoadScene("TitleScene");
     }
+
+    public void OnClick_StageSelect()
+    {
+        SceneManager.LoadScene("StageSelect");
+    }
 }
