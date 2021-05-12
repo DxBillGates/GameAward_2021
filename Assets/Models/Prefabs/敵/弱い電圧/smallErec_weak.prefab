@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 3315039072658730215}
   - component: {fileID: 6271007073287228423}
   - component: {fileID: 3261433663989709573}
+  - component: {fileID: 6010409091054481815}
   m_Layer: 0
   m_Name: smallErec_weak
   m_TagString: weakVoltageEnemy
@@ -400,6 +401,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91aa8b17706672e4388889b67a8a9131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6010409091054481815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2532024050162815595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66e632c50b74a944828c874079e74ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0
+  beam: {fileID: 4239125308308814613, guid: bb985536f4c583f46a6ca9fae6499fca, type: 3}
 --- !u!1 &4210760881288893891
 GameObject:
   m_ObjectHideFlags: 0

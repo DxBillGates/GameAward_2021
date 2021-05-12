@@ -81,7 +81,8 @@ Shader "Unlit/Poly Move"
 					fixed gradient = clamp(dist - _StartDistance, 0.0, 1.0);
 
 					// ƒ‰ƒ“ƒ_ƒ€‚È’l
-					fixed random = rand(center.xy);
+					//fixed random = rand(center.xy);
+					fixed random = center.xy;
 					fixed3 random3 = random.xxx;
 
 					[unroll]

@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 5172519308503206768}
   - component: {fileID: -1619439343602536214}
   - component: {fileID: 3861307094711559667}
+  - component: {fileID: -6242044301123839131}
   m_Layer: 0
   m_Name: dogRun_Strong
   m_TagString: enemy
@@ -631,3 +632,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c86f4a1dd72fb34b8f23408b91ed325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6242044301123839131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8275590019745693286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66e632c50b74a944828c874079e74ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0
+  beam: {fileID: 4239125308308814613, guid: bb985536f4c583f46a6ca9fae6499fca, type: 3}
