@@ -477,7 +477,7 @@ Transform:
   m_GameObject: {fileID: 7704705891008799977}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.72, y: 20.18, z: -63.512028}
-  m_LocalScale: {x: 24, y: 24, z: 24}
+  m_LocalScale: {x: 48, y: 48, z: 48}
   m_Children:
   - {fileID: 7331577478337123998}
   - {fileID: 7932074973058644945}
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 1
-  hp: 10
+  hp: 60
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e682ccf24f18cfe4395e4eb17e6f1e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSpan: 1
+  timeSpan: 0.1
   attackValue: 10
 --- !u!114 &5276460399549222921
 MonoBehaviour:
@@ -610,12 +610,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadFlag: 0
   exploFlag: 0
-  maxTime: 2
-  createEnemyAmount: 10
-  enemyPrehab: {fileID: 7926002254820838361, guid: bb59d7a4812e0b74e96867587c9ece09, type: 3}
+  maxTime: 0.1
+  createEnemyAmount: 3
+  enemyPrehab: {fileID: 1083585071095696510, guid: afd40c8d70318834494d9e54fcd87b8a, type: 3}
   gameObjects: []
-  particleBehaviours: []
   deadChildAmount: 0
+  endDivideCount: 0
+  isDivide: 0
 --- !u!65 &7371287764998658417
 BoxCollider:
   m_ObjectHideFlags: 0
