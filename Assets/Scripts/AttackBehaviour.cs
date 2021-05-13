@@ -9,6 +9,7 @@ public class AttackBehaviour : MonoBehaviour
     float t;
     public int attackValue;
     ChangePartsSystemBehavior systemBehavior;
+    public Mesh bulletModel;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,13 +27,14 @@ public class AttackBehaviour : MonoBehaviour
             {
                 t = 0;
                 GameObject bullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                bullet.GetComponent<MeshFilter>().mesh = bulletModel;
                 BulletBehavior bulletBehavior = bullet.AddComponent<BulletBehavior>();
                 bulletBehavior.attackValue = attackValue;
                 bullet.transform.position = transform.position + transform.up * 2;
                 Rigidbody rb = bullet.AddComponent<Rigidbody>();
                 rb.useGravity = false;
                 //rb.AddForce((target - transform.position).normalized * 1000);
-                bulletBehavior.vector = (target - transform.position).normalized * Time.deltaTime * 10;
+                bulletBehavior.vector = (target - transform.position).normalized *  10;
             }
 
             RaycastHit hit;
