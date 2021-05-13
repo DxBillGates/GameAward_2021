@@ -118,6 +118,13 @@ public class ChangePartsSystemBehavior : MonoBehaviour
                             else
                             {
                                 secondObj = hit.collider.gameObject;
+
+                                if(secondObj == firstObj)
+                                {
+                                    Initialize();
+                                    return;
+                                }
+
                                 sPos = secondObj.transform.position;
                                 sAngle = secondObj.transform.eulerAngles;
                                 changePreMode = true;
@@ -220,16 +227,16 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         if (setObject)
         {
             Color color = new Color(1, 1, 1, 0.25f);
-            setObject.GetComponent<Renderer>().material.color = color;
+            setObject.GetComponent<Renderer>().material.color = initialColor;
             setObject = null;
         }
         if (firstObj)
         {
             Color color = new Color(1, 1, 1, 0.25f);
-            firstObj.GetComponent<Renderer>().material.color = color;
+            firstObj.GetComponent<Renderer>().material.color = initialColor;
             if (secondObj)
             {
-                secondObj.GetComponent<Renderer>().material.color = color;
+                secondObj.GetComponent<Renderer>().material.color = initialColor;
             }
         }
 
