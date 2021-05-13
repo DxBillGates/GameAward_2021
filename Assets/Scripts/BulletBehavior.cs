@@ -11,6 +11,7 @@ public class BulletBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
     }
@@ -18,9 +19,10 @@ public class BulletBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!systemBehavior.changeMode)
+        if (!systemBehavior.changeMode)
         {
-            transform.position += vector;
+            transform.position += vector * Time.deltaTime;
+            transform.rotation = Quaternion.FromToRotation(transform.up, vector.normalized) * transform.rotation;
         }
     }
 }

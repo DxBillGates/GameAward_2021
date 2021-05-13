@@ -54,6 +54,7 @@ public class Boss2Behaviour : MonoBehaviour
             //gameObject.SetActive(false);
             pauseBehaviour.OnPauseOtherComponent(this);
             GetComponent<ParticleSystem>().Pause();
+            GetComponent<ParticleSystem>().Clear();
             GetComponent<Renderer>().enabled = false;
         }
 
