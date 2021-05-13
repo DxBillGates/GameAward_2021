@@ -937,6 +937,7 @@ MonoBehaviour:
   endObject: {fileID: 690926162}
   isCreate: 0
   isDelete: 0
+  lineLength: 0
   prefab: {fileID: 3944207772649576557, guid: f81920c322279b44c94f507ab06a16c1, type: 3}
 --- !u!65 &305628622
 BoxCollider:
@@ -1054,6 +1055,8 @@ MonoBehaviour:
   recoveryValue: 0
   amountEnergyText: {fileID: 0}
   outputAmountText: {fileID: 0}
+  maxDamageLevel: 0
+  testOutputValue: 0
 --- !u!1001 &347993551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2016,6 +2019,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 292abd5591376e44ba1b7acee6f3b573, type: 3}
       propertyPath: m_Name
       value: back
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 292abd5591376e44ba1b7acee6f3b573, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2383544492759984832, guid: 292abd5591376e44ba1b7acee6f3b573, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3267,13 +3274,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.076753445, y: -0, z: -0, w: 0.9970501}
-  m_LocalPosition: {x: 0, y: 36, z: -70}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 25, z: -70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 8.804, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4067,6 +4074,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5330346463709252623, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5428453909730928865, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
+      propertyPath: maxEnemy
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9118,6 +9129,8 @@ MonoBehaviour:
   recoveryValue: 10
   amountEnergyText: {fileID: 445491560}
   outputAmountText: {fileID: 359469627}
+  maxDamageLevel: 0
+  testOutputValue: 0
 --- !u!114 &1440596635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9133,6 +9146,7 @@ MonoBehaviour:
   endObject: {fileID: 1700298740}
   isCreate: 0
   isDelete: 0
+  lineLength: 0
   prefab: {fileID: 3944207772649576557, guid: f81920c322279b44c94f507ab06a16c1, type: 3}
 --- !u!1 &1479263912
 GameObject:
@@ -9510,7 +9524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1661016362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10303,7 +10317,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9a827e6c61a2fd1418977f07950096fe, type: 2}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: maxEnemy
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: prefabEnemy
@@ -10336,15 +10350,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6108124840078784924, guid: c41a3847d3e365341b1da99401bc38e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.86
+      value: -25.65
       objectReference: {fileID: 0}
     - target: {fileID: 6108124840078784924, guid: c41a3847d3e365341b1da99401bc38e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.67
+      value: 32.1
       objectReference: {fileID: 0}
     - target: {fileID: 6108124840078784924, guid: c41a3847d3e365341b1da99401bc38e7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.003627929
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6108124840078784924, guid: c41a3847d3e365341b1da99401bc38e7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10399,6 +10413,10 @@ PrefabInstance:
       propertyPath: batteryUI
       value: 
       objectReference: {fileID: 1672621991}
+    - target: {fileID: 1840286492, guid: 32c19ae0e612d7543b617488e5f595f2, type: 3}
+      propertyPath: maxDamageLevel
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1840286492, guid: 32c19ae0e612d7543b617488e5f595f2, type: 3}
       propertyPath: amountEnergyText
       value: 

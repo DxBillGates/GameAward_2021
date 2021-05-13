@@ -25,6 +25,11 @@ public class BatteryBehaviour : MonoBehaviour
 
     GameObject[] objs;
 
+
+    [SerializeField] float maxDamageLevel;
+    public float testOutputValue;
+    float testDamageValue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +52,14 @@ public class BatteryBehaviour : MonoBehaviour
         batteryUI.localScale = new Vector3(initialbatteryUISize.x, initialbatteryUISize.y * amountEnergy / initialAmountEnergy, initialbatteryUISize.z);
         outputUI.localScale = new Vector3(initialOutputUISize.x,-outputAmount / initialAmountEnergy, initialOutputUISize.z);
         oldOutputAmount = outputAmount;
+
+        //testDamageValue = 27.0f / lineCreater.lineLength;
+        testOutputValue = lineCreater.lineLength / 2.7f;
+        testOutputValue = Mathf.Round(testOutputValue);
+        SetDamageValue();
+        Debug.Log("DamageValue:" + testDamageValue);
+        Debug.Log("OutputValue:" + testOutputValue);
+
         float mouseWheelInput = Input.GetAxis("Mouse ScrollWheel");
         if (mouseWheelInput > 0)
         {
@@ -55,6 +68,7 @@ public class BatteryBehaviour : MonoBehaviour
             {
                 //lineCreater.CreateLine();
                 lineCreater.isCreate = true;
+                lineCreater.lineLength = 0;
             }
         }
         else if(mouseWheelInput < 0)
@@ -146,5 +160,16 @@ public class BatteryBehaviour : MonoBehaviour
         {
             outputAmount = 0;
         }
+    }
+
+    void SetDamageValue()
+    {
+        if(testOutputValue == 0)
+        {
+            testDamageValue = 0;
+            return;
+        }
+        testDamageValue = maxDamageLevel + 1 - Mathf.Round(testOutputValue);
+
     }
 }

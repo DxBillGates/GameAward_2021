@@ -17,7 +17,7 @@ public class LineCreaterBehaviour : MonoBehaviour
     BatteryBehaviour batteryBehaviour;
     float addDamage;
     GameObject amplifier;
-    float lineLength;
+    public float lineLength;
 
     public GameObject prefab;
 
@@ -77,8 +77,7 @@ public class LineCreaterBehaviour : MonoBehaviour
                     amplifier = null;
                     time = 0;
                     addDamage = 0;
-                    Debug.Log(lineLength);
-                    lineLength = 0;
+                    //Debug.Log(lineLength);
                     Debug.Log("ê¨å˜ÇµÇ‹ÇµÇΩ");
 
                     break;
@@ -115,6 +114,7 @@ public class LineCreaterBehaviour : MonoBehaviour
             lineCreater.transform.position = transform.position;
             lineCreater.transform.rotation = transform.rotation;
             isCreate = true;
+            lineLength = 0;
         }
     }
 
