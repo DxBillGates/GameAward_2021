@@ -8,7 +8,7 @@ public class EnemyCheck : MonoBehaviour
 
     float dist = 5;
     float factor = 1;
-    float idx = 0;
+    public float idx = 1;
     bool flag = false;
     bool mCheck = false;
 
