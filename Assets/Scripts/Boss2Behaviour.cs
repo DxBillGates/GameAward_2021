@@ -15,6 +15,9 @@ public class Boss2Behaviour : MonoBehaviour
     LerpBehaviour mLerpBehaviour;
     public List<GameObject> gameObjects;
     public int deadChildAmount;
+    PauseBehaviour pauseBehaviour;
+    public int endDivideCount;
+    public bool isDivide;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,9 @@ public class Boss2Behaviour : MonoBehaviour
         lerpTime = 0;
         deadPos = new Vector3();
         mLerpBehaviour = GetComponent<LerpBehaviour>();
+        pauseBehaviour = GetComponent<PauseBehaviour>();
+        endDivideCount = 0;
+        isDivide = false;
     }
 
     // Update is called once per frame
@@ -45,7 +51,15 @@ public class Boss2Behaviour : MonoBehaviour
             Divide();
             exploFlag = false;
             deadFlag = false;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            pauseBehaviour.OnPauseOtherComponent(this);
+            GetComponent<ParticleSystem>().Pause();
+            GetComponent<Renderer>().enabled = false;
+        }
+
+        if(endDivideCount >= createEnemyAmount)
+        {
+            isDivide = false;
         }
     }
 
@@ -66,6 +80,7 @@ public class Boss2Behaviour : MonoBehaviour
             ParticleBehaviour particleBehaviour = newEnemy.AddComponent<ParticleBehaviour>();
             particleBehaviour.vector = random;
             particleBehaviour.gravity = -transform.up;
+            particleBehaviour.boss2 = this;
 
             newEnemy.transform.position = transform.position;
             newEnemy.transform.rotation = transform.rotation;
@@ -79,5 +94,7 @@ public class Boss2Behaviour : MonoBehaviour
             newEnemy.name = "BossChildEnemy";
             gameObjects.Add(newEnemy);
         }
+
+        isDivide = true;
     }
 }

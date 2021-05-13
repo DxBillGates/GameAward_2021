@@ -61,7 +61,7 @@ public class EnemyCreaterBehavior : MonoBehaviour
         //新規オブジェクトの生成
         GameObject newGameObject = Instantiate(prefabEnemy);
         //GameObject newGameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-        newGameObject.name = "CreatedEnemy";
+        //newGameObject.name = "CreatedEnemy";
 
         ////コライダーの切り替え
         //Destroy(newGameObject.GetComponent<Collider>());

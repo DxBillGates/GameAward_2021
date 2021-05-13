@@ -23,6 +23,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     BatteryBehaviour batteryBehaviour;
     PauseBehaviour pauseBehaviour;
     Color initialColor;
+    Boss2Behaviour boss2;
 
     void Start()
     {
@@ -63,7 +64,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
                 }
                 else
                 {
-                    Boss2Behaviour boss2 = boss.GetComponent<Boss2Behaviour>();
+                    boss2 = boss.GetComponent<Boss2Behaviour>();
                     if(boss2.deadChildAmount == boss2.createEnemyAmount)
                     {
                         clearFlag = true;
@@ -73,19 +74,26 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         }
         if (coreBehaviour.hp <= 0/* || batteryBehaviour.amountEnergy <= 0*/)
         {
-            SceneManager.LoadScene("GameOverScene");
-            
+           // SceneManager.LoadScene("GameOverScene");
+            StartCoroutine(Change(2, "GameOverScene"));
+
         }
         if (clearFlag)
-        {
-            SceneManager.LoadScene("GameClearScene");
+        {           
+            //SceneManager.LoadScene("GameClearScene");
+            StartCoroutine(Change(2, "GameClearScene"));
         }
 
         if (isMouse)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (!changeMode)
+                bool notChange = false;
+                if(boss2)
+                {
+                    notChange = boss2.isDivide;
+                }
+                if (!changeMode && !notChange)
                 {
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit hit;
@@ -234,4 +242,11 @@ public class ChangePartsSystemBehavior : MonoBehaviour
 
         firstObj = secondObj = null;
     }
+
+    private IEnumerator Change(float waitTime,string scene)
+    {
+        yield return new WaitForSeconds(waitTime);
+        FadeManager2.FadeOut(scene);
+    }
+
 }

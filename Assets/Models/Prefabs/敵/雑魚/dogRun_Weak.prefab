@@ -326,6 +326,8 @@ GameObject:
   - component: {fileID: 1507750951499763614}
   - component: {fileID: 5392194323475749627}
   - component: {fileID: -7030573344981196219}
+  - component: {fileID: -6711742304626383176}
+  - component: {fileID: 8468998161955002980}
   m_Layer: 0
   m_Name: dogRun_Weak
   m_TagString: enemy
@@ -420,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 0
-  hp: 5
+  hp: 8
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0
@@ -523,6 +525,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c86f4a1dd72fb34b8f23408b91ed325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6711742304626383176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7926002254820838361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66e632c50b74a944828c874079e74ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0
+  beam: {fileID: 4239125308308814613, guid: bb985536f4c583f46a6ca9fae6499fca, type: 3}
+--- !u!114 &8468998161955002980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7926002254820838361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e682ccf24f18cfe4395e4eb17e6f1e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeSpan: 1
+  attackValue: 1
 --- !u!1 &8392280507505930665
 GameObject:
   m_ObjectHideFlags: 0

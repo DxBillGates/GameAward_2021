@@ -75,7 +75,7 @@ public class Beam : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("box")|| other.gameObject.CompareTag("enemy"))
+        if (other.gameObject.CompareTag("box"))//|| other.gameObject.CompareTag("enemy")
         {
             Destroy(this.gameObject);
         }

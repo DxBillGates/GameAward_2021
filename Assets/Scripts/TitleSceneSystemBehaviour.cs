@@ -8,7 +8,7 @@ public class TitleSceneSystemBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class TitleSceneSystemBehaviour : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             //SceneManager.LoadScene("Stage1");
-            FadeManager2.FadeOut("Stage1");
+            FadeManager2.FadeOut("StageSelect");
         }
     }
 }
