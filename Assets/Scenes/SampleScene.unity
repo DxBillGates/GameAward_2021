@@ -698,6 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSpan: 3
   attackValue: 0
+  bulletModel: {fileID: 0}
 --- !u!114 &230387148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9171,6 +9172,7 @@ MonoBehaviour:
   hpUiTransform: {fileID: 133139249}
   killEnemyCountCurrentFrame: 0
   killEnemyCountBeforeFrame: 0
+  recoveryKillAmount: 0
 --- !u!65 &1479263914
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -74,14 +74,16 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         }
         if (coreBehaviour.hp <= 0/* || batteryBehaviour.amountEnergy <= 0*/)
         {
-           // SceneManager.LoadScene("GameOverScene");
-            StartCoroutine(Change(2, "GameOverScene"));
+            FadeManager.Instance.LoadScene("GameOverScene", 2.0f);
+            // SceneManager.LoadScene("GameOverScene");
+            //StartCoroutine(Change(2, "GameOverScene"));
 
         }
         if (clearFlag)
-        {           
+        {
+            FadeManager.Instance.LoadScene("GameClearScene", 2.0f);
             //SceneManager.LoadScene("GameClearScene");
-            StartCoroutine(Change(2, "GameClearScene"));
+            //StartCoroutine(Change(2, "GameClearScene"));
         }
 
         if (isMouse)
