@@ -117,7 +117,7 @@ public class MoveBehaviour : MonoBehaviour
         }
         //int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
         int value;
-        value = (int)(batteryBehaviour.outputAmount + addDamageValue);
+        value = (int)(batteryBehaviour.testDamageValue + addDamageValue);
         if (enemyBehaviour.takeDamageValue == 0)
         {
             if (value >= enemyBehaviour.startTakeDamageValue)

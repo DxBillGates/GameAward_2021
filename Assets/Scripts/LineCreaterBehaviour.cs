@@ -57,7 +57,7 @@ public class LineCreaterBehaviour : MonoBehaviour
     void Update()
     {
 
-        if (isCreate && !systemBehavior.changeMode && batteryBehaviour.outputAmount > 0 && batteryBehaviour.amountEnergy > 0)
+        if (isCreate && !systemBehavior.changeMode /*&& batteryBehaviour.outputAmount > 0*/ && batteryBehaviour.amountEnergy > 0)
         {
             while (true)
             {
@@ -110,11 +110,14 @@ public class LineCreaterBehaviour : MonoBehaviour
 
         if (systemBehavior.oldChangeFlag && !systemBehavior.changeMode)
         {
-            Debug.Log("生成開始します");
-            lineCreater.transform.position = transform.position;
-            lineCreater.transform.rotation = transform.rotation;
-            isCreate = true;
-            lineLength = 0;
+            if (batteryBehaviour.isOutput)
+            {
+                Debug.Log("生成開始します");
+                lineCreater.transform.position = transform.position;
+                lineCreater.transform.rotation = transform.rotation;
+                isCreate = true;
+                lineLength = 0;
+            }
         }
     }
 
