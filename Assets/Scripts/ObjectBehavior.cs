@@ -27,7 +27,6 @@ public class ObjectBehavior : MonoBehaviour
             if (isFly)
             {
                 transform.position += -onNormal / 10;
-                ++flyingFrame;
             }
             transform.position += fallVector;
         }
@@ -72,12 +71,17 @@ public class ObjectBehavior : MonoBehaviour
         }
         else
         {
-            isFly = true;
+            if (!Physics.Raycast(transform.position, -transform.up, out hit, 20))
+            {
+                isFly = true;
+                ++flyingFrame;
+            }
         }
     }
 
     public void AnotherUpdate()
     {
+        SetParent();
         if (!changePartsSystemBehavior.changeMode)
         {
             if (isFly)
@@ -86,6 +90,5 @@ public class ObjectBehavior : MonoBehaviour
             }
             transform.position += fallVector;
         }
-        SetParent();
     }
 }
