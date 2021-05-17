@@ -46,7 +46,7 @@ public class GameSystemBehaviour : MonoBehaviour
             SceneManager.LoadScene("TitleScene");
         }
 
-        if (systemBehavior.isMouse)
+        if (systemBehavior.isMouse && !PauseUIManager.isPause)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -63,6 +63,7 @@ public class GameSystemBehaviour : MonoBehaviour
                     if (selectObject != systemBehavior.firstObj)
                     {
                         FlashingBehaviour fb = selectObject.GetComponent<FlashingBehaviour>();
+                        fb.enabled = true;
                         fb.isFlashing = true;
                     }
                 }

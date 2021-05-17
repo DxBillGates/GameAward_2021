@@ -94,6 +94,8 @@ public class Boss2Behaviour : MonoBehaviour
             lerpBehaviour.isAutoMove = true;
             newEnemy.name = "BossChildEnemy";
             gameObjects.Add(newEnemy);
+            AttackBehaviour attackBehaviour = newEnemy.GetComponent<AttackBehaviour>();
+            attackBehaviour.enabled = false;
         }
 
         isDivide = true;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class LineCreaterBehaviour : MonoBehaviour
 {
     GameObject lineCreater;
-    ChangePartsSystemBehavior systemBehavior;
+    public ChangePartsSystemBehavior systemBehavior;
     ObjectBehavior lineCreaterObjectBehaviour;
     LerpBehaviour lineCreaterLerpBehaviour;
     public GameObject endObject;

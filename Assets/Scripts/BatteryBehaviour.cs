@@ -15,7 +15,7 @@ public class BatteryBehaviour : MonoBehaviour
     Vector3 initialOutputUISize;
     public float initialAmountEnergy;
     float oldOutputAmount;
-    LineCreaterBehaviour lineCreater;
+    public LineCreaterBehaviour lineCreater;
     public float recoveryTime;
     public float recoveryValue;
     float recT;
@@ -119,14 +119,7 @@ public class BatteryBehaviour : MonoBehaviour
 
         if (amountEnergy == 0)
         {
-            GameObject[] lines = GameObject.FindGameObjectsWithTag("lines");
-            if (lines.Length > 0)
-            {
-                foreach (GameObject line in lines)
-                {
-                    Destroy(line);
-                }
-            }
+            AllDestroy();
         }
 
         recT += Time.deltaTime;
@@ -201,5 +194,17 @@ public class BatteryBehaviour : MonoBehaviour
         }
         testDamageValue = maxDamageLevel + 1 - Mathf.Round(testOutputValue);
 
+    }
+
+    public static void AllDestroy()
+    {
+        GameObject[] lines = GameObject.FindGameObjectsWithTag("lines");
+        if (lines.Length > 0)
+        {
+            foreach (GameObject line in lines)
+            {
+                Destroy(line);
+            }
+        }
     }
 }

@@ -43,7 +43,8 @@ public class PauseBehaviour : MonoBehaviour
         }
         foreach (var component in behaviours)
         {
-            component.enabled = true;
+            if (component)
+                component.enabled = true;
         }
 
         behaviours = null;

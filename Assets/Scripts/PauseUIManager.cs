@@ -5,6 +5,7 @@ using UnityEngine;
 public class PauseUIManager : MonoBehaviour
 {
     public static List<PauseUIBehaviour> pauseUIBehaviours;
+    public static bool isPause;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class PauseUIManager : MonoBehaviour
         {
             ui.gameObject.SetActive(true);
         }
+        isPause = true;
     }
 
     public static void OnResume()
@@ -34,5 +36,6 @@ public class PauseUIManager : MonoBehaviour
         {
             ui.gameObject.SetActive(false);
         }
+        isPause = false;
     }
 }
