@@ -9,7 +9,7 @@ public class ObjectBehavior : MonoBehaviour
     public Vector3 fallVector;
     public float speed;
     public float addSpeed;
-    int flyingFrame;
+    public int flyingFrame;
     public ChangePartsSystemBehavior changePartsSystemBehavior { get; set; }
     void Start()
     {
@@ -31,7 +31,7 @@ public class ObjectBehavior : MonoBehaviour
             transform.position += fallVector;
         }
 
-        if(flyingFrame >= 120)
+        if(flyingFrame >= 10)
         {
             Destroy(gameObject);
         }
@@ -71,7 +71,7 @@ public class ObjectBehavior : MonoBehaviour
         }
         else
         {
-            if (!Physics.Raycast(transform.position, -transform.up, out hit, 20))
+            if (!Physics.Raycast(transform.position, -transform.up, out hit, 50))
             {
                 isFly = true;
                 ++flyingFrame;
