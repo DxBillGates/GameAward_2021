@@ -3650,6 +3650,7 @@ MonoBehaviour:
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
   addSpeed: 0
+  flyingFrame: 0
 --- !u!65 &1207809042
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4725,6 +4726,7 @@ MonoBehaviour:
   batteryUI: {fileID: 949319207}
   outputUI: {fileID: 0}
   initialAmountEnergy: 0
+  lineCreater: {fileID: 0}
   recoveryTime: 0
   recoveryValue: 0
   amountEnergyText: {fileID: 0}
@@ -4751,6 +4753,7 @@ MonoBehaviour:
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
   addSpeed: 0
+  flyingFrame: 0
 --- !u!114 &1605393574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4763,6 +4766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831a1442d59599d46b63fed6c8554e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemBehavior: {fileID: 0}
   endObject: {fileID: 1207809040}
   isCreate: 0
   isDelete: 0
@@ -6299,6 +6303,7 @@ MonoBehaviour:
   batteryUI: {fileID: 949319207}
   outputUI: {fileID: 1543319236}
   initialAmountEnergy: 0
+  lineCreater: {fileID: 0}
   recoveryTime: 3
   recoveryValue: 10
   amountEnergyText: {fileID: 268922176}
@@ -6320,6 +6325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831a1442d59599d46b63fed6c8554e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemBehavior: {fileID: 0}
   endObject: {fileID: 1557165217}
   isCreate: 0
   isDelete: 0

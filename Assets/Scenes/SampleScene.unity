@@ -934,6 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831a1442d59599d46b63fed6c8554e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemBehavior: {fileID: 0}
   endObject: {fileID: 690926162}
   isCreate: 0
   isDelete: 0
@@ -1032,6 +1033,7 @@ MonoBehaviour:
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
   addSpeed: 0
+  flyingFrame: 0
 --- !u!114 &305628627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,6 +1053,7 @@ MonoBehaviour:
   batteryUI: {fileID: 1672621991}
   outputUI: {fileID: 0}
   initialAmountEnergy: 0
+  lineCreater: {fileID: 0}
   recoveryTime: 0
   recoveryValue: 0
   amountEnergyText: {fileID: 0}
@@ -2554,6 +2557,7 @@ MonoBehaviour:
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
   addSpeed: 0
+  flyingFrame: 0
 --- !u!1 &696627127 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6885928524743631654, guid: c41a3847d3e365341b1da99401bc38e7, type: 3}
@@ -9775,6 +9779,7 @@ MonoBehaviour:
   batteryUI: {fileID: 1672621991}
   outputUI: {fileID: 1023835121}
   initialAmountEnergy: 0
+  lineCreater: {fileID: 0}
   recoveryTime: 10
   recoveryValue: 10
   amountEnergyText: {fileID: 445491560}
@@ -9796,6 +9801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831a1442d59599d46b63fed6c8554e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemBehavior: {fileID: 0}
   endObject: {fileID: 1700298740}
   isCreate: 0
   isDelete: 0
@@ -11466,7 +11472,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9a827e6c61a2fd1418977f07950096fe, type: 2}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: maxEnemy
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: prefabEnemy
@@ -11562,6 +11568,10 @@ PrefabInstance:
       propertyPath: batteryUI
       value: 
       objectReference: {fileID: 1672621991}
+    - target: {fileID: 1840286492, guid: 32c19ae0e612d7543b617488e5f595f2, type: 3}
+      propertyPath: amountEnergy
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 1840286492, guid: 32c19ae0e612d7543b617488e5f595f2, type: 3}
       propertyPath: maxDamageLevel
       value: 10
