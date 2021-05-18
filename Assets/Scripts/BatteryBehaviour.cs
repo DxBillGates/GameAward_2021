@@ -15,15 +15,23 @@ public class BatteryBehaviour : MonoBehaviour
     Vector3 initialOutputUISize;
     public float initialAmountEnergy;
     float oldOutputAmount;
-    LineCreaterBehaviour lineCreater;
+    public LineCreaterBehaviour lineCreater;
     public float recoveryTime;
     public float recoveryValue;
     float recT;
 
     public Text amountEnergyText;
     public Text outputAmountText;
+    public Text testDamageText;
 
     GameObject[] objs;
+
+
+    [SerializeField] float maxDamageLevel;
+    public float testOutputValue;
+    public float testDamageValue;
+    bool isOldOutput;
+    public bool isOutput;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +42,8 @@ public class BatteryBehaviour : MonoBehaviour
         initialOutputUISize = outputUI.localScale;
         initialAmountEnergy = amountEnergy;
         lineCreater = GameObject.Find("First").GetComponent<LineCreaterBehaviour>();
-        
+        isOldOutput = false;
+        isOutput = false;
     }
 
     // Update is called once per frame
@@ -42,25 +51,43 @@ public class BatteryBehaviour : MonoBehaviour
     {
 
         amountEnergyText.text = amountEnergy.ToString();
-        outputAmountText.text = outputAmount.ToString();
+        outputAmountText.text = testOutputValue.ToString();
+        testDamageText.text = "Damage : " + testDamageValue.ToString();
 
         batteryUI.localScale = new Vector3(initialbatteryUISize.x, initialbatteryUISize.y * amountEnergy / initialAmountEnergy, initialbatteryUISize.z);
         outputUI.localScale = new Vector3(initialOutputUISize.x,-outputAmount / initialAmountEnergy, initialOutputUISize.z);
         oldOutputAmount = outputAmount;
+        isOldOutput = isOutput;
+
+        //testDamageValue = 27.0f / lineCreater.lineLength;
+        testOutputValue = lineCreater.lineLength / 2.7f;
+        testOutputValue = Mathf.Round(testOutputValue);
+        outputAmount = testOutputValue;
+        SetDamageValue();
+        //Debug.Log("DamageValue:" + testDamageValue);
+        //Debug.Log("OutputValue:" + testOutputValue);
+
         float mouseWheelInput = Input.GetAxis("Mouse ScrollWheel");
         if (mouseWheelInput > 0)
         {
-            IncreaseOutputEnergy();
-            if(oldOutputAmount == 0)
+            isOutput = true;
+            //IncreaseOutputEnergy();
+            //if(oldOutputAmount == 0)
+            //{
+            //    //lineCreater.CreateLine();
+            //    lineCreater.isCreate = true;
+            //    lineCreater.lineLength = 0;
+            //}
+            if(!isOldOutput)
             {
-                //lineCreater.CreateLine();
                 lineCreater.isCreate = true;
+                lineCreater.lineLength = 0;
             }
         }
         else if(mouseWheelInput < 0)
         {
-            DecreaseOutputEnergy();
-            if (outputAmount == 0)
+            isOutput = false;
+            if(isOldOutput)
             {
                 GameObject[] lines = GameObject.FindGameObjectsWithTag("lines");
                 if (lines.Length > 0)
@@ -71,18 +98,28 @@ public class BatteryBehaviour : MonoBehaviour
                     }
                 }
             }
+            //DecreaseOutputEnergy();
+            //if (outputAmount == 0)
+            //{
+            //    GameObject[] lines = GameObject.FindGameObjectsWithTag("lines");
+            //    if (lines.Length > 0)
+            //    {
+            //        foreach (GameObject line in lines)
+            //        {
+            //            Destroy(line);
+            //        }
+            //    }
+            //}
+
+            testOutputValue = 0;
+            testDamageValue = 0;
+            lineCreater.lineLength = 0;
+
         }
 
         if (amountEnergy == 0)
         {
-            GameObject[] lines = GameObject.FindGameObjectsWithTag("lines");
-            if (lines.Length > 0)
-            {
-                foreach (GameObject line in lines)
-                {
-                    Destroy(line);
-                }
-            }
+            AllDestroy();
         }
 
         recT += Time.deltaTime;
@@ -145,6 +182,29 @@ public class BatteryBehaviour : MonoBehaviour
         if(outputAmount <= 0)
         {
             outputAmount = 0;
+        }
+    }
+
+    void SetDamageValue()
+    {
+        if(testOutputValue == 0)
+        {
+            testDamageValue = 0;
+            return;
+        }
+        testDamageValue = maxDamageLevel + 1 - Mathf.Round(testOutputValue);
+
+    }
+
+    public static void AllDestroy()
+    {
+        GameObject[] lines = GameObject.FindGameObjectsWithTag("lines");
+        if (lines.Length > 0)
+        {
+            foreach (GameObject line in lines)
+            {
+                Destroy(line);
+            }
         }
     }
 }

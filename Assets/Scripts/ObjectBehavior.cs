@@ -9,9 +9,11 @@ public class ObjectBehavior : MonoBehaviour
     public Vector3 fallVector;
     public float speed;
     public float addSpeed;
+    public int flyingFrame;
     public ChangePartsSystemBehavior changePartsSystemBehavior { get; set; }
     void Start()
     {
+        flyingFrame = 0;
         onNormal = new Vector3();
         isFly = true;
         changePartsSystemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
@@ -27,6 +29,11 @@ public class ObjectBehavior : MonoBehaviour
                 transform.position += -onNormal / 10;
             }
             transform.position += fallVector;
+        }
+
+        if(flyingFrame >= 10)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -46,6 +53,7 @@ public class ObjectBehavior : MonoBehaviour
                     {
                         fallVector = new Vector3();
                         isFly = false;
+                        flyingFrame = 0;
                     }
                     else
                     {
@@ -61,10 +69,19 @@ public class ObjectBehavior : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            if (!Physics.Raycast(transform.position, -transform.up, out hit, 50))
+            {
+                isFly = true;
+                ++flyingFrame;
+            }
+        }
     }
 
     public void AnotherUpdate()
     {
+        SetParent();
         if (!changePartsSystemBehavior.changeMode)
         {
             if (isFly)
@@ -73,6 +90,5 @@ public class ObjectBehavior : MonoBehaviour
             }
             transform.position += fallVector;
         }
-        SetParent();
     }
 }

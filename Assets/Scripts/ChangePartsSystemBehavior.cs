@@ -57,15 +57,15 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         if (bossBehavior)
         {
             if (bossBehavior.hp <= 0)
-            {              
-                if(!boss.GetComponent<Boss2Behaviour>())
+            {
+                if (!boss.GetComponent<Boss2Behaviour>())
                 {
                     clearFlag = true;
                 }
                 else
                 {
                     boss2 = boss.GetComponent<Boss2Behaviour>();
-                    if(boss2.deadChildAmount == boss2.createEnemyAmount)
+                    if (boss2.deadChildAmount == boss2.createEnemyAmount)
                     {
                         clearFlag = true;
                     }
@@ -86,12 +86,12 @@ public class ChangePartsSystemBehavior : MonoBehaviour
             //StartCoroutine(Change(2, "GameClearScene"));
         }
 
-        if (isMouse)
+        if (isMouse && !PauseUIManager.isPause)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 bool notChange = false;
-                if(boss2)
+                if (boss2)
                 {
                     notChange = boss2.isDivide;
                 }
@@ -116,14 +116,17 @@ public class ChangePartsSystemBehavior : MonoBehaviour
 
                                 FlashingBehaviour fb = firstObj.GetComponent<FlashingBehaviour>();
                                 fb.isFlashing = false;
+
+                                PauseParentBehaviour.PauseExclutionGameObject(this);
                             }
                             else
                             {
                                 secondObj = hit.collider.gameObject;
 
-                                if(secondObj == firstObj)
+                                if (secondObj == firstObj)
                                 {
                                     Initialize();
+                                    PauseParentBehaviour.ResumeExclution();
                                     return;
                                 }
 
@@ -136,6 +139,11 @@ public class ChangePartsSystemBehavior : MonoBehaviour
 
                                 FlashingBehaviour fb = secondObj.GetComponent<FlashingBehaviour>();
                                 fb.isFlashing = false;
+
+                                if (PauseParentBehaviour.isPause)
+                                {
+                                    BatteryBehaviour.AllDestroy();
+                                }
                             }
                         }
                     }
@@ -145,7 +153,9 @@ public class ChangePartsSystemBehavior : MonoBehaviour
             if (changeMode)
             {
                 if (isMouseChange)
+                {
                     Change();
+                }
             }
         }
     }
@@ -184,6 +194,12 @@ public class ChangePartsSystemBehavior : MonoBehaviour
                 fb.isFlashing = false;
             }
             firstObj = secondObj = null;
+            PauseParentBehaviour.ResumeExclution();
+            if (batteryBehaviour.isOutput)
+            {
+                batteryBehaviour.lineCreater.isCreate = true;
+                batteryBehaviour.lineCreater.lineLength = 0;
+            }
         }
     }
 
@@ -252,7 +268,7 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         firstObj = secondObj = null;
     }
 
-    private IEnumerator Change(float waitTime,string scene)
+    private IEnumerator Change(float waitTime, string scene)
     {
         yield return new WaitForSeconds(waitTime);
         FadeManager2.FadeOut(scene);

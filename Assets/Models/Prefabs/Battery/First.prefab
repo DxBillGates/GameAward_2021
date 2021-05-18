@@ -31,10 +31,16 @@ MonoBehaviour:
   increaseEnergyValue: 1
   batteryUI: {fileID: 712029102059722642, guid: 4dd562e18c7b7284b8d8d340ebf6b4be, type: 3}
   outputUI: {fileID: 5471938036997289967, guid: b30a0ace6089c054c8854891eb20c6f8, type: 3}
+  initialAmountEnergy: 0
   recoveryTime: 10
   recoveryValue: 10
   amountEnergyText: {fileID: 5271603341457648468, guid: 89ed7b343dfe3a242b2d7496bcf6147b, type: 3}
   outputAmountText: {fileID: 7734278904500665975, guid: 92cd5fe45550e7343923560d55733365, type: 3}
+  testDamageText: {fileID: 4681448940923571572, guid: 3460c46daefdda14986d74b7975dcdf4, type: 3}
+  maxDamageLevel: 10
+  testOutputValue: 0
+  testDamageValue: 0
+  isOutput: 0
 --- !u!114 &1840286493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +73,7 @@ MonoBehaviour:
   endObject: {fileID: 6885928524743631654, guid: c41a3847d3e365341b1da99401bc38e7, type: 3}
   isCreate: 0
   isDelete: 0
+  lineLength: 0
   prefab: {fileID: 3944207772649576557, guid: f81920c322279b44c94f507ab06a16c1, type: 3}
 --- !u!1001 &7227007241158204014
 PrefabInstance:

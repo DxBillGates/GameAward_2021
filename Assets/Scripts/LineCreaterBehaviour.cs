@@ -5,7 +5,7 @@ using UnityEngine;
 public class LineCreaterBehaviour : MonoBehaviour
 {
     GameObject lineCreater;
-    ChangePartsSystemBehavior systemBehavior;
+    public ChangePartsSystemBehavior systemBehavior;
     ObjectBehavior lineCreaterObjectBehaviour;
     LerpBehaviour lineCreaterLerpBehaviour;
     public GameObject endObject;
@@ -17,7 +17,7 @@ public class LineCreaterBehaviour : MonoBehaviour
     BatteryBehaviour batteryBehaviour;
     float addDamage;
     GameObject amplifier;
-    float lineLength;
+    public float lineLength;
 
     public GameObject prefab;
 
@@ -57,7 +57,7 @@ public class LineCreaterBehaviour : MonoBehaviour
     void Update()
     {
 
-        if (isCreate && !systemBehavior.changeMode && batteryBehaviour.outputAmount > 0 && batteryBehaviour.amountEnergy > 0)
+        if (isCreate && !systemBehavior.changeMode /*&& batteryBehaviour.outputAmount > 0*/ && batteryBehaviour.amountEnergy > 0)
         {
             while (true)
             {
@@ -77,8 +77,7 @@ public class LineCreaterBehaviour : MonoBehaviour
                     amplifier = null;
                     time = 0;
                     addDamage = 0;
-                    Debug.Log(lineLength);
-                    lineLength = 0;
+                    //Debug.Log(lineLength);
                     Debug.Log("成功しました");
 
                     break;
@@ -111,10 +110,14 @@ public class LineCreaterBehaviour : MonoBehaviour
 
         if (systemBehavior.oldChangeFlag && !systemBehavior.changeMode)
         {
-            Debug.Log("生成開始します");
-            lineCreater.transform.position = transform.position;
-            lineCreater.transform.rotation = transform.rotation;
-            isCreate = true;
+            if (batteryBehaviour.isOutput)
+            {
+                Debug.Log("生成開始します");
+                lineCreater.transform.position = transform.position;
+                lineCreater.transform.rotation = transform.rotation;
+                isCreate = true;
+                lineLength = 0;
+            }
         }
     }
 

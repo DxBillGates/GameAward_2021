@@ -20,6 +20,7 @@ public class MoveBehaviour : MonoBehaviour
     static Boss2Behaviour boss2Behaviour;
 
     GameObject pig;
+    Vector3 initialSize;
 
     float dist = 5;
     float factor = 5;
@@ -27,6 +28,7 @@ public class MoveBehaviour : MonoBehaviour
 
     void Start()
     {
+        initialSize = transform.localScale;
         pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
         systemBehavior = GameObject.Find("GameSystem").GetComponent<ChangePartsSystemBehavior>();
         lerpBehaviour = GetComponent<NewLerpBehaviour>();
@@ -71,8 +73,10 @@ public class MoveBehaviour : MonoBehaviour
                 }
             }
         }
-        green = 1 - 1.0f / (batteryBehaviour.outputAmount + addDamageValue);
-        meshRenderer.material.color = new Color(1, 1 - 1.0f / (batteryBehaviour.outputAmount + addDamageValue), 0, 1);
+        green = 1.0f / batteryBehaviour.testOutputValue;
+        //green = 1 - 1.0f / (batteryBehaviour.outputAmount + addDamageValue);
+        meshRenderer.material.color = new Color(1,green, 0, 1);
+        transform.localScale = initialSize * (green + 0.5f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -113,7 +117,7 @@ public class MoveBehaviour : MonoBehaviour
         }
         //int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
         int value;
-        value = (int)(batteryBehaviour.outputAmount + addDamageValue);
+        value = (int)(batteryBehaviour.testDamageValue + addDamageValue);
         if (enemyBehaviour.takeDamageValue == 0)
         {
             if (value >= enemyBehaviour.startTakeDamageValue)
