@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
-  beam: {fileID: 1322932671584050926, guid: c9afe97cb1303174e919ed0a27fd07fe, type: 3}
+  beam: {fileID: 1322932671584050926, guid: 65d21ee11cfd24c45baf3dfe3c64488e, type: 3}
 --- !u!199 &-5102845468120750160
 ParticleSystemRenderer:
   serializedVersion: 6
