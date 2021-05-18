@@ -629,7 +629,7 @@ PrefabInstance:
       objectReference: {fileID: 4636534}
     - target: {fileID: 1840286492, guid: 32c19ae0e612d7543b617488e5f595f2, type: 3}
       propertyPath: amountEnergy
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1840286492, guid: 32c19ae0e612d7543b617488e5f595f2, type: 3}
       propertyPath: recoveryTime
