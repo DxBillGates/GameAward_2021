@@ -181,14 +181,16 @@ public class MoveBehaviour : MonoBehaviour
                 {
                     if (other.GetComponent<Boss2Behaviour>())
                     {
-                        other.gameObject.GetComponent<ParticleSystem>().Play();
+                        //other.gameObject.GetComponent<ParticleSystem>().Play();
+                        other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam();
                         boss2Behaviour = other.GetComponent<Boss2Behaviour>();
                         boss2Behaviour.SetDeadPosition();
                         boss2Behaviour.deadFlag = true;
                     }
                     else
                     {
-                        other.gameObject.GetComponent<ParticleSystem>().Play();
+                        other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam();
+                        //other.gameObject.GetComponent<ParticleSystem>().Play();
                         other.SetActive(false);
                     }
                 }
