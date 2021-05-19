@@ -17,7 +17,7 @@ public class FlashingBehaviour : MonoBehaviour
         pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
         renderer = GetComponent<Renderer>();
         color = renderer.material.color;
-        t = 0;
+        t = timeSpan;
     }
 
     // Update is called once per frame

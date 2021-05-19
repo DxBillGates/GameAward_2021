@@ -14,6 +14,7 @@ TagManager:
   - PauseParent
   - Enemy
   - PauseUI
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -37,41 +37,53 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         bossBehavior = null;
         boss = null;
         batteryBehaviour = GameObject.Find("First").GetComponent<BatteryBehaviour>();
+
     }
 
     void Update()
     {
         oldChangeFlag = changeMode;
-        if (bossCreaterBehaviour)
+        //if (bossCreaterBehaviour)
+        //{
+        //    if (bossCreaterBehaviour.isCreate)
+        //    {
+        //        if (!bossBehavior)
+        //        {
+        //            boss = GameObject.Find("Boss");
+        //            bossBehavior = boss.GetComponent<EnemyBehaviour>();
+        //        }
+        //    }
+        //}
+
+        //if (bossBehavior)
+        //{
+        //    if (bossBehavior.hp <= 0)
+        //    {
+        //        if (!boss.GetComponent<Boss2Behaviour>())
+        //        {
+        //            clearFlag = true;
+        //        }
+        //        else
+        //        {
+        //            boss2 = boss.GetComponent<Boss2Behaviour>();
+        //            if (boss2.deadChildAmount == boss2.createEnemyAmount)
+        //            {
+        //                clearFlag = true;
+        //            }
+        //        }
+        //    }
+        //}
+
+        if(bossCreaterBehaviour.isCreate)
         {
-            if (bossCreaterBehaviour.isCreate)
+            GameObject[] bosses = GameObject.FindGameObjectsWithTag("Boss");
+            Debug.Log(bosses.Length);
+            if(bosses.Length <= 0)
             {
-                if (!bossBehavior)
-                {
-                    boss = GameObject.Find("Boss");
-                    bossBehavior = boss.GetComponent<EnemyBehaviour>();
-                }
+                clearFlag = true;
             }
         }
 
-        if (bossBehavior)
-        {
-            if (bossBehavior.hp <= 0)
-            {
-                if (!boss.GetComponent<Boss2Behaviour>())
-                {
-                    clearFlag = true;
-                }
-                else
-                {
-                    boss2 = boss.GetComponent<Boss2Behaviour>();
-                    if (boss2.deadChildAmount == boss2.createEnemyAmount)
-                    {
-                        clearFlag = true;
-                    }
-                }
-            }
-        }
         if (coreBehaviour.hp <= 0/* || batteryBehaviour.amountEnergy <= 0*/)
         {
             FadeManager.Instance.LoadScene("GameOverScene", 2.0f);

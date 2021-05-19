@@ -296,6 +296,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCreater (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1162950880760707447, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1162950880760707447, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
 --- !u!1 &83252205
@@ -2410,6 +2418,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11460108, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
+      propertyPath: DebugMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
 --- !u!1001 &706536460
@@ -3485,6 +3497,10 @@ PrefabInstance:
     - target: {fileID: 3338560616027120368, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
       propertyPath: m_Name
       value: BatteryEnemyCreater (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338560616027120368, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5330346463709252623, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
       propertyPath: m_RootOrder
@@ -5354,7 +5370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5247471100236772536, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8645835796019100950, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: m_RootOrder
@@ -6487,7 +6503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5247471100236772536, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8645835796019100950, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: m_RootOrder
@@ -6675,6 +6691,10 @@ PrefabInstance:
     - target: {fileID: 3338560616027120368, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
       propertyPath: m_Name
       value: BatteryEnemyCreater
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338560616027120368, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5330346463709252623, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
       propertyPath: m_RootOrder

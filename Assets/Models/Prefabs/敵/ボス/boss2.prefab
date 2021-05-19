@@ -461,9 +461,10 @@ GameObject:
   - component: {fileID: 2005291490327355291}
   - component: {fileID: -5102845468120750160}
   - component: {fileID: 7310771645890665254}
+  - component: {fileID: 5999052757862632605}
   m_Layer: 0
   m_Name: boss2
-  m_TagString: enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -505,7 +506,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6271573414225017425, guid: f7903eb39d1068d40beae9c51bc1705b, type: 3}
+  - {fileID: 2100000, guid: b0af03e91c999c043aae8802e6f15239, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -565,6 +566,7 @@ MonoBehaviour:
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
   addSpeed: 0
+  flyingFrame: 0
 --- !u!114 &1215117231013765062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,6 +620,10 @@ MonoBehaviour:
   deadChildAmount: 0
   endDivideCount: 0
   isDivide: 0
+  createMaxTime: 5
+  createSpan: 3
+  createTime: 0
+  startMoveSpan: 3
 --- !u!65 &7371287764998658417
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5521,6 +5527,19 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &5999052757862632605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7704705891008799977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c86f4a1dd72fb34b8f23408b91ed325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idx: 1
 --- !u!1 &8256204664898380728
 GameObject:
   m_ObjectHideFlags: 0

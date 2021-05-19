@@ -73,7 +73,7 @@ public class MoveBehaviour : MonoBehaviour
                 }
             }
         }
-        green = 1.0f / batteryBehaviour.testOutputValue;
+        green = 1.0f / batteryBehaviour.testOutputValue + addDamageValue;
         //green = 1 - 1.0f / (batteryBehaviour.outputAmount + addDamageValue);
         meshRenderer.material.color = new Color(1,green, 0, 1);
         transform.localScale = initialSize * (green + 0.5f);
@@ -81,7 +81,7 @@ public class MoveBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("enemy"))
+        if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Boss"))
         {
             //EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
             ////int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
@@ -134,10 +134,6 @@ public class MoveBehaviour : MonoBehaviour
             }
         }
 
-        if (other.name == "boss2")
-        {
-            Debug.Log("!");
-        }
         if (enemyBehaviour)
             if (enemyBehaviour.hp <= 0)
             {
@@ -181,16 +177,22 @@ public class MoveBehaviour : MonoBehaviour
                 {
                     if (other.GetComponent<Boss2Behaviour>())
                     {
-                        other.gameObject.GetComponent<ParticleSystem>().Play();
+                        //other.gameObject.GetComponent<ParticleSystem>().Play();
                         boss2Behaviour = other.GetComponent<Boss2Behaviour>();
-                        boss2Behaviour.SetDeadPosition();
-                        boss2Behaviour.deadFlag = true;
+                        //boss2Behaviour.SetDeadPosition();
+                        //boss2Behaviour.deadFlag = true;
                     }
-                    else
+                    check = true;
+                    var enemyCheck = other.gameObject.GetComponent<EnemyCheck>();
+
+                    if (enemyCheck)
                     {
-                        other.gameObject.GetComponent<ParticleSystem>().Play();
-                        other.SetActive(false);
+                        other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam();
+                        enemyCheck.BreakPolygon(check);
+                        other.gameObject.GetComponent<PauseBehaviour>().OnPauseOtherComponent(enemyCheck);
+
                     }
+
                 }
                 ++bossCreater.nowSacrificeCount;
             }

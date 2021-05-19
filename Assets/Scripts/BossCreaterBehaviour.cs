@@ -88,7 +88,7 @@ public class BossCreaterBehaviour : MonoBehaviour
         newAttackBehavior.attackValue = prefabAttackBehavior.attackValue;
 
         //生成オブジェクトの詳細設定
-        newGameObject.tag = "enemy";
+        newGameObject.tag = "Boss";
         newGameObject.transform.position = transform.position;
         newGameObject.layer = 6;
         newGameObject.transform.rotation = Quaternion.FromToRotation(newGameObject.transform.up, -fallVector) * newGameObject.transform.rotation;

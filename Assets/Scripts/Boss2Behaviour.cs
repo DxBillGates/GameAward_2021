@@ -18,6 +18,15 @@ public class Boss2Behaviour : MonoBehaviour
     PauseBehaviour pauseBehaviour;
     public int endDivideCount;
     public bool isDivide;
+
+    public int createMaxTime;
+    public float createSpan;
+    public float createTime;
+    GameObject oldCreateGameObject;
+    bool isCreate;
+
+    public float startMoveSpan;
+    float startMoveTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,37 +40,58 @@ public class Boss2Behaviour : MonoBehaviour
         pauseBehaviour = GetComponent<PauseBehaviour>();
         endDivideCount = 0;
         isDivide = false;
+
+        createTime = 0;
+        startMoveTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(deadFlag)
+        if(isCreate)
         {
-            transform.position = Vector3.Lerp(deadPos,deadPos + transform.up * 10,lerpTime);
-            if(lerpTime >= 1)
-            {
-                lerpTime = 1;
-                exploFlag = true;
-            }
-            lerpTime += Time.deltaTime;
-        }
-        if(exploFlag)
-        {
-            Divide();
-            exploFlag = false;
-            deadFlag = false;
-            //gameObject.SetActive(false);
             pauseBehaviour.OnPauseOtherComponent(this);
-            GetComponent<ParticleSystem>().Pause();
-            GetComponent<ParticleSystem>().Clear();
-            GetComponent<Renderer>().enabled = false;
+            if(startMoveTime > startMoveSpan)
+            {
+                isCreate = false;
+                pauseBehaviour.OnResume();
+            }
+            startMoveTime += Time.deltaTime;
         }
 
-        if(endDivideCount >= createEnemyAmount)
+        if(createTime > createSpan && !isCreate)
         {
-            isDivide = false;
+            createTime = 0;
+            CreateClone();
         }
+
+        createTime += Time.deltaTime;
+        //if(deadFlag)
+        //{
+        //    transform.position = Vector3.Lerp(deadPos,deadPos + transform.up * 10,lerpTime);
+        //    if(lerpTime >= 1)
+        //    {
+        //        lerpTime = 1;
+        //        exploFlag = true;
+        //    }
+        //    lerpTime += Time.deltaTime;
+        //}
+        //if(exploFlag)
+        //{
+        //    Divide();
+        //    exploFlag = false;
+        //    deadFlag = false;
+        //    //gameObject.SetActive(false);
+        //    pauseBehaviour.OnPauseOtherComponent(this);
+        //    GetComponent<ParticleSystem>().Pause();
+        //    GetComponent<ParticleSystem>().Clear();
+        //    GetComponent<Renderer>().enabled = false;
+        //}
+
+        //if(endDivideCount >= createEnemyAmount)
+        //{
+        //    isDivide = false;
+        //}
     }
 
     public void SetDeadPosition()
@@ -99,5 +129,17 @@ public class Boss2Behaviour : MonoBehaviour
         }
 
         isDivide = true;
+    }
+
+    public void CreateClone()
+    {
+        Debug.Log("CreateClone");
+        GameObject g = Instantiate(gameObject);
+        oldCreateGameObject = g;
+        g.transform.position = transform.position;
+        g.transform.rotation = transform.rotation;
+        Boss2Behaviour b = g.GetComponent<Boss2Behaviour>();
+        b.isCreate = true;
+        b.createSpan = Random.Range(3, createMaxTime);
     }
 }

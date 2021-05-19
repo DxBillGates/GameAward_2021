@@ -96,7 +96,7 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else
         {
-            renderer.material.color = Color.white;
+            //renderer.material.color = Color.white;
             scaleLerpT = 0;
             //transform.localScale = new Vector3(1, 1, 1);
         }
