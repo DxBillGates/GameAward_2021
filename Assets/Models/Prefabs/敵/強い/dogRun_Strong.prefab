@@ -477,6 +477,7 @@ MonoBehaviour:
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
   addSpeed: 0
+  flyingFrame: 0
 --- !u!114 &7912541086944549102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,7 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 0
-  hp: 70
+  hp: 300
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0
@@ -647,4 +648,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
-  beam: {fileID: 4239125308308814613, guid: bb985536f4c583f46a6ca9fae6499fca, type: 3}
+  beam: {fileID: 1322932671584050926, guid: 65d21ee11cfd24c45baf3dfe3c64488e, type: 3}

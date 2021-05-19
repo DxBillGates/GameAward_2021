@@ -384,6 +384,7 @@ MonoBehaviour:
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
   addSpeed: 0
+  flyingFrame: 0
 --- !u!114 &8280116929746464081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 0
-  hp: 8
+  hp: 50
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0

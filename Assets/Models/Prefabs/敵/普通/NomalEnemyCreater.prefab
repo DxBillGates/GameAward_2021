@@ -103,6 +103,7 @@ MonoBehaviour:
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
   addSpeed: 0
+  flyingFrame: 0
 --- !u!114 &8644604979332115213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 0
-  hp: 15
+  hp: 200
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0
@@ -159,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSpan: 0.5
   attackValue: 5
+  bulletModel: {fileID: 0}
 --- !u!65 &981758739350582117
 BoxCollider:
   m_ObjectHideFlags: 0

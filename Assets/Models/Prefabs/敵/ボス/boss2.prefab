@@ -687,7 +687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
-  beam: {fileID: 4239125308308814613, guid: bb985536f4c583f46a6ca9fae6499fca, type: 3}
+  beam: {fileID: 1322932671584050926, guid: 65d21ee11cfd24c45baf3dfe3c64488e, type: 3}
 --- !u!199 &-5102845468120750160
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -768,7 +768,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0

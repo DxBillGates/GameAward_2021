@@ -274,11 +274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: maxEnemy
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: prefabEnemy
@@ -290,7 +290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: createTimeSpan
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707447, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: m_Name
@@ -721,7 +721,7 @@ PrefabInstance:
       objectReference: {fileID: 7704705891008799977, guid: d0f201269e0b3f446a938ae10e7da29f, type: 3}
     - target: {fileID: 7338639937229086841, guid: 480599cde5a64294cb373e9d8dcb3281, type: 3}
       propertyPath: maxSacrificeCount
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 480599cde5a64294cb373e9d8dcb3281, type: 3}
@@ -3504,7 +3504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5330346463709252623, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 5330346463709252623, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4288,7 +4288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: maxEnemy
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: m_Enabled
@@ -4300,7 +4300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707446, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: createTimeSpan
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707447, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: m_Name
@@ -4325,7 +4325,7 @@ PrefabInstance:
       objectReference: {fileID: 949319207}
     - target: {fileID: 1840286492, guid: 32c19ae0e612d7543b617488e5f595f2, type: 3}
       propertyPath: amountEnergy
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1840286492, guid: 32c19ae0e612d7543b617488e5f595f2, type: 3}
       propertyPath: recoveryTime
@@ -5350,7 +5350,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4778172215488808853, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: maxEnemy
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4778172215488808853, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: m_Enabled
@@ -6476,7 +6476,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 36
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2019322251
 PrefabInstance:
@@ -6487,11 +6487,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4778172215488808853, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: maxEnemy
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4778172215488808853, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4778172215488808853, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: createTimeSpan
@@ -6746,7 +6746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5428453909730928865, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5428453909730928865, guid: b5284f44ce2b0b24fa5b3b791a9414f2, type: 3}
       propertyPath: createTimeSpan
