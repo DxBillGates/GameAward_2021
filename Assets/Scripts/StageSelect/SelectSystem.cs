@@ -10,6 +10,8 @@ public class SelectSystem : MonoBehaviour
     Vector3 oldTutorilePos;
     Vector3 oldStage1Pos;
     Vector3 oldStage2Pos;
+    Vector3 oldStage3Pos;
+    Vector3 oldStage4Pos;
 
     GameObject forwardScene;
     GameObject selectScene;
@@ -31,6 +33,8 @@ public class SelectSystem : MonoBehaviour
         oldTutorilePos = stages[0].transform.position;
         oldStage1Pos = stages[1].transform.position;
         oldStage2Pos = stages[2].transform.position;
+        oldStage3Pos = stages[3] ? stages[3].transform.position : stages[2].transform.position + new Vector3(0, -5, 0);
+        oldStage4Pos = stages[4] ? stages[4].transform.position : stages[3].transform.position + new Vector3(0, -5, 0);
 
         isRotateScene = false;
         initialScale = stages[0].transform.localScale;
@@ -99,9 +103,9 @@ public class SelectSystem : MonoBehaviour
 
     bool CheckSelectScene()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            if(forwardScene.name == "Stage1")
+            if (forwardScene.name == "Stage1")
             {
                 SceneManager.LoadScene("Stage1");
             }
@@ -110,6 +114,14 @@ public class SelectSystem : MonoBehaviour
                 SceneManager.LoadScene("Stage2");
             }
             if (forwardScene.name == "Stage3")
+            {
+
+            }
+            if (forwardScene.name == "Stage4")
+            {
+
+            }
+            if (forwardScene.name == "Stage5")
             {
 
             }
@@ -140,12 +152,17 @@ public class SelectSystem : MonoBehaviour
             stages[0].transform.position = Vector3.Lerp(oldTutorilePos, oldTutorilePos + new Vector3(0, 4, 0), easeInOutQuint(rotateLerpTime));
             stages[1].transform.position = Vector3.Lerp(oldStage1Pos, oldTutorilePos, easeInOutQuint(rotateLerpTime));
             stages[2].transform.position = Vector3.Lerp(oldStage2Pos, oldStage1Pos, easeInOutQuint(rotateLerpTime));
+            stages[3].transform.position = Vector3.Lerp(oldStage3Pos, oldStage2Pos, easeInOutQuint(rotateLerpTime));
+            stages[4].transform.position = Vector3.Lerp(oldStage4Pos, oldStage3Pos, easeInOutQuint(rotateLerpTime));
         }
         else
         {
             stages[0].transform.position = Vector3.Lerp(oldTutorilePos, oldStage1Pos, easeInOutQuint(rotateLerpTime));
             stages[1].transform.position = Vector3.Lerp(oldStage1Pos, oldStage2Pos, easeInOutQuint(rotateLerpTime));
-            stages[2].transform.position = Vector3.Lerp(oldStage2Pos, oldStage2Pos - new Vector3(0, 4, 0), easeInOutQuint(rotateLerpTime));
+            stages[2].transform.position = Vector3.Lerp(oldStage2Pos, oldStage3Pos, easeInOutQuint(rotateLerpTime));
+            stages[3].transform.position = Vector3.Lerp(oldStage3Pos, oldStage4Pos, easeInOutQuint(rotateLerpTime));
+            stages[4].transform.position = Vector3.Lerp(oldStage4Pos, oldStage4Pos - new Vector3(0, 4, 0), easeInOutQuint(rotateLerpTime));
+
         }
 
         if (!isRotateScene)
@@ -153,6 +170,8 @@ public class SelectSystem : MonoBehaviour
             oldTutorilePos = stages[0].transform.position;
             oldStage1Pos = stages[1].transform.position;
             oldStage2Pos = stages[2].transform.position;
+            oldStage3Pos = stages[3].transform.position;
+            oldStage4Pos = stages[4].transform.position;
             scaleLerpTime = 0;
         }
 
