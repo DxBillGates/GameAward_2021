@@ -229,7 +229,7 @@ public class LerpBehaviour : MonoBehaviour
         t = 0;
         lerpMode = false;
         isMove = false;
-        Debug.Log("LerpEnd");
+        //Debug.Log("LerpEnd");
     }
 
     void SetRotate()

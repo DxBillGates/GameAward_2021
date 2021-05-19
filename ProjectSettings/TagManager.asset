@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - PauseUI
   - Boss
+  - DecreaseDamageMachine
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - PlayerChild
   - BatteryEnemy
   - Volume
-  - 
+  - Bullet
   - 
   - 
   - 

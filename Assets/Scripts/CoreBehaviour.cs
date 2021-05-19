@@ -11,7 +11,7 @@ public class CoreBehaviour : MonoBehaviour
     Color color;
     float angle;
     bool isDamage, oldIsDamage;
-    float noDamageTime;
+    //float noDamageTime;
     public float regenerationSpan;
     bool scaleLerp;
     float scaleLerpT;
@@ -31,7 +31,7 @@ public class CoreBehaviour : MonoBehaviour
         size = transform.localScale;
         minusScaleLerp = false;
         isDamage = oldIsDamage = false;
-        noDamageTime = 0;
+        //noDamageTime = 0;
         angle = 0;
         maxHp = hp;
         renderer = GetComponent<Renderer>();
@@ -133,7 +133,7 @@ public class CoreBehaviour : MonoBehaviour
 
     void Damage(int damage)
     {
-        noDamageTime = 0;
+        //noDamageTime = 0;
         hp -= damage;
         isDamage = true;
         scaleLerp = true;
