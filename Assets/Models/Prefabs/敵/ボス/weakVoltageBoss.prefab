@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1879808082111837791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700900300605554369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbd81d519dc4744db695f0bcb3f7d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ef: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
 --- !u!114 &7712042780404780419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22,7 +35,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2532024050162815595, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
       propertyPath: m_Name
-      value: Boss
+      value: weakVoltageBoss
       objectReference: {fileID: 0}
     - target: {fileID: 2532024050162815595, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
       propertyPath: m_TagString
