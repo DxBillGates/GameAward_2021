@@ -7,15 +7,19 @@ public class EnemyCheck : MonoBehaviour
     private Material material;
 
     float dist = 5;
-    float factor = 1;
+    public float factor = 1;
     public float idx = 1;
     bool flag = false;
     bool mCheck = false;
+    public bool isDecrease;
+    bool isBreak;
 
     // Start is called before the first frame update
     void Start()
     {
         material = GetComponent<Renderer>().material;
+        isDecrease = false;
+        isBreak = true;
     }
 
     // Update is called once per frame
@@ -31,16 +35,14 @@ public class EnemyCheck : MonoBehaviour
 
     public void BreakPolygon(bool check)
     {
-        if (check)
+        if (check && isBreak)
         {
             //dist = 100;
-            {
-                idx += 1;
-                dist += 10;
-                factor += idx;
-                material.SetFloat("_StartDistance", dist);
-                material.SetFloat("_ScaleFactor", factor);
-            }
+            idx += 0.01f;
+            dist += 10;
+            factor += idx;
+            material.SetFloat("_StartDistance", dist);
+            material.SetFloat("_ScaleFactor", factor);
 
             flag = true;
             mCheck = check;
@@ -57,6 +59,5 @@ public class EnemyCheck : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         Destroy(go);
-
     }
 }

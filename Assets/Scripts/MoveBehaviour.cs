@@ -179,7 +179,6 @@ public class MoveBehaviour : MonoBehaviour
                         other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam();
                         enemyCheck.BreakPolygon(check);
                         other.gameObject.GetComponent<PauseBehaviour>().OnPauseOtherComponent(enemyCheck);
-
                     }
                     //other.gameObject.GetComponent<EnemyCheck>().BreakPolygon(check);   
 
@@ -202,7 +201,17 @@ public class MoveBehaviour : MonoBehaviour
                     {
                         other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam();
                         //other.gameObject.GetComponent<ParticleSystem>().Play();
-                        other.SetActive(false);
+                        check = true;
+
+                        var enemyCheck = other.gameObject.GetComponent<EnemyCheck>();
+
+                        if (enemyCheck)
+                        {
+                            other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam();
+                            enemyCheck.BreakPolygon(check);
+                            other.gameObject.GetComponent<PauseBehaviour>().OnPauseOtherComponent(enemyCheck);
+                        }
+                        //other.SetActive(false);
                     }
                 }
                 ++bossCreater.nowSacrificeCount;
