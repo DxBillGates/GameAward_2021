@@ -26,7 +26,6 @@ public class BatteryBehaviour : MonoBehaviour
 
     GameObject[] objs;
 
-
     [SerializeField] float maxDamageLevel;
     public float testOutputValue;
     public float testDamageValue;
@@ -137,6 +136,7 @@ public class BatteryBehaviour : MonoBehaviour
         {
             amountEnergy = initialAmountEnergy;
         }
+
     }
 
     public bool OutputEnergy()
@@ -165,12 +165,14 @@ public class BatteryBehaviour : MonoBehaviour
             foreach (GameObject obj in objs)
             {
 
-                obj.GetComponent<ParticleSystem>().Play();
+                //obj.GetComponent<ParticleSystem>().Play();
+                obj.GetComponent<ParticleL>().ParticleBegin();
             }
 
             //obj = GameObject.FindGameObjectWithTag("lines");
             //obj.GetComponent<ParticleL>().ParticleBegin();
             //obj.GetComponent<ParticleSystem>().Play();
+
             outputAmount = maxOutputAmount;
             
         }

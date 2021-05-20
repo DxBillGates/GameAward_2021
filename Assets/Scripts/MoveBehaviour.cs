@@ -21,6 +21,7 @@ public class MoveBehaviour : MonoBehaviour
 
     GameObject pig;
     Vector3 initialSize;
+    GameObject[] objs; 
 
     float dist = 5;
     float factor = 5;
@@ -44,6 +45,16 @@ public class MoveBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(batteryBehaviour.testDamageValue>=10)
+        {
+            objs = GameObject.FindGameObjectsWithTag("lines");
+
+            foreach (GameObject obj in objs)
+            {
+                obj.GetComponent<EffectIn>().CreatePlasm();
+            }
+        }
 
         if (!systemBehavior.changeMode)
         {
