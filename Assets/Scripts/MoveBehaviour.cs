@@ -81,7 +81,7 @@ public class MoveBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("enemy"))
+        if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Boss"))
         {
             //EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
             ////int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
@@ -127,6 +127,7 @@ public class MoveBehaviour : MonoBehaviour
         }
         else
         {
+            Debug.Log(value);
             if (value <= enemyBehaviour.startTakeDamageValue)
             {
                 //Debug.Log(value + ":" + enemyBehaviour.startTakeDamageValue);

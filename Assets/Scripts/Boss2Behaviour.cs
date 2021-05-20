@@ -6,7 +6,7 @@ public class Boss2Behaviour : MonoBehaviour
 {
     public bool deadFlag;
     public bool exploFlag;
-    float lerpTime;
+    //float lerpTime;
     Vector3 deadPos;
     public float maxTime;
     public int createEnemyAmount;
@@ -26,7 +26,7 @@ public class Boss2Behaviour : MonoBehaviour
     bool isCreate;
 
     public float startMoveSpan;
-    float startMoveTime;
+    public float startMoveTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +34,7 @@ public class Boss2Behaviour : MonoBehaviour
         gameObjects = new List<GameObject>();
         exploFlag = false;
         deadFlag = false;
-        lerpTime = 0;
+        //lerpTime = 0;
         deadPos = new Vector3();
         mLerpBehaviour = GetComponent<LerpBehaviour>();
         pauseBehaviour = GetComponent<PauseBehaviour>();
@@ -48,10 +48,10 @@ public class Boss2Behaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isCreate)
+        if (isCreate)
         {
             pauseBehaviour.OnPauseOtherComponent(this);
-            if(startMoveTime > startMoveSpan)
+            if (startMoveTime > startMoveSpan)
             {
                 isCreate = false;
                 pauseBehaviour.OnResume();
@@ -59,13 +59,14 @@ public class Boss2Behaviour : MonoBehaviour
             startMoveTime += Time.deltaTime;
         }
 
-        if(createTime > createSpan && !isCreate)
+        if (createTime > createSpan && !isCreate)
         {
             createTime = 0;
             CreateClone();
         }
 
-        createTime += Time.deltaTime;
+        if (!isCreate)
+            createTime += Time.deltaTime;
         //if(deadFlag)
         //{
         //    transform.position = Vector3.Lerp(deadPos,deadPos + transform.up * 10,lerpTime);
@@ -101,12 +102,12 @@ public class Boss2Behaviour : MonoBehaviour
 
     public void Divide()
     {
-        for(int i = 0;i < createEnemyAmount;++i)
+        for (int i = 0; i < createEnemyAmount; ++i)
         {
             GameObject newEnemy = Instantiate(enemyPrehab);
 
             Vector3 random = new Vector3();
-            random = transform.up * Random.Range(1,10);
+            random = transform.up * Random.Range(1, 10);
 
             ParticleBehaviour particleBehaviour = newEnemy.AddComponent<ParticleBehaviour>();
             particleBehaviour.vector = random;
@@ -141,5 +142,13 @@ public class Boss2Behaviour : MonoBehaviour
         Boss2Behaviour b = g.GetComponent<Boss2Behaviour>();
         b.isCreate = true;
         b.createSpan = Random.Range(3, createMaxTime);
+
+        LerpBehaviour lerpBehaviour = g.GetComponent<LerpBehaviour>();
+        lerpBehaviour.t = mLerpBehaviour.t;
+        lerpBehaviour.index = mLerpBehaviour.index;
+        lerpBehaviour.lerpMode = mLerpBehaviour.lerpMode;
+        lerpBehaviour.oldLerpMode = mLerpBehaviour.oldLerpMode;
+        lerpBehaviour.leftMove = mLerpBehaviour.leftMove;
+        lerpBehaviour.frontLerpMode = mLerpBehaviour.frontLerpMode;
     }
 }
