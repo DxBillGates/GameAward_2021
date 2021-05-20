@@ -95,9 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ddbf824eb8a0a4481cf85e954ba31c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftMode: 0
+  leftMode: 1
   fallVector: {x: 0, y: 0, z: 0}
-  drawRay: 0
+  drawRay: 1
   createTimeSpan: 0.5
   maxEnemy: 100
   rightMesh: {fileID: 2540817853737639666, guid: 9528565baed0479438b4e83aa4fc5789, type: 3}
