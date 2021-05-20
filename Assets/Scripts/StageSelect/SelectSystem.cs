@@ -111,20 +111,21 @@ public class SelectSystem : MonoBehaviour
             }
             if (forwardScene.name == "Stage2")
             {
-                SceneManager.LoadScene("Stage3");
+                SceneManager.LoadScene("Stage2");
             }
             if (forwardScene.name == "Stage3")
             {
-                SceneManager.LoadScene("Stage4");
+                SceneManager.LoadScene("Stage3");
             }
             if (forwardScene.name == "Stage4")
             {
-                SceneManager.LoadScene("Stage2");
+                SceneManager.LoadScene("Stage4");
             }
             if (forwardScene.name == "Stage5")
             {
                 SceneManager.LoadScene("Stage5");
             }
+            PauseUIManager.OnResume();
         }
         return false;
     }

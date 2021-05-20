@@ -77,7 +77,6 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         if(bossCreaterBehaviour.isCreate)
         {
             GameObject[] bosses = GameObject.FindGameObjectsWithTag("Boss");
-            Debug.Log(bosses.Length);
             if(bosses.Length <= 0)
             {
                 clearFlag = true;
