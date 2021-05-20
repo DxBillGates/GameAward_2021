@@ -276,11 +276,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9208790879329431828, guid: dee7236e1167d5845ad541ad2a883968, type: 3}
       propertyPath: maxSacrificeCount
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9208790879329431829, guid: dee7236e1167d5845ad541ad2a883968, type: 3}
       propertyPath: m_Name
-      value: WeakValtageBossCreater
+      value: BossCreater
       objectReference: {fileID: 0}
     - target: {fileID: 9208790879329431849, guid: dee7236e1167d5845ad541ad2a883968, type: 3}
       propertyPath: m_RootOrder

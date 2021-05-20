@@ -74,12 +74,15 @@ public class ChangePartsSystemBehavior : MonoBehaviour
         //    }
         //}
 
-        if(bossCreaterBehaviour.isCreate)
+        if (bossCreaterBehaviour)
         {
-            GameObject[] bosses = GameObject.FindGameObjectsWithTag("Boss");
-            if(bosses.Length <= 0)
+            if (bossCreaterBehaviour.isCreate)
             {
-                clearFlag = true;
+                GameObject[] bosses = GameObject.FindGameObjectsWithTag("Boss");
+                if (bosses.Length <= 0)
+                {
+                    clearFlag = true;
+                }
             }
         }
 
