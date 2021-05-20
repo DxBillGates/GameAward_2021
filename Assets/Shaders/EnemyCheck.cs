@@ -38,32 +38,11 @@ public class EnemyCheck : MonoBehaviour
         if (check && isBreak)
         {
             //dist = 100;
-            if(!isDecrease)
-            {
-                idx += 0.01f;
-                dist += 10;
-                factor += idx;
-                material.SetFloat("_StartDistance", dist);
-                material.SetFloat("_ScaleFactor", factor);
-                if(factor >= 30)
-                {
-                    isDecrease = true;
-                }
-            }
-            else
-            {
-                idx -= 0.01f;
-                dist -= 10;
-                factor -= idx * 5;
-                if(factor <= 0)
-                {
-                    factor = 1;
-                    dist = 5;
-                    isBreak = false;
-                }
-                material.SetFloat("_StartDistance", dist);
-                material.SetFloat("_ScaleFactor", factor);
-            }
+            idx += 0.01f;
+            dist += 10;
+            factor += idx;
+            material.SetFloat("_StartDistance", dist);
+            material.SetFloat("_ScaleFactor", factor);
 
             flag = true;
             mCheck = check;
