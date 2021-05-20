@@ -219,8 +219,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.034608334, y: 0.037839003, z: 0.048067898}
-  m_Center: {x: -0.0025765817, y: -0.005387704, z: 0.005349533}
+  m_Size: {x: 0.034608334, y: 0.026533421, z: 0.023676574}
+  m_Center: {x: -0.0025765821, y: 0.00026508607, z: -0.0012280345}
 --- !u!114 &6916565154827602675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +238,7 @@ MonoBehaviour:
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
   addSpeed: 0
+  flyingFrame: 0
 --- !u!114 &1341609858371377310
 MonoBehaviour:
   m_ObjectHideFlags: 0
