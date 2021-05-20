@@ -6,7 +6,7 @@ public class EffectOn : MonoBehaviour
 {
     public GameObject ef;
     bool one;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +18,15 @@ public class EffectOn : MonoBehaviour
     {
         if (one)
         {
+
             GameObject efs = Instantiate(ef) as GameObject;
-            efs.transform.position = transform.position;
             efs.transform.rotation = transform.rotation;
+            efs.transform.position = transform.position;
             efs.transform.parent = transform;
 
             one = false;
         }
+
     }
 
     public void Died()

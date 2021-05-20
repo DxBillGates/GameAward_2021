@@ -27,6 +27,7 @@ public class EffectIn : MonoBehaviour
 
     public void CreatePlasm()
     {
+
         if (one)
         {
             GameObject efs = Instantiate(ef) as GameObject;

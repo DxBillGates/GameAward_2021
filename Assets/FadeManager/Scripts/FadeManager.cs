@@ -42,6 +42,7 @@ public class FadeManager : MonoBehaviour
 	/// <summary>フェード色</summary>
 	public Color fadeColor = Color.black;
 
+    public Texture2D pict;
 
 	public void Awake ()
 	{
@@ -58,11 +59,11 @@ public class FadeManager : MonoBehaviour
 	
 		// Fade .
 		if (this.isFading) {
-			//色と透明度を更新して白テクスチャを描画 .
+			//色と透明度を更新してテクスチャを描画 .
 			this.fadeColor.a = this.fadeAlpha;
 			GUI.color = this.fadeColor;
-			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
-		}		
+			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), pict);//Texture2D.whiteTexture
+        }		
 	
 		if (this.DebugMode) {
 			if (!this.isFading) {

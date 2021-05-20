@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugMode: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  pict: {fileID: 2800000, guid: a35a26adc73e3274289a23c5e7a9fc5d, type: 3}
