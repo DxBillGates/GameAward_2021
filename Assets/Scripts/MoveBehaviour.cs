@@ -127,7 +127,6 @@ public class MoveBehaviour : MonoBehaviour
         }
         else
         {
-            Debug.Log(value);
             if (value <= enemyBehaviour.startTakeDamageValue)
             {
                 //Debug.Log(value + ":" + enemyBehaviour.startTakeDamageValue);

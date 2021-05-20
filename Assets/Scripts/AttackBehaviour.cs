@@ -41,7 +41,6 @@ public class AttackBehaviour : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position + transform.up * 10, transform.up, out hit))
             {
-                Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.gameObject.name == "Core")
                 {
                     t += Time.deltaTime;
