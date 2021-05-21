@@ -18,7 +18,7 @@ public class MoveBehaviour : MonoBehaviour
     private static CoreBehaviour coreBehaviour;
     PauseBehaviour pauseBehaviour;
     static Boss2Behaviour boss2Behaviour;
-
+    static Boss3Behaviour boss3Behaviour;
     GameObject pig;
     Vector3 initialSize;
     GameObject[] objs; 
@@ -145,10 +145,6 @@ public class MoveBehaviour : MonoBehaviour
             }
         }
 
-        if (other.name == "boss2")
-        {
-            Debug.Log("!");
-        }
         if (enemyBehaviour)
             if (enemyBehaviour.hp <= 0)
             {
@@ -196,6 +192,12 @@ public class MoveBehaviour : MonoBehaviour
                         boss2Behaviour = other.GetComponent<Boss2Behaviour>();
                         boss2Behaviour.SetDeadPosition();
                         boss2Behaviour.deadFlag = true;
+                    }
+                    else if(other.GetComponent<Boss3Behaviour>())
+                    {
+                        boss3Behaviour = other.gameObject.GetComponent<Boss3Behaviour>();
+                        other.gameObject.GetComponent<PauseBehaviour>().OnPauseOtherComponent(boss3Behaviour);
+                        boss3Behaviour.breakPolygonFlag = true;
                     }
                     else
                     {

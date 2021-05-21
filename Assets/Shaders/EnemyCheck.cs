@@ -11,15 +11,11 @@ public class EnemyCheck : MonoBehaviour
     public float idx = 1;
     bool flag = false;
     bool mCheck = false;
-    public bool isDecrease;
-    bool isBreak;
 
     // Start is called before the first frame update
     void Start()
     {
         material = GetComponent<Renderer>().material;
-        isDecrease = false;
-        isBreak = true;
     }
 
     // Update is called once per frame
@@ -35,7 +31,7 @@ public class EnemyCheck : MonoBehaviour
 
     public void BreakPolygon(bool check)
     {
-        if (check && isBreak)
+        if (check)
         {
             //dist = 100;
             idx += 0.01f;

@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     ChangePartsSystemBehavior systemBehavior;
     new Renderer renderer;
     public bool onMove;
+    public float setHP;
     public float hp;
     public float damageSpan;
     float t;
@@ -21,6 +22,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        setHP = hp;
         scaleLerp = false;
         scaleLerpT = 0;
         t = 0;
