@@ -56,7 +56,6 @@ public class LineCreaterBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (isCreate && !systemBehavior.changeMode /*&& batteryBehaviour.outputAmount > 0*/ && batteryBehaviour.amountEnergy > 0)
         {
             while (true)

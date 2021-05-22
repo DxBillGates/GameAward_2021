@@ -11,6 +11,7 @@ public class BatteryBehaviour : MonoBehaviour
     public float increaseEnergyValue;
     public RectTransform batteryUI;
     public RectTransform outputUI;
+    public RectTransform outputSliderUI;
     Vector3 initialbatteryUISize;
     Vector3 initialOutputUISize;
     public float initialAmountEnergy;
@@ -54,7 +55,7 @@ public class BatteryBehaviour : MonoBehaviour
         testDamageText.text = "Damage : " + testDamageValue.ToString();
 
         batteryUI.localScale = new Vector3(initialbatteryUISize.x, initialbatteryUISize.y * amountEnergy / initialAmountEnergy, initialbatteryUISize.z);
-        outputUI.localScale = new Vector3(initialOutputUISize.x,-outputAmount / initialAmountEnergy, initialOutputUISize.z);
+        outputUI.localScale = new Vector3(0,0,0);
         oldOutputAmount = outputAmount;
         isOldOutput = isOutput;
 
@@ -63,6 +64,9 @@ public class BatteryBehaviour : MonoBehaviour
         testOutputValue = Mathf.Round(testOutputValue);
         outputAmount = testOutputValue;
         SetDamageValue();
+
+        //outputSliderUI.position = new Vector3(-78.7f,149 + 7.3f * outputAmount,0);
+        outputSliderUI.anchoredPosition = new Vector3(-127.8133f, 50.74789f + 11.6f * outputAmount, 0);
         //Debug.Log("DamageValue:" + testDamageValue);
         //Debug.Log("OutputValue:" + testOutputValue);
 
@@ -116,10 +120,6 @@ public class BatteryBehaviour : MonoBehaviour
 
         }
 
-        if (amountEnergy == 0)
-        {
-            AllDestroy();
-        }
 
         recT += Time.deltaTime;
         if(recT >= recoveryTime)
@@ -128,6 +128,7 @@ public class BatteryBehaviour : MonoBehaviour
             if(outputAmount > 0 && amountEnergy == 0)
             {
                 lineCreater.isCreate = true;
+                lineCreater.lineLength = 0;
             }
             amountEnergy += recoveryValue;
         }
@@ -135,6 +136,10 @@ public class BatteryBehaviour : MonoBehaviour
         if(amountEnergy >= initialAmountEnergy)
         {
             amountEnergy = initialAmountEnergy;
+        }
+        if (amountEnergy == 0)
+        {
+            AllDestroy();
         }
 
     }
