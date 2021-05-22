@@ -21,7 +21,7 @@ public class MoveBehaviour : MonoBehaviour
     static Boss3Behaviour boss3Behaviour;
     GameObject pig;
     Vector3 initialSize;
-    GameObject[] objs; 
+    GameObject[] objs;
 
     float dist = 5;
     float factor = 5;
@@ -46,8 +46,9 @@ public class MoveBehaviour : MonoBehaviour
     void Update()
     {
 
-        if(batteryBehaviour.testDamageValue>=10)
+        if(batteryBehaviour.testDamageValue + addDamageValue>=10)
         {
+            Debug.Log(batteryBehaviour.testDamageValue + addDamageValue);
             objs = GameObject.FindGameObjectsWithTag("lines");
 
             foreach (GameObject obj in objs)
@@ -84,7 +85,13 @@ public class MoveBehaviour : MonoBehaviour
                 }
             }
         }
-        green = 1.0f / batteryBehaviour.testOutputValue;
+        //green = 1.0f / batteryBehaviour.testOutputValue;
+        float value = (batteryBehaviour.testDamageValue + addDamageValue);
+        if(value <= 0)
+        {
+            value = 1;
+        }
+        green = 0.1f * value;
         //green = 1 - 1.0f / (batteryBehaviour.outputAmount + addDamageValue);
         meshRenderer.material.color = new Color(1,green, 0, 1);
         transform.localScale = initialSize * (green + 0.5f);
@@ -129,6 +136,11 @@ public class MoveBehaviour : MonoBehaviour
         //int value = (feverSystem.isFever) ? feverSystem.increaseDamage+ (int)batteryBehaviour.outputAmount : (int)batteryBehaviour.outputAmount;
         int value;
         value = (int)(batteryBehaviour.testDamageValue + addDamageValue);
+        if(value <= 0)
+        {
+            value = 1;
+        }
+        Debug.Log(value);
         if (enemyBehaviour.takeDamageValue == 0)
         {
             if (value >= enemyBehaviour.startTakeDamageValue)
