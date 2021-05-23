@@ -14,12 +14,15 @@ public class Boss3Behaviour : MonoBehaviour
     float dist = 5;
     public float factor = 1;
     public float idx = 1;
+
+    public AudioManagerBehaviour audioManager;
     // Start is called before the first frame update
     void Start()
     {
         currentReviveCount = 0;
         material = GetComponent<Renderer>().material;
         enemyBehaviour = GetComponent<EnemyBehaviour>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerBehaviour>();
     }
 
     // Update is called once per frame

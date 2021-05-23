@@ -211,6 +211,7 @@ public class MoveBehaviour : MonoBehaviour
                         boss3Behaviour = other.gameObject.GetComponent<Boss3Behaviour>();
                         other.gameObject.GetComponent<PauseBehaviour>().OnPauseOtherComponent(boss3Behaviour);
                         boss3Behaviour.breakPolygonFlag = true;
+                        boss3Behaviour.audioManager.glassSE.Play();
                     }
                     else
                     {
@@ -224,6 +225,7 @@ public class MoveBehaviour : MonoBehaviour
                         {
                             other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam();
                             enemyCheck.BreakPolygon(check);
+                            enemyCheck.audioManager.glassSE.Play();
                             other.gameObject.GetComponent<PauseBehaviour>().OnPauseOtherComponent(enemyCheck);
                         }
                         //other.SetActive(false);
