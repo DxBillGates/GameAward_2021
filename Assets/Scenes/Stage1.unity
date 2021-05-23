@@ -914,7 +914,7 @@ PrefabInstance:
     - target: {fileID: 8864220482868271200, guid: 1dae10c051a08b443a0fcb854b9a2b4f, type: 3}
       propertyPath: hpUiTransform
       value: 
-      objectReference: {fileID: 1629611639}
+      objectReference: {fileID: 650558864}
     - target: {fileID: 8864220482868271200, guid: 1dae10c051a08b443a0fcb854b9a2b4f, type: 3}
       propertyPath: recoveryKillAmount
       value: 5
