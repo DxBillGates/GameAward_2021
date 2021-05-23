@@ -11,11 +11,13 @@ public class EnemyCheck : MonoBehaviour
     public float idx = 1;
     bool flag = false;
     bool mCheck = false;
+    public AudioManagerBehaviour audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         material = GetComponent<Renderer>().material;
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerBehaviour>();
     }
 
     // Update is called once per frame

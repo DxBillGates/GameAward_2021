@@ -186,6 +186,7 @@ public class MoveBehaviour : MonoBehaviour
                     {
                         other.gameObject.GetComponent<BatteryEnemyBehaviour>().GenerateBeam();
                         enemyCheck.BreakPolygon(check);
+                        enemyCheck.audioManager.glassSE.Play();
                         other.gameObject.GetComponent<PauseBehaviour>().OnPauseOtherComponent(enemyCheck);
                     }
                     //other.gameObject.GetComponent<EnemyCheck>().BreakPolygon(check);   

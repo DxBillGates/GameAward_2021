@@ -12,6 +12,7 @@ public class GameSystemBehaviour : MonoBehaviour
     PauseParentBehaviour pauseParent;
     PauseUIManager pauseUIManager;
     Color initialColor;
+    AudioManagerBehaviour audioManager;
     //TextMesh modeText;
     // Start is called before the first frame update
     private void Awake()
@@ -28,6 +29,7 @@ public class GameSystemBehaviour : MonoBehaviour
         selectObject = null;
         soRenderer = null;
         //modeText = GameObject.Find("ChangeModeText").GetComponent<TextMesh>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerBehaviour>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,11 @@ public class GameSystemBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             SceneManager.LoadScene("TitleScene");
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            audioManager.clickSE.Play();
         }
 
         if (systemBehavior.isMouse && !PauseUIManager.isPause)
