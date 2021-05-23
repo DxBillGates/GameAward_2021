@@ -71,6 +71,7 @@ public class CoreBehaviour : MonoBehaviour
         newHpUiScale.z = hpUiTransform.localScale.z;
 
         hpUiTransform.localScale = newHpUiScale;
+        Debug.Log(newHpUiScale);
 
         if (!systemBehavior.changeMode)
         {
