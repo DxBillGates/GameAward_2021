@@ -19,6 +19,7 @@ public class EnemyBehaviour : MonoBehaviour
     AudioManagerBehaviour audioManager;
     public float takeDamageValue;
     public float startTakeDamageValue;
+    Color initialColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class EnemyBehaviour : MonoBehaviour
         //color = (lerpBehaviour.leftMove) ? Color.blue : Color.red;
         //renderer.material.color = color;
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerBehaviour>();
+        initialColor = renderer.sharedMaterial.color;
     }
 
     // Update is called once per frame
@@ -94,11 +96,11 @@ public class EnemyBehaviour : MonoBehaviour
                 scaleLerpT = 1;
             }
             //transform.localScale = Vector3.Lerp(new Vector3(1, 1, 1), new Vector3(1, 1, 1) - new Vector3(0.5f, 0.5f, 0.5f), scaleLerpT);
-            renderer.sharedMaterial.color *= Color.red;
+            renderer.sharedMaterial.color = Color.red;
         }
         else
         {
-            //renderer.material.color = Color.white;
+            renderer.sharedMaterial.color = initialColor;
             scaleLerpT = 0;
             //transform.localScale = new Vector3(1, 1, 1);
         }
