@@ -24,6 +24,7 @@ public class UIBehaviour : MonoBehaviour
 
     public void OnClick_Retry()
     {
+        PauseUIManager.OnResume();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
