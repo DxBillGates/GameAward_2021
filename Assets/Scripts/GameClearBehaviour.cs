@@ -8,7 +8,7 @@ public class GameClearBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        FadeManager2.FadeIn();
     }
 
     // Update is called once per frame
@@ -16,7 +16,7 @@ public class GameClearBehaviour : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("TitleScene");
+            FadeManager2.FadeOut("TitleScene");
         }
     }
 }
