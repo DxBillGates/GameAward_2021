@@ -10,6 +10,7 @@ public class FadeManager2 : MonoBehaviour
     //フェード用のCanvasとImage
     private static Canvas fadeCanvas;
     private static Image fadeImage;
+    private static Image inuImage;
 
     //フェード用Imageの透明度
     private static float alpha = 0.0f;
@@ -23,6 +24,9 @@ public class FadeManager2 : MonoBehaviour
 
     //遷移先のシーン
     private static string nextScene;
+
+    private static Sprite inuPic = Resources.Load<Sprite>("inu");
+    private Vector2 n = new Vector2(500, 500);
 
     //フェード用のCanvasとImage生成
     static void Init()
@@ -42,8 +46,14 @@ public class FadeManager2 : MonoBehaviour
         fadeImage.transform.SetParent(fadeCanvas.transform, false);
         fadeImage.rectTransform.anchoredPosition = Vector3.zero;
 
+        inuImage = new GameObject("Inu").AddComponent<Image>();
+        inuImage.sprite = inuPic;
+        inuImage.transform.SetParent(fadeCanvas.transform, false);
+        inuImage.rectTransform.anchoredPosition = Vector3.zero;
+
         //Imageサイズは適当に大きく設定してください
         fadeImage.rectTransform.sizeDelta = new Vector2(9999, 9999);
+        inuImage.rectTransform.sizeDelta = new Vector2(500,500);
     }
 
     //フェードイン開始
@@ -51,6 +61,8 @@ public class FadeManager2 : MonoBehaviour
     {
         if (fadeImage == null) Init();
         fadeImage.color = Color.black;
+        if (inuImage == null) Init();
+        inuImage.color = Color.black;
         isFadeIn = true;
     }
 
@@ -58,8 +70,10 @@ public class FadeManager2 : MonoBehaviour
     public static void FadeOut(string n)
     {
         if (fadeImage == null) Init();
+        if (inuImage == null) Init();
         nextScene = n;
         fadeImage.color = Color.clear;
+        inuImage.color = Color.black;
         fadeCanvas.enabled = true;
         isFadeOut = true;
     }
@@ -69,8 +83,12 @@ public class FadeManager2 : MonoBehaviour
         //フラグ有効なら毎フレームフェードイン/アウト処理
         if (isFadeIn)
         {
+            n.x -= 7;
+            n.y -= 7;
+            inuImage.rectTransform.sizeDelta = new Vector2(n.x, n.y);
+
             //経過時間から透明度計算
-            alpha -= Time.deltaTime / fadeTime;
+            alpha -= 0.035f; //Time.deltaTime / fadeTime;
 
             //フェードイン終了判定
             if (alpha <= 0.0f)
@@ -78,13 +96,21 @@ public class FadeManager2 : MonoBehaviour
                 isFadeIn = false;
                 alpha = 0.0f;
                 fadeCanvas.enabled = false;
+                
             }
 
             //フェード用Imageの色・透明度設定
             fadeImage.color = new Color(0.0f, 0.0f, 0.0f, alpha);
+            inuImage.color = new Color(0.0f, 0.0f, 0.0f, alpha);
         }
+
         else if (isFadeOut)
         {
+
+            n.x += 6;
+            n.y += 6;
+            inuImage.rectTransform.sizeDelta = new Vector2(n.x, n.y);
+
             //経過時間から透明度計算
             alpha += Time.deltaTime / fadeTime;
 
@@ -100,6 +126,7 @@ public class FadeManager2 : MonoBehaviour
 
             //フェード用Imageの色・透明度設定
             fadeImage.color = new Color(0.0f, 0.0f, 0.0f, alpha);
+            inuImage.color = new Color(0.0f, 0.0f, 0.0f, alpha);
         }
     }
 }

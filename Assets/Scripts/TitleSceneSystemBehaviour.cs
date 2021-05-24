@@ -9,6 +9,7 @@ public class TitleSceneSystemBehaviour : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
+        FadeManager2.FadeIn();
     }
 
     // Update is called once per frame

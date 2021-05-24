@@ -44,6 +44,8 @@ public class BatteryBehaviour : MonoBehaviour
         lineCreater = GameObject.Find("First").GetComponent<LineCreaterBehaviour>();
         isOldOutput = false;
         isOutput = false;
+
+        FadeManager2.FadeIn();
     }
 
     // Update is called once per frame

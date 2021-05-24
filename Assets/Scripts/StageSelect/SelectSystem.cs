@@ -39,6 +39,8 @@ public class SelectSystem : MonoBehaviour
         isRotateScene = false;
         initialScale = stages[0].transform.localScale;
         setScale = initialScale * setScaleValue;
+
+        FadeManager2.FadeIn();
     }
 
     // Update is called once per frame
@@ -107,23 +109,23 @@ public class SelectSystem : MonoBehaviour
         {
             if (forwardScene.name == "Stage1")
             {
-                SceneManager.LoadScene("Stage1");
+                FadeManager2.FadeOut("Stage1");
             }
             if (forwardScene.name == "Stage2")
             {
-                SceneManager.LoadScene("Stage2");
+                FadeManager2.FadeOut("Stage2");
             }
             if (forwardScene.name == "Stage3")
             {
-                SceneManager.LoadScene("Stage3");
+                FadeManager2.FadeOut("Stage3");
             }
             if (forwardScene.name == "Stage4")
             {
-                SceneManager.LoadScene("Stage4");
+                FadeManager2.FadeOut("Stage4");
             }
             if (forwardScene.name == "Stage5")
             {
-                SceneManager.LoadScene("Stage5");
+                FadeManager2.FadeOut("Stage5");
             }
             PauseUIManager.OnResume();
         }

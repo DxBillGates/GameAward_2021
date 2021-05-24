@@ -88,14 +88,14 @@ public class ChangePartsSystemBehavior : MonoBehaviour
 
         if (coreBehaviour.hp <= 0/* || batteryBehaviour.amountEnergy <= 0*/)
         {
-            FadeManager.Instance.LoadScene("GameOverScene", 0.8f);
+            FadeManager2.FadeOut("GameOverScene");
             // SceneManager.LoadScene("GameOverScene");
             //StartCoroutine(Change(2, "GameOverScene"));
 
         }
         if (clearFlag)
         {
-            FadeManager.Instance.LoadScene("GameClearScene", 0.8f);
+            FadeManager2.FadeOut("GameClearScene");
             //SceneManager.LoadScene("GameClearScene");
             //StartCoroutine(Change(2, "GameClearScene"));
         }
