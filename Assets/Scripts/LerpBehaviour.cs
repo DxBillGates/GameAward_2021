@@ -40,28 +40,28 @@ public class LerpBehaviour : MonoBehaviour
     {
         objectBehavior.speed = Vector3.Distance(frontList[0].position, frontList[1].position) + Vector3.Distance(frontList[1].position, frontList[2].position) / 2;
         if (!oldLerpMode && !changePartsSystemBehavior.changeMode)
-            if (CheckHitPoint(backList[0].position))
+            if (CheckHitPoint(backList[0].position) && !leftMove)
             {
                 lerpMode = true;
                 frontLerpMode = true;
                 AddList(true, backList);
                 str = "a";
             }
-            else if (CheckHitPoint(backList[2].position))
+            else if (CheckHitPoint(backList[2].position) && leftMove)
             {
                 lerpMode = true;
                 frontLerpMode = false;
                 AddList(false, backList);
                 str = "b";
             }
-            else if (CheckHitPoint(frontList[0].position))
+            else if (CheckHitPoint(frontList[0].position) && leftMove)
             {
                 lerpMode = true;
                 frontLerpMode = false;
                 AddList(true, frontList);
                 str = "c";
             }
-            else if (CheckHitPoint(frontList[2].position))
+            else if (CheckHitPoint(frontList[2].position) && !leftMove)
             {
                 lerpMode = true;
                 frontLerpMode = true;
@@ -78,6 +78,7 @@ public class LerpBehaviour : MonoBehaviour
                     if (t < 0)
                     {
                         Initialize();
+                        Debug.Log("LerpEnd");
                         //SetRotate();
                         return;
                     }
@@ -87,6 +88,7 @@ public class LerpBehaviour : MonoBehaviour
                     if (t > 1)
                     {
                         Initialize();
+                        Debug.Log("LerpEnd");
                         //SetRotate();
                         return;
                     }
@@ -103,6 +105,7 @@ public class LerpBehaviour : MonoBehaviour
                 if (index >= lerpPoints.Count - 1)
                 {
                     Initialize();
+                    Debug.Log("LerpEnd");
                     //SetRotate();
                     return;
                 }
@@ -229,7 +232,6 @@ public class LerpBehaviour : MonoBehaviour
         t = 0;
         lerpMode = false;
         isMove = false;
-        //Debug.Log("LerpEnd");
     }
 
     void SetRotate()
