@@ -30,11 +30,11 @@ public class UIBehaviour : MonoBehaviour
 
     public void OnClick_Title()
     {
-        SceneManager.LoadScene("TitleScene");
+        FadeManager2.FadeOut("TitleScene");
     }
 
     public void OnClick_StageSelect()
     {
-        SceneManager.LoadScene("StageSelect");
+        FadeManager2.FadeOut("StageSelect");
     }
 }

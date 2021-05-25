@@ -22,6 +22,7 @@ public class TextController : MonoBehaviour
     private int count = 0;
     public GameObject arrow;
     public GameObject enemy;
+    public GameObject enemyB;
 
     void Start()
     {
@@ -55,7 +56,12 @@ public class TextController : MonoBehaviour
         {
             if(change<=2)
             {
-                Instantiate(enemy);
+                GameObject enes = Instantiate(enemy) as GameObject;
+                enes.transform.position = new Vector3(-58, 30, 0);
+
+                GameObject enesB = Instantiate(enemyB) as GameObject;
+                enesB.transform.position = new Vector3(-65, 16, 0);
+
                 GameObject fin = GameObject.FindGameObjectWithTag("checker");
                 Destroy(fin);
             }
