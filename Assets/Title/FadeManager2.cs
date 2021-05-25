@@ -26,7 +26,7 @@ public class FadeManager2 : MonoBehaviour
     private static string nextScene;
 
     private static Sprite inuPic = Resources.Load<Sprite>("inu");
-    private Vector2 n = new Vector2(500, 500);
+    private Vector2 n = new Vector2(608, 342);
 
     //フェード用のCanvasとImage生成
     static void Init()
@@ -53,7 +53,7 @@ public class FadeManager2 : MonoBehaviour
 
         //Imageサイズは適当に大きく設定してください
         fadeImage.rectTransform.sizeDelta = new Vector2(9999, 9999);
-        inuImage.rectTransform.sizeDelta = new Vector2(500,500);
+        inuImage.rectTransform.sizeDelta = new Vector2(608, 342);
     }
 
     //フェードイン開始
@@ -83,7 +83,7 @@ public class FadeManager2 : MonoBehaviour
         //フラグ有効なら毎フレームフェードイン/アウト処理
         if (isFadeIn)
         {
-            n.x -= 7;
+            n.x -= 8;
             n.y -= 7;
             inuImage.rectTransform.sizeDelta = new Vector2(n.x, n.y);
 
