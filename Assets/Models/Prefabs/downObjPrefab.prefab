@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2511187935624351508}
   - component: {fileID: 4906818007153400158}
   m_Layer: 0
-  m_Name: downObj
+  m_Name: downObjPrefab
   m_TagString: amplifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +137,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6271573414225017425, guid: f7903eb39d1068d40beae9c51bc1705b, type: 3}
+  - {fileID: 2100000, guid: 89a4e587245b5a94e8dfea0a67c10453, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

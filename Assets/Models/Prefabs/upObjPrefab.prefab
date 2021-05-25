@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6271573414225017425, guid: e6beb92787f02764fa910a13a390c921, type: 3}
+  - {fileID: 2100000, guid: f4f55ef54c9a2124fa6f849d92adec9c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6241121829627960930}
   - component: {fileID: 6241121829627960941}
   m_Layer: 0
-  m_Name: upObj
+  m_Name: upObjPrefab
   m_TagString: amplifier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

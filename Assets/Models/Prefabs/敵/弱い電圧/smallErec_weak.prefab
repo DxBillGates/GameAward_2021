@@ -203,9 +203,10 @@ GameObject:
   - component: {fileID: 3261433663989709573}
   - component: {fileID: 6010409091054481815}
   - component: {fileID: 656328387017811774}
+  - component: {fileID: 6884188846099047782}
   m_Layer: 0
   m_Name: smallErec_weak
-  m_TagString: weakVoltageEnemy
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,10 +361,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 0
+  setHP: 0
   hp: 1
   damageSpan: 0
   takeDamageValue: 4
-  startTakeDamageValue: 1
+  startTakeDamageValue: 2
 --- !u!114 &3315039072658730215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSpan: 0.5
-  attackValue: 1
+  attackValue: 5
   bulletModel: {fileID: 0}
 --- !u!65 &6271007073287228423
 BoxCollider:
@@ -431,6 +433,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ef: {fileID: 3125052591220947225, guid: 99a86f5655892fc4dbcc85a28c7752a3, type: 3}
+--- !u!114 &6884188846099047782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2532024050162815595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c86f4a1dd72fb34b8f23408b91ed325, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factor: 1
+  idx: 1
+  audioManager: {fileID: 0}
 --- !u!1 &4210760881288893891
 GameObject:
   m_ObjectHideFlags: 0
