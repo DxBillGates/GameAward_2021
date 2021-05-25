@@ -7,7 +7,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3700900300605554369}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fbd81d519dc4744db695f0bcb3f7d31, type: 3}
   m_Name: 
@@ -25,7 +25,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c86f4a1dd72fb34b8f23408b91ed325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  factor: 1
   idx: 1
+  audioManager: {fileID: 0}
 --- !u!1001 &1188865924007570602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33,6 +35,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 453447568450039239, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
+      propertyPath: hp
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 453447568450039239, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
+      propertyPath: damageSpan
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 453447568450039239, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
+      propertyPath: takeDamageValue
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 453447568450039239, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
+      propertyPath: startTakeDamageValue
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2532024050162815595, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
       propertyPath: m_Name
       value: weakVoltageBoss
