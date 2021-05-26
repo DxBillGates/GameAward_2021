@@ -27,6 +27,9 @@ public class SelectSystem : MonoBehaviour
     float rotateValue;
     public float rotateLerpTime;
     public float maxRotateTime;
+
+    bool isGoTitle;
+    FlashingBehaviour selectUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,7 @@ public class SelectSystem : MonoBehaviour
         isRotateScene = false;
         initialScale = stages[0].transform.localScale;
         setScale = initialScale * setScaleValue;
+        isGoTitle = false;
 
         FadeManager2.FadeIn();
     }
@@ -82,6 +86,9 @@ public class SelectSystem : MonoBehaviour
             }
         }
 
+        isGoTitle = CheckGoTitle();
+        if (isGoTitle) FadeManager2.FadeOut("TitleScene");
+
         if (!isRotateScene)
         {
             CheckForwardScene();
@@ -102,10 +109,44 @@ public class SelectSystem : MonoBehaviour
             RotateScenes();
         }
     }
+    bool CheckGoTitle()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            if (hit.collider.gameObject.name == "GoTitle")
+            {
+                selectUI = hit.collider.gameObject.GetComponent<FlashingBehaviour>();
+                selectUI.isFlashing = true;
+                if (Input.GetMouseButtonDown(0))
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                if(selectUI)
+                {
+                    selectUI.isFlashing = false;
+                    selectUI = null;
+                }
+            }
+        }
+        else
+        {
+            if (selectUI)
+            {
+                selectUI.isFlashing = false;
+                selectUI = null;
+            }
+        }
+        return false;
+    }
 
     bool CheckSelectScene()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isGoTitle)
         {
             if (forwardScene.name == "Stage1")
             {

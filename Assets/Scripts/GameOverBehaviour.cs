@@ -15,7 +15,7 @@ public class GameOverBehaviour : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            FadeManager2.FadeOut("TitleScene");
+            FadeManager2.FadeOut("StageSelect");
         }
     }
 }

@@ -14,7 +14,7 @@ public class FlashingBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (gameObject.name != "Start" && gameObject.name != "Exit") pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
+        if (gameObject.name != "Start" && gameObject.name != "Exit" && gameObject.name != "GoTitle") pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
         renderer = GetComponent<Renderer>();
         color = renderer.material.color;
         t = timeSpan;

@@ -124,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711446584652669933}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.628379, y: 8.646894, z: -45.80929}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 128, y: 128, z: 128}
   m_Children:
   - {fileID: 9096084898434554011}
@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 0
+  setHP: 0
   hp: 20
   damageSpan: 0.05
   takeDamageValue: 0
@@ -319,7 +320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c86f4a1dd72fb34b8f23408b91ed325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  factor: 1
   idx: 1
+  audioManager: {fileID: 0}
 --- !u!114 &2977105129790666344
 MonoBehaviour:
   m_ObjectHideFlags: 0
