@@ -9,12 +9,12 @@ public class FlashingBehaviour : MonoBehaviour
     public Color setColor;
     Color color;
     new Renderer renderer;
-    float t;
+    public float t;
     PauseBehaviour pauseBehaviour;
     // Start is called before the first frame update
     void Start()
     {
-        pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
+        if (gameObject.name != "Start" && gameObject.name != "Exit") pauseBehaviour = gameObject.AddComponent<PauseBehaviour>();
         renderer = GetComponent<Renderer>();
         color = renderer.material.color;
         t = timeSpan;
@@ -23,12 +23,12 @@ public class FlashingBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isFlashing)
+        if (isFlashing)
         {
             t += Time.deltaTime;
-            if(t >= timeSpan)
+            if (t >= timeSpan)
             {
-                if(renderer.material.color == setColor)
+                if (renderer.material.color == setColor)
                 {
                     renderer.material.color = color;
                 }
@@ -41,7 +41,13 @@ public class FlashingBehaviour : MonoBehaviour
         }
         else
         {
-            t = 0;
+            Initialize();
         }
+    }
+
+    public void Initialize()
+    {
+        renderer.material.color = color;
+        t =timeSpan;
     }
 }
