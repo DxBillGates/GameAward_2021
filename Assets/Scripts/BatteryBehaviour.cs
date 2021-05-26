@@ -215,5 +215,15 @@ public class BatteryBehaviour : MonoBehaviour
                 Destroy(line);
             }
         }
+
+        GameObject[] parts = GameObject.FindGameObjectsWithTag("checker");
+        if (lines.Length > 0)
+        {
+            foreach (GameObject part in parts)
+            {
+                Destroy(part);
+            }
+        }
+
     }
 }
