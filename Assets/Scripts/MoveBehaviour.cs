@@ -46,14 +46,19 @@ public class MoveBehaviour : MonoBehaviour
     void Update()
     {
 
-        if(batteryBehaviour.testDamageValue + addDamageValue>=10)
-        {
-            objs = GameObject.FindGameObjectsWithTag("lines");
+        //if(batteryBehaviour.testDamageValue + addDamageValue>=10)
+        //{
+        //    objs = GameObject.FindGameObjectsWithTag("lines");
 
-            foreach (GameObject obj in objs)
-            {
-                obj.GetComponent<EffectIn>().CreatePlasm();
-            }
+        //    foreach (GameObject obj in objs)
+        //    {
+        //        obj.GetComponent<EffectIn>().CreatePlasm();
+        //    }
+        //}
+
+        if(batteryBehaviour.testDamageValue + addDamageValue >= 10)
+        {
+            GetComponent<EffectIn>().CreatePlasm();
         }
 
         if (!systemBehavior.changeMode)

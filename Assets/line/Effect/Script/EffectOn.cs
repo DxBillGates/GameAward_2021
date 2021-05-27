@@ -34,7 +34,6 @@ public class EffectOn : MonoBehaviour
         
         if (one)
         {
-
             GameObject efs = Instantiate(ef) as GameObject;
             efs.transform.rotation = transform.rotation;
             efs.transform.position = transform.position;
