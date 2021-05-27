@@ -17,6 +17,10 @@ public class EffectOn : MonoBehaviour
     void Update()
     {
 
+        if(!GameObject.FindGameObjectWithTag("checker"))
+        {
+            one = true;
+        }
 
     }
 
