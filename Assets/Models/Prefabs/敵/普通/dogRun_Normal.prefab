@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 28523859506524112}
   - component: {fileID: -9164193606791942419}
   - component: {fileID: 1676487399887029999}
+  - component: {fileID: 7449250741154164201}
   m_Layer: 0
   m_Name: dogRun_Normal
   m_TagString: enemy
@@ -144,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 0
+  setHP: 0
   hp: 100
   damageSpan: 0.05
   takeDamageValue: 0
@@ -276,7 +278,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c86f4a1dd72fb34b8f23408b91ed325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  factor: 1
   idx: 1
+  audioManager: {fileID: 0}
+--- !u!114 &7449250741154164201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083585071095696510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbd81d519dc4744db695f0bcb3f7d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ef: {fileID: 4239125308308814613, guid: bb985536f4c583f46a6ca9fae6499fca, type: 3}
 --- !u!1 &1621336854073357838
 GameObject:
   m_ObjectHideFlags: 0
