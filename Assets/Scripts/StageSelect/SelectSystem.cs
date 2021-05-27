@@ -7,11 +7,12 @@ public class SelectSystem : MonoBehaviour
 {
     public List<GameObject> stages;
 
-    Vector3 oldTutorilePos;
+    Vector3 oldTutorialPos;
     Vector3 oldStage1Pos;
     Vector3 oldStage2Pos;
     Vector3 oldStage3Pos;
     Vector3 oldStage4Pos;
+    Vector3 oldStage5Pos;
 
     GameObject forwardScene;
     GameObject selectScene;
@@ -33,11 +34,12 @@ public class SelectSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        oldTutorilePos = stages[0].transform.position;
+        oldTutorialPos = stages[0].transform.position;
         oldStage1Pos = stages[1].transform.position;
         oldStage2Pos = stages[2].transform.position;
-        oldStage3Pos = stages[3] ? stages[3].transform.position : stages[2].transform.position + new Vector3(0, -5, 0);
-        oldStage4Pos = stages[4] ? stages[4].transform.position : stages[3].transform.position + new Vector3(0, -5, 0);
+        oldStage3Pos = stages[3].transform.position;
+        oldStage4Pos = stages[4].transform.position;
+        oldStage5Pos = stages[5].transform.position;
 
         isRotateScene = false;
         initialScale = stages[0].transform.localScale;
@@ -126,7 +128,7 @@ public class SelectSystem : MonoBehaviour
             }
             else
             {
-                if(selectUI)
+                if (selectUI)
                 {
                     selectUI.isFlashing = false;
                     selectUI = null;
@@ -148,23 +150,27 @@ public class SelectSystem : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !isGoTitle)
         {
-            if (forwardScene.name == "Stage1")
+            if(forwardScene.name == "Tutorial")
+            {
+                FadeManager2.FadeOut("TT");
+            }
+            else if (forwardScene.name == "Stage1")
             {
                 FadeManager2.FadeOut("Stage1");
             }
-            if (forwardScene.name == "Stage2")
+            else if (forwardScene.name == "Stage2")
             {
                 FadeManager2.FadeOut("Stage2");
             }
-            if (forwardScene.name == "Stage3")
+            else if (forwardScene.name == "Stage3")
             {
                 FadeManager2.FadeOut("Stage3");
             }
-            if (forwardScene.name == "Stage4")
+            else if (forwardScene.name == "Stage4")
             {
                 FadeManager2.FadeOut("Stage4");
             }
-            if (forwardScene.name == "Stage5")
+            else if (forwardScene.name == "Stage5")
             {
                 FadeManager2.FadeOut("Stage5");
             }
@@ -193,29 +199,31 @@ public class SelectSystem : MonoBehaviour
         }
         if (rotateValue < 0)
         {
-            stages[0].transform.position = Vector3.Lerp(oldTutorilePos, oldTutorilePos + new Vector3(0, 4, 0), easeInOutQuint(rotateLerpTime));
-            stages[1].transform.position = Vector3.Lerp(oldStage1Pos, oldTutorilePos, easeInOutQuint(rotateLerpTime));
+            stages[0].transform.position = Vector3.Lerp(oldTutorialPos, oldTutorialPos + new Vector3(0, 4, 0), easeInOutQuint(rotateLerpTime));
+            stages[1].transform.position = Vector3.Lerp(oldStage1Pos, oldTutorialPos, easeInOutQuint(rotateLerpTime));
             stages[2].transform.position = Vector3.Lerp(oldStage2Pos, oldStage1Pos, easeInOutQuint(rotateLerpTime));
             stages[3].transform.position = Vector3.Lerp(oldStage3Pos, oldStage2Pos, easeInOutQuint(rotateLerpTime));
             stages[4].transform.position = Vector3.Lerp(oldStage4Pos, oldStage3Pos, easeInOutQuint(rotateLerpTime));
+            stages[5].transform.position = Vector3.Lerp(oldStage5Pos, oldStage4Pos, easeInOutQuint(rotateLerpTime));
         }
         else
         {
-            stages[0].transform.position = Vector3.Lerp(oldTutorilePos, oldStage1Pos, easeInOutQuint(rotateLerpTime));
+            stages[0].transform.position = Vector3.Lerp(oldTutorialPos, oldStage1Pos, easeInOutQuint(rotateLerpTime));
             stages[1].transform.position = Vector3.Lerp(oldStage1Pos, oldStage2Pos, easeInOutQuint(rotateLerpTime));
             stages[2].transform.position = Vector3.Lerp(oldStage2Pos, oldStage3Pos, easeInOutQuint(rotateLerpTime));
             stages[3].transform.position = Vector3.Lerp(oldStage3Pos, oldStage4Pos, easeInOutQuint(rotateLerpTime));
-            stages[4].transform.position = Vector3.Lerp(oldStage4Pos, oldStage4Pos - new Vector3(0, 4, 0), easeInOutQuint(rotateLerpTime));
-
+            stages[4].transform.position = Vector3.Lerp(oldStage4Pos, oldStage5Pos, easeInOutQuint(rotateLerpTime));
+            stages[5].transform.position = Vector3.Lerp(oldStage5Pos, oldStage5Pos - new Vector3(0, 4, 0), easeInOutQuint(rotateLerpTime));
         }
 
         if (!isRotateScene)
         {
-            oldTutorilePos = stages[0].transform.position;
+            oldTutorialPos = stages[0].transform.position;
             oldStage1Pos = stages[1].transform.position;
             oldStage2Pos = stages[2].transform.position;
             oldStage3Pos = stages[3].transform.position;
             oldStage4Pos = stages[4].transform.position;
+            oldStage5Pos = stages[5].transform.position;
             scaleLerpTime = 0;
         }
 

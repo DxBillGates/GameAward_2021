@@ -48,7 +48,6 @@ public class MoveBehaviour : MonoBehaviour
 
         if(batteryBehaviour.testDamageValue + addDamageValue>=10)
         {
-            Debug.Log(batteryBehaviour.testDamageValue + addDamageValue);
             objs = GameObject.FindGameObjectsWithTag("lines");
 
             foreach (GameObject obj in objs)
@@ -128,6 +127,10 @@ public class MoveBehaviour : MonoBehaviour
 
     private void HitEnemy(GameObject other)
     {
+        if(batteryBehaviour.testDamageValue <= 0)
+        {
+            return;
+        }
         EnemyBehaviour enemyBehaviour = other.GetComponent<EnemyBehaviour>();
         if (!enemyBehaviour.enabled)
         {
@@ -140,7 +143,6 @@ public class MoveBehaviour : MonoBehaviour
         {
             value = 1;
         }
-        Debug.Log(value);
         if (enemyBehaviour.takeDamageValue == 0)
         {
             if (value >= enemyBehaviour.startTakeDamageValue)
@@ -152,7 +154,7 @@ public class MoveBehaviour : MonoBehaviour
         {
             if (value <= enemyBehaviour.startTakeDamageValue)
             {
-                //Debug.Log(value + ":" + enemyBehaviour.startTakeDamageValue);
+                Debug.Log(value + ":" + enemyBehaviour.startTakeDamageValue);
                 enemyBehaviour.Damage((int)enemyBehaviour.takeDamageValue);
             }
         }
