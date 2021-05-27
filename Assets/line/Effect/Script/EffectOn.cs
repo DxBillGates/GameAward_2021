@@ -16,6 +16,18 @@ public class EffectOn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+    }
+
+    public void Died()
+    {
+        Destroy(gameObject);
+    }
+
+    public void CreateSpark()
+    {
+        
         if (one)
         {
 
@@ -26,11 +38,6 @@ public class EffectOn : MonoBehaviour
 
             one = false;
         }
-
     }
 
-    public void Died()
-    {
-        Destroy(gameObject);
-    }
 }

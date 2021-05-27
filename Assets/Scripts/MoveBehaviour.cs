@@ -98,6 +98,18 @@ public class MoveBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        //EnemyBehaviour enemyBehaviour = other.GetComponent<EnemyBehaviour>();
+
+        //if (other.gameObject.CompareTag("weakVoltageEnemy"))
+        //{
+        //    if (batteryBehaviour.testDamageValue + addDamageValue > enemyBehaviour.takeDamageValue)
+        //    {
+        //        other.gameObject.GetComponent<EffectOn>().CreateSpark();
+        //    }
+        //}
+
+
         if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Boss"))
         {
             //EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
@@ -132,6 +144,12 @@ public class MoveBehaviour : MonoBehaviour
             return;
         }
         EnemyBehaviour enemyBehaviour = other.GetComponent<EnemyBehaviour>();
+
+        if (batteryBehaviour.testDamageValue + addDamageValue > enemyBehaviour.takeDamageValue)
+        {
+            other.gameObject.GetComponent<EffectOn>().CreateSpark();
+        }
+
         if (!enemyBehaviour.enabled)
         {
             return;
