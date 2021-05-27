@@ -143,9 +143,10 @@ public class MoveBehaviour : MonoBehaviour
         {
             return;
         }
+
         EnemyBehaviour enemyBehaviour = other.GetComponent<EnemyBehaviour>();
 
-        if (batteryBehaviour.testDamageValue + addDamageValue > enemyBehaviour.takeDamageValue)
+        if (batteryBehaviour.testDamageValue + addDamageValue > enemyBehaviour.startTakeDamageValue)
         {
             other.gameObject.GetComponent<EffectOn>().CreateSpark();
         }
