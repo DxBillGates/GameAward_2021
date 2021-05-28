@@ -3281,6 +3281,7 @@ MonoBehaviour:
   boss: {fileID: 0}
   bossBehavior: {fileID: 0}
   oldChangeFlag: 0
+  exp: {fileID: 1121192042590650, guid: 36adcc5dddf911f4da831dbe4d7a0036, type: 3}
 --- !u!114 &1219691279
 MonoBehaviour:
   m_ObjectHideFlags: 0

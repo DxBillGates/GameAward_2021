@@ -25,6 +25,10 @@ public class ChangePartsSystemBehavior : MonoBehaviour
     Color initialColor;
     Boss2Behaviour boss2;
 
+    int stop = 0;
+    int time = 0;
+    public GameObject exp;
+
     void Start()
     {
         initialColor = GameObject.Find("mobius_special").GetComponent<Renderer>().material.color;
@@ -88,7 +92,17 @@ public class ChangePartsSystemBehavior : MonoBehaviour
 
         if (coreBehaviour.hp <= 0/* || batteryBehaviour.amountEnergy <= 0*/)
         {
-            FadeManager2.FadeOut("GameOverScene");
+            time++;
+            stop++;
+            if (stop <= 3)
+            {
+                GameObject ex = Instantiate(exp) as GameObject;
+                ex.transform.position = core.transform.position;
+            }
+
+            if (time >= 60)
+                FadeManager2.FadeOut("GameOverScene");
+
             // SceneManager.LoadScene("GameOverScene");
             //StartCoroutine(Change(2, "GameOverScene"));
 
