@@ -16,15 +16,10 @@ public class EffectOn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (one)
+
+        if(!GameObject.FindGameObjectWithTag("checker"))
         {
-
-            GameObject efs = Instantiate(ef) as GameObject;
-            efs.transform.rotation = transform.rotation;
-            efs.transform.position = transform.position;
-            efs.transform.parent = transform;
-
-            one = false;
+            one = true;
         }
 
     }
@@ -33,4 +28,19 @@ public class EffectOn : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void CreateSpark()
+    {
+        
+        if (one)
+        {
+            GameObject efs = Instantiate(ef) as GameObject;
+            efs.transform.rotation = transform.rotation;
+            efs.transform.position = transform.position;
+            efs.transform.parent = transform;
+
+            one = false;
+        }
+    }
+
 }

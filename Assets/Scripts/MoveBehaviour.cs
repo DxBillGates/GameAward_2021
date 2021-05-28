@@ -46,15 +46,19 @@ public class MoveBehaviour : MonoBehaviour
     void Update()
     {
 
-        if(batteryBehaviour.testDamageValue + addDamageValue>=10)
-        {
-            Debug.Log(batteryBehaviour.testDamageValue + addDamageValue);
-            objs = GameObject.FindGameObjectsWithTag("lines");
+        //if(batteryBehaviour.testDamageValue + addDamageValue>=10)
+        //{
+        //    objs = GameObject.FindGameObjectsWithTag("lines");
 
-            foreach (GameObject obj in objs)
-            {
-                obj.GetComponent<EffectIn>().CreatePlasm();
-            }
+        //    foreach (GameObject obj in objs)
+        //    {
+        //        obj.GetComponent<EffectIn>().CreatePlasm();
+        //    }
+        //}
+
+        if(batteryBehaviour.testDamageValue + addDamageValue >= 10)
+        {
+            GetComponent<EffectIn>().CreatePlasm();
         }
 
         if (!systemBehavior.changeMode)
@@ -99,6 +103,18 @@ public class MoveBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        //EnemyBehaviour enemyBehaviour = other.GetComponent<EnemyBehaviour>();
+
+        //if (other.gameObject.CompareTag("weakVoltageEnemy"))
+        //{
+        //    if (batteryBehaviour.testDamageValue + addDamageValue > enemyBehaviour.takeDamageValue)
+        //    {
+        //        other.gameObject.GetComponent<EffectOn>().CreateSpark();
+        //    }
+        //}
+
+
         if (other.gameObject.CompareTag("enemy") || other.gameObject.CompareTag("Boss"))
         {
             //EnemyBehaviour enemyBehaviour = other.gameObject.GetComponent<EnemyBehaviour>();
@@ -128,7 +144,18 @@ public class MoveBehaviour : MonoBehaviour
 
     private void HitEnemy(GameObject other)
     {
+        if(batteryBehaviour.testDamageValue <= 0)
+        {
+            return;
+        }
+
         EnemyBehaviour enemyBehaviour = other.GetComponent<EnemyBehaviour>();
+
+        if (batteryBehaviour.testDamageValue + addDamageValue > enemyBehaviour.startTakeDamageValue)
+        {
+            other.gameObject.GetComponent<EffectOn>().CreateSpark();
+        }
+
         if (!enemyBehaviour.enabled)
         {
             return;
@@ -140,7 +167,6 @@ public class MoveBehaviour : MonoBehaviour
         {
             value = 1;
         }
-        Debug.Log(value);
         if (enemyBehaviour.takeDamageValue == 0)
         {
             if (value >= enemyBehaviour.startTakeDamageValue)
@@ -152,7 +178,7 @@ public class MoveBehaviour : MonoBehaviour
         {
             if (value <= enemyBehaviour.startTakeDamageValue)
             {
-                //Debug.Log(value + ":" + enemyBehaviour.startTakeDamageValue);
+                Debug.Log(value + ":" + enemyBehaviour.startTakeDamageValue);
                 enemyBehaviour.Damage((int)enemyBehaviour.takeDamageValue);
             }
         }

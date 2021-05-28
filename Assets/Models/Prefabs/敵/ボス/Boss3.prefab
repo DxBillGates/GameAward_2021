@@ -88,6 +88,20 @@ MonoBehaviour:
   breakPolygonFlag: 0
   factor: 1
   idx: 1
+  audioManager: {fileID: 0}
+--- !u!114 &-3346680903906383719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7212222583998501627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbd81d519dc4744db695f0bcb3f7d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ef: {fileID: 4239125308308814613, guid: bb985536f4c583f46a6ca9fae6499fca, type: 3}
 --- !u!114 &1769842384
 MonoBehaviour:
   m_ObjectHideFlags: 0

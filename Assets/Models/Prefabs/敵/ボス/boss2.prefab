@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 7310771645890665254}
   - component: {fileID: 5999052757862632605}
   - component: {fileID: -9068658728428803879}
+  - component: {fileID: -9109166797546071078}
   m_Layer: 0
   m_Name: boss2
   m_TagString: Boss
@@ -581,6 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onMove: 0
+  setHP: 0
   hp: 60
   damageSpan: 0.05
   takeDamageValue: 0
@@ -5541,7 +5543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c86f4a1dd72fb34b8f23408b91ed325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  factor: 1
   idx: 1
+  audioManager: {fileID: 0}
 --- !u!111 &-9068658728428803879
 Animation:
   m_ObjectHideFlags: 0
@@ -5558,6 +5562,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &-9109166797546071078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7704705891008799977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbd81d519dc4744db695f0bcb3f7d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ef: {fileID: 4239125308308814613, guid: bb985536f4c583f46a6ca9fae6499fca, type: 3}
 --- !u!1 &8256204664898380728
 GameObject:
   m_ObjectHideFlags: 0

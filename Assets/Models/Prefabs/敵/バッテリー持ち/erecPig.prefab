@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 6487257334821684221}
   - component: {fileID: 2277357612310342044}
   - component: {fileID: 2977105129790666344}
+  - component: {fileID: 8846735116876487202}
   m_Layer: 10
   m_Name: erecPig
   m_TagString: enemy
@@ -338,6 +339,19 @@ MonoBehaviour:
   timeSpan: 0.3
   attackValue: 5
   bulletModel: {fileID: -2837682660325928517, guid: c0b9c47221ee64f4faf3d8a92ba8f0c8, type: 3}
+--- !u!114 &8846735116876487202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711446584652669933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbd81d519dc4744db695f0bcb3f7d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ef: {fileID: 4239125308308814613, guid: bb985536f4c583f46a6ca9fae6499fca, type: 3}
 --- !u!1 &2885127672423269463
 GameObject:
   m_ObjectHideFlags: 0
