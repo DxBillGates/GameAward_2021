@@ -67,6 +67,10 @@ public class CoreBehaviour : MonoBehaviour
 
         Vector3 newHpUiScale = new Vector3(1, 1, 1);
         newHpUiScale.x = hpUiXScale * hp / maxHp;
+        if(newHpUiScale.x <= 0)
+        {
+            newHpUiScale.x = 0;
+        }
         newHpUiScale.y = hpUiTransform.localScale.y;
         newHpUiScale.z = hpUiTransform.localScale.z;
 

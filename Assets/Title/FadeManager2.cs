@@ -54,6 +54,8 @@ public class FadeManager2 : MonoBehaviour
         //Imageサイズは適当に大きく設定してください
         fadeImage.rectTransform.sizeDelta = new Vector2(9999, 9999);
         inuImage.rectTransform.sizeDelta = new Vector2(608, 342);
+
+        Debug.Log("CreateFadeManager");
     }
 
     //フェードイン開始
@@ -98,7 +100,6 @@ public class FadeManager2 : MonoBehaviour
                 fadeCanvas.enabled = false;
                 
             }
-
             //フェード用Imageの色・透明度設定
             fadeImage.color = new Color(0.0f, 0.0f, 0.0f, alpha);
             inuImage.color = new Color(0.0f, 0.0f, 0.0f, alpha);
