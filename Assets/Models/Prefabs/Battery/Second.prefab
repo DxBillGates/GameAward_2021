@@ -30,6 +30,7 @@ MonoBehaviour:
   fallVector: {x: 0, y: 0, z: 0}
   speed: 0
   addSpeed: 0
+  flyingFrame: 0
 --- !u!1001 &6002966609237368439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93,6 +94,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 73.479
       objectReference: {fileID: 0}
+    - target: {fileID: -2018977022995085611, guid: feb7fba634dbf8e4eb089397acd35010, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: feb7fba634dbf8e4eb089397acd35010, type: 3}
       propertyPath: m_Name
       value: Second
@@ -100,6 +105,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: feb7fba634dbf8e4eb089397acd35010, type: 3}
       propertyPath: m_TagString
       value: endBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381180916397559327, guid: feb7fba634dbf8e4eb089397acd35010, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feb7fba634dbf8e4eb089397acd35010, type: 3}
