@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftMode: 1
   nowSacrificeCount: 0
-  maxSacrificeCount: 50
+  maxSacrificeCount: 1
   drawRay: 1
   fallVector: {x: 0, y: -1, z: 0}
   rightMesh: {fileID: 2540817853737639666, guid: 9528565baed0479438b4e83aa4fc5789, type: 3}
