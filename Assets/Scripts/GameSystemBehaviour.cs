@@ -30,6 +30,12 @@ public class GameSystemBehaviour : MonoBehaviour
         soRenderer = null;
         //modeText = GameObject.Find("ChangeModeText").GetComponent<TextMesh>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerBehaviour>();
+
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("EnemyCreater");
+        foreach (var g in gameObjects)
+        {
+            g.GetComponent<Renderer>().enabled = false;
+        }
     }
 
     // Update is called once per frame

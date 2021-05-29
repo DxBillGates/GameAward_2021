@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss3Creater
       objectReference: {fileID: 0}
+    - target: {fileID: 1431674203295638303, guid: b740b1426f1923b4c8ee301ffa844daa, type: 3}
+      propertyPath: m_TagString
+      value: EnemyCreater
+      objectReference: {fileID: 0}
     - target: {fileID: 1431674203295638307, guid: b740b1426f1923b4c8ee301ffa844daa, type: 3}
       propertyPath: m_RootOrder
       value: 0

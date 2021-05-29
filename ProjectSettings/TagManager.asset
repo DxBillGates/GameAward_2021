@@ -16,6 +16,7 @@ TagManager:
   - PauseUI
   - Boss
   - DecreaseDamageMachine
+  - EnemyCreater
   layers:
   - Default
   - TransparentFX

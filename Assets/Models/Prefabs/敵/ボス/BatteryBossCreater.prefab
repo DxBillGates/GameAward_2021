@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatteryBossCreater
       objectReference: {fileID: 0}
+    - target: {fileID: 7338639937229086840, guid: 480599cde5a64294cb373e9d8dcb3281, type: 3}
+      propertyPath: m_TagString
+      value: EnemyCreater
+      objectReference: {fileID: 0}
     - target: {fileID: 7338639937229086841, guid: 480599cde5a64294cb373e9d8dcb3281, type: 3}
       propertyPath: prefab
       value: 
