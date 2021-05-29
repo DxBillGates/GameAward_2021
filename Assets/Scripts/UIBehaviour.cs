@@ -37,4 +37,9 @@ public class UIBehaviour : MonoBehaviour
     {
         FadeManager2.FadeOut("StageSelect");
     }
+
+    public void OnClick_Pause()
+    {
+        PauseParentBehaviour.Pause();
+    }
 }

@@ -43,7 +43,7 @@ public class YubiScll : MonoBehaviour
             }
             if (count >= 40)
             {
-                pos = new Vector3(-22, 35, -18);
+                pos = new Vector3(-13.28f, 41.02f, -18);
                 count = 0;
             }
         }

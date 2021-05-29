@@ -152,7 +152,7 @@ public class SelectSystem : MonoBehaviour
         {
             if(forwardScene.name == "Tutorial")
             {
-                FadeManager2.FadeOut("TT");
+                FadeManager2.FadeOut("Description");
             }
             else if (forwardScene.name == "Stage1")
             {

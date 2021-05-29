@@ -37,7 +37,7 @@ public class GameClearBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isBreak && time >= 0.8f)
+        if (!isBreak && time >= 0.2f)
         {
             GameObject[] objects = GameObject.FindGameObjectsWithTag("enemy");
             foreach (var g in objects)
@@ -48,7 +48,7 @@ public class GameClearBehaviour : MonoBehaviour
             time = 0;
         }
 
-        if (isBreak && time >= 0.2f && i < gameObjects.Count && !audioManager.clearSE.isPlaying)
+        if (isBreak && time >= 0.2f && i < gameObjects.Count)
         {
             EnemyCheck e = gameObjects[i].GetComponent<EnemyCheck>();
             if (e) e.BreakPolygon(true);

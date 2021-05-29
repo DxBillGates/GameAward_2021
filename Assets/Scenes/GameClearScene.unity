@@ -1367,6 +1367,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1115884393506198572, guid: 8588252faabbe064291b007798cc5df4, type: 3}
+      propertyPath: m_Volume
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 953648522556323047, guid: 8588252faabbe064291b007798cc5df4, type: 3}
       propertyPath: m_Name
       value: GlassSEObject
