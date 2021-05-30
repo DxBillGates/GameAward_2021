@@ -348,8 +348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e682ccf24f18cfe4395e4eb17e6f1e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSpan: 0.3
-  attackValue: 5
+  timeSpan: 0.5
+  attackValue: 1
   bulletModel: {fileID: -2837682660325928517, guid: c0b9c47221ee64f4faf3d8a92ba8f0c8, type: 3}
 --- !u!114 &7456720191301092395
 MonoBehaviour:

@@ -1036,7 +1036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7784258291484271688, guid: 120ecd680d85aa8409271b98976333df, type: 3}
       propertyPath: m_RootOrder
-      value: 40
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 7784258291484271688, guid: 120ecd680d85aa8409271b98976333df, type: 3}
       propertyPath: m_LocalScale.x
@@ -2999,7 +2999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3228140938514645651, guid: cfb83a8d39c00c04598ee48d900604a3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3228140938514645651, guid: cfb83a8d39c00c04598ee48d900604a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3056,7 +3056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7945000285975101525, guid: 940ae6f3a19f20949ad495dcdba374a9, type: 3}
       propertyPath: m_RootOrder
-      value: 40
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 7945000285975101525, guid: 940ae6f3a19f20949ad495dcdba374a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3182,11 +3182,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4778172215488808853, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: maxEnemy
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4778172215488808853, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: createTimeSpan
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5247471100236772536, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: m_Name
@@ -4910,7 +4910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5039105987008872590, guid: 4f6d1487b8aeb7d48adb60dd7002a0ee, type: 3}
       propertyPath: createTimeSpan
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1797806251511689691, guid: 4f6d1487b8aeb7d48adb60dd7002a0ee, type: 3}
       propertyPath: m_RootOrder
@@ -5092,7 +5092,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4778172215488808853, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: maxEnemy
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4778172215488808853, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: fallVector.x
@@ -5100,7 +5100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4778172215488808853, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: createTimeSpan
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5247471100236772536, guid: 2d5d533f2d3e6554a973c003b5281f74, type: 3}
       propertyPath: m_Name
@@ -5964,7 +5964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3788275970890023489, guid: 7b268814ad79d2e4ca06e6cecafc0000, type: 3}
       propertyPath: maxSacrificeCount
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3788275970890023548, guid: 7b268814ad79d2e4ca06e6cecafc0000, type: 3}
       propertyPath: m_RootOrder
@@ -6025,7 +6025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5039105987008872590, guid: 4f6d1487b8aeb7d48adb60dd7002a0ee, type: 3}
       propertyPath: createTimeSpan
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1797806251511689691, guid: 4f6d1487b8aeb7d48adb60dd7002a0ee, type: 3}
       propertyPath: m_RootOrder
