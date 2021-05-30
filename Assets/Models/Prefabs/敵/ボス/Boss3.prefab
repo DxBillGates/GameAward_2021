@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adbc6716522584b48b79f37070182cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxReviveCount: 5
+  maxReviveCount: 3
   breakPolygonFlag: 0
   factor: 1
   idx: 1
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onMove: 0
   setHP: 0
-  hp: 1
+  hp: 100
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0
