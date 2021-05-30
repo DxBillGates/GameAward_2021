@@ -380,7 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSpan: 0.5
   attackValue: 5
-  bulletModel: {fileID: 0}
+  bulletModel: {fileID: -2837682660325928517, guid: c0b9c47221ee64f4faf3d8a92ba8f0c8, type: 3}
 --- !u!65 &6271007073287228423
 BoxCollider:
   m_ObjectHideFlags: 0
