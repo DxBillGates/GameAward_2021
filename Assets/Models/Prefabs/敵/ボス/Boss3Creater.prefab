@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1431674203295638302, guid: b740b1426f1923b4c8ee301ffa844daa, type: 3}
       propertyPath: prefab
       value: 
-      objectReference: {fileID: 7212222583998501627, guid: 9a96b7f08eb4e91429768a942c53ffdc, type: 3}
+      objectReference: {fileID: 1368283440953577440, guid: 652cfd2b01979ab41b4e674447a780f8, type: 3}
     - target: {fileID: 1431674203295638303, guid: b740b1426f1923b4c8ee301ffa844daa, type: 3}
       propertyPath: m_Name
       value: Boss3Creater

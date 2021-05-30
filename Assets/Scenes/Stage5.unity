@@ -5955,6 +5955,10 @@ PrefabInstance:
       value: BossCreater
       objectReference: {fileID: 0}
     - target: {fileID: 3788275970890023489, guid: 7b268814ad79d2e4ca06e6cecafc0000, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 1368283440953577440, guid: 652cfd2b01979ab41b4e674447a780f8, type: 3}
+    - target: {fileID: 3788275970890023489, guid: 7b268814ad79d2e4ca06e6cecafc0000, type: 3}
       propertyPath: fallVector.x
       value: 1
       objectReference: {fileID: 0}
