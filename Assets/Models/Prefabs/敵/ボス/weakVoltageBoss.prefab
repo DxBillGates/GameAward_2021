@@ -32,11 +32,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 453447568450039239, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
       propertyPath: takeDamageValue
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 453447568450039239, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
       propertyPath: startTakeDamageValue
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 656328387017811774, guid: ceb83cc218eb1054d840a6eb60ab4c49, type: 3}
       propertyPath: ef
