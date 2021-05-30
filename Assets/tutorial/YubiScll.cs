@@ -7,12 +7,14 @@ public class YubiScll : MonoBehaviour
 {
     int count = 0;
     int change = 0;
+    Vector3 init_pos;
     Vector3 pos;
 
     // Start is called before the first frame update
     void Start()
     {
         pos = transform.position;
+        init_pos = pos;
     }
 
     // Update is called once per frame
@@ -43,7 +45,7 @@ public class YubiScll : MonoBehaviour
             }
             if (count >= 40)
             {
-                pos = new Vector3(-13.28f, 41.02f, -18);
+                pos = init_pos;
                 count = 0;
             }
         }
