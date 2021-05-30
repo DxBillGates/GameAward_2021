@@ -34,8 +34,8 @@ MonoBehaviour:
   outputSliderUI: {fileID: 0}
   initialAmountEnergy: 0
   lineCreater: {fileID: 0}
-  recoveryTime: 10
-  recoveryValue: 10
+  recoveryTime: 0.1
+  recoveryValue: 1
   amountEnergyText: {fileID: 5271603341457648468, guid: 89ed7b343dfe3a242b2d7496bcf6147b, type: 3}
   outputAmountText: {fileID: 7734278904500665975, guid: 92cd5fe45550e7343923560d55733365, type: 3}
   testDamageText: {fileID: 4681448940923571572, guid: 3460c46daefdda14986d74b7975dcdf4, type: 3}

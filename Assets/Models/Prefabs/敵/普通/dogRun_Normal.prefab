@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onMove: 0
   setHP: 0
-  hp: 140
+  hp: 120
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSpan: 0.5
-  attackValue: 5
+  attackValue: 2
   bulletModel: {fileID: -2837682660325928517, guid: c0b9c47221ee64f4faf3d8a92ba8f0c8, type: 3}
 --- !u!114 &28523859506524112
 MonoBehaviour:

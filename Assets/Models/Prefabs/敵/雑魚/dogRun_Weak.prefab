@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onMove: 0
   setHP: 0
-  hp: 100
+  hp: 85
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e682ccf24f18cfe4395e4eb17e6f1e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSpan: 1
+  timeSpan: 2
   attackValue: 1
   bulletModel: {fileID: -2837682660325928517, guid: c0b9c47221ee64f4faf3d8a92ba8f0c8, type: 3}
 --- !u!114 &-5106072095880040158
