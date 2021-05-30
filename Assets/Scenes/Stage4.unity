@@ -3199,7 +3199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707443, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.3
+      value: 38.4
       objectReference: {fileID: 0}
     - target: {fileID: 1162950880760707443, guid: 9f178e43103e7c347868f0dc9de88223, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5340,7 +5340,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8085746474939768544, guid: cfb83a8d39c00c04598ee48d900604a3, type: 3}
       propertyPath: maxEnemy
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8085746474939768544, guid: cfb83a8d39c00c04598ee48d900604a3, type: 3}
       propertyPath: fallVector.x
@@ -7710,7 +7710,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8085746474939768544, guid: cfb83a8d39c00c04598ee48d900604a3, type: 3}
       propertyPath: maxEnemy
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8085746474939768544, guid: cfb83a8d39c00c04598ee48d900604a3, type: 3}
       propertyPath: fallVector.x
