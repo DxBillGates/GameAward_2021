@@ -20,8 +20,12 @@ public class GameClearBehaviour : MonoBehaviour
     Vector3 initialRotate;
     Vector3 initialScale;
     float lerpTime;
+
+    public float sceneTime;
+    float t;
     void Start()
     {
+        t = 0;
         FadeManager2.FadeIn();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManagerBehaviour>();
         isBreak = false;
@@ -65,10 +69,17 @@ public class GameClearBehaviour : MonoBehaviour
         lerpTime += Time.deltaTime * 0.5f;
         time += Time.deltaTime;
 
+
         if (Input.GetMouseButtonDown(0))
         {
             FadeManager2.FadeOut("StageSelect");
         }
+
+        if(t >= sceneTime)
+        {
+            FadeManager2.FadeOut("StageSelect");
+        }
+        t += Time.deltaTime;
     }
 
     float easeInOutQuint(float x)

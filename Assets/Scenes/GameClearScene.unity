@@ -1636,6 +1636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameClearUI: {fileID: 1833430171}
+  sceneTime: 5
 --- !u!4 &1442810584
 Transform:
   m_ObjectHideFlags: 0
