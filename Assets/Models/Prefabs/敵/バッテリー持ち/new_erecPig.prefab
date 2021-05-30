@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c66e632c50b74a944828c874079e74ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 30
+  value: 40
   beam: {fileID: 832590413395523279, guid: 167ff58df3035c7498515589397eafcc, type: 3}
 --- !u!114 &7534146714592708643
 MonoBehaviour:

@@ -583,7 +583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onMove: 0
   setHP: 0
-  hp: 60
+  hp: 70
   damageSpan: 0.05
   takeDamageValue: 0
   startTakeDamageValue: 0
@@ -623,10 +623,10 @@ MonoBehaviour:
   deadChildAmount: 0
   endDivideCount: 0
   isDivide: 0
-  createMaxTime: 1
-  createSpan: 7
+  createMaxTime: 10
+  createSpan: 3
   createTime: 0
-  startMoveSpan: 3
+  startMoveSpan: 4
   startMoveTime: 0
 --- !u!65 &7371287764998658417
 BoxCollider:
