@@ -429,7 +429,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9208790879329431828, guid: dee7236e1167d5845ad541ad2a883968, type: 3}
       propertyPath: maxSacrificeCount
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9208790879329431829, guid: dee7236e1167d5845ad541ad2a883968, type: 3}
       propertyPath: m_Name
