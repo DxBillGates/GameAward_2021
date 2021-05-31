@@ -57,7 +57,7 @@ public class TextController : MonoBehaviour
             if(change<=2)
             {
                 GameObject enes = Instantiate(enemy) as GameObject;
-                enes.transform.position = new Vector3(-58, 30, 0);
+                enes.transform.position = new Vector3(-48, 23.1f, 0);
 
                 GameObject enesB = Instantiate(enemyB) as GameObject;
                 enesB.transform.position = new Vector3(-65, 16, 0);
