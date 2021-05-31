@@ -628,7 +628,7 @@ MonoBehaviour:
   createTime: 0
   startMoveSpan: 4
   startMoveTime: 0
-  maxBossValue: 10
+  maxBossValue: 5
 --- !u!65 &7371287764998658417
 BoxCollider:
   m_ObjectHideFlags: 0
