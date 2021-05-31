@@ -27,6 +27,7 @@ public class Boss2Behaviour : MonoBehaviour
 
     public float startMoveSpan;
     public float startMoveTime;
+    public float maxBossValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -134,6 +135,14 @@ public class Boss2Behaviour : MonoBehaviour
 
     public void CreateClone()
     {
+        if(maxBossValue <= 0)
+        {
+            return;
+        }
+        if(GameObject.FindGameObjectsWithTag("Boss").Length >= maxBossValue)
+        {
+            return;
+        }
         Debug.Log("CreateClone");
         GameObject g = Instantiate(gameObject);
         oldCreateGameObject = g;
